@@ -1,14 +1,34 @@
 <?php
-$servername = "localhost";
-$username = "a6_rosehat";
-$password = "a6_rosehat_kass";
-
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+$servername = "funs.mysql.database.azure.com";
+$username = "a6_admin";
+$password = "cpe231_kass";
+$dbname = "thanfuns";
+$conn = mysqli_init();
+if (!$conn) {
+    die('mysqli_init failed');
 }
+
+if (!$conn->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
+    die('Setting MYSQLI_INIT_COMMAND failed');
+}
+
+if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 10)) {
+    die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
+}
+
+mysqli_ssl_set($conn,NULL,NULL, "..\DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
+
+if (!$conn->real_connect($servername, $username, $password, $dbname, 3306, MYSQLI_CLIENT_SSL)) {
+    die('Connect Error (' . mysqli_connect_errno() . ') '
+            . mysqli_connect_error());
+}
+
+// mysqli_real_connect($conn, $servername, $username, $password, $dbname, 3306, MYSQLI_CLIENT_SSL);
+// if (mysqli_connect_errno($conn)) {
+// die('Failed to connect to MySQL: '.mysqli_connect_error());
+// }
+
+echo 'Success... ' . $conn->host_info . "\n";
+
+$conn->close();
 ?>
