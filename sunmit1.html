@@ -43,29 +43,30 @@
     </nav>
 
     <form class="container col-md-6">
-        <div class="mb-3">
+        <div class="mt-3">
             <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
             <input class="form-control" type="file" accept=".jpg,.gif,.png" id="formFile" onchange="preview()" required>
         </div>
-            <img id="frame" class="img-fluid img-thumbnail col mb-2 " width="720" height="360"/>   
+        
+        <img id="frame" class="img-fluid img-thumbnail col mb-2 mt-3 " width="720" height="360"/>   
 
-        <div class="row mb-1">
-            <label for="formtitle" class="col-sm-2 col-form-label">Title</label>
+        <div class="mb-3">
+            <label for="formtitle" class="form-label">Title</label>
             <input type="title" class="form-control" id="formtitle" placeholder="Title..." required>
 
         </div>
 
-        <div class="row mb-1">
-            <label for="fordescription" class="col-sm-2 col-form-label">Description</label>
+        <div class="mb-3">
+            <label for="fordescription" class="form-label">Description</label>
             <textarea class="form-control" id="fordescription" rows="4" placeholder="Description..."></textarea>
         </div>
 
-        <div class="row mb-1">
-            <label for="formtag" class="col-sm-2 col-form-label">Tag</label>
+        <div class="mb-3">
+            <label for="formtag" class="form-label">Tag</label>
             <input type="tag" class="form-control" id="formtag" placeholder="Tag #...">
         </div>
 
-        <div class="row mb-1">
+        <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <select class="form-select col mb-1" id="category" required>
                 <option selected disabled value="">Select Category</option>
