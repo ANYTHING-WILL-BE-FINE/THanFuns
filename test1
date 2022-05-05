@@ -14,27 +14,38 @@
   </head>
   <body>
   
-  <div class="offcanvas offcanvas-start" id="demo">
-    <div class="offcanvas-header">
-      <h1 class="offcanvas-title">Heading</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    <div class="container min-vh-100 py-2">
+        <div class="row">
+            <div class="col">
+                <h2 class="font-weight-light">Bootstrap 5 Sidebar</h2>
+                <p> This is a Bootstrap 5 off-canvas menu example! </p>
+                <div class="d-flex justify-content-end form-check form-switch form-control-lg">
+                  <input class="form-check-input" type="checkbox" id="toggleSidebar">
+                  <label class="form-check-label ms-1" for="toggleSidebar">Toggle Offcanvas</label>
+                </div>
+                <div class="text-center">
+                    <img src="https://icons.getbootstrap.com/assets/img/icons-hero.png" />
+                </div>
+                <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="offcanvasExample">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Offcanvas</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div> Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc. </div>
+                        <div class="dropdown mt-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"> Menu </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="offcanvas-body">
-      <p>Some text lorem ipsum.</p>
-      <p>Some text lorem ipsum.</p>
-      <p>Some text lorem ipsum.</p>
-      <button class="btn btn-secondary" type="button">A Button</button>
-    </div>
-  </div>
-  
-  <div class="container-fluid mt-3">
-    <h3>Offcanvas Sidebar</h3>
-    <p>Offcanvas is similar to modals, except that it is often used as a sidebar.</p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-      Open Offcanvas Sidebar
-    </button>
-  </div>
-  
   </body>
   </html>
   
