@@ -7,6 +7,7 @@
     <title>ThanFun</title>
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
     <script src="https://unpkg.com/feather-icons"></script>
+
 </head>
 
 <body>
@@ -40,7 +41,6 @@
         </ul>
 
     </nav>
-
 
     <form class="container col-md-6">
         <div class="mb-3">
@@ -76,38 +76,18 @@
             </select>
         </div>
 
-
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="Check1" required>
             <label class="form-check-label" for="Check1">Mature Content</label>
         </div>
 
-        <div class=" form-check form-switch form-control-lg">
-            <input class="form-check-input" type="checkbox" id="toggleSidebar">
-            <label class="form-check-label ms-1" for="toggleSidebar">Toggle Offcanvas</label>
-          </div>
-          <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="offcanvasExample">
-              <div class="offcanvas-header">
-                  <h5 class="offcanvas-title">Offcanvas</h5>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                  <div> Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc. </div>
-                  <div class="dropdown mt-3">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"> Menu </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-
         <div class="d-grid col-6 mx-auto">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+
     </form>
+
+
 
     <script>
     function preview() {
@@ -117,7 +97,18 @@
     <script>
         feather.replace()
     </script>
-    
+
+    <script>
+        var toggle = document.getElementById("toggleSidebar")
+        var offcanvas_el = document.getElementById("offcanvasExample")
+        var offcanvas = new bootstrap.Offcanvas(offcanvas_el, {backdrop: false})
+
+        toggle.addEventListener("change", function(){
+        toggle.checked ? offcanvas.show() : offcanvas.hide() 
+        })
+    </script>
+
     
 </body>
+
 </html>
