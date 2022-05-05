@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThanFun</title>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <form class="container col-md-6">
+        <div class="profile-pic">
+            <label class="-label" for="file">
+              <span class="glyphicon glyphicon-camera"></span>
+              <span>Change Image</span>
+            </label>
+            <input id="file" type="file" onchange="loadFile(event)"/>
+            <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" alt="4614360009d52083321f6cce10c05398.png" border="0" />
+          </div>
+
+          <br>
+
+          <label for="fname">First name</label>
+          <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
+          <label for="lname">Last name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+
+          <br>
+          Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
+          <br>
+
+          <label for="gender"> Gender</label>
+        <select name="gender">
+	    <option value="none" selected>Gender</option>
+	    <option value="male">Male</option>
+	    <option value="female">Female</option>
+	    <option value="other">other</option>
+        </select>
+
+        <div class="row mb-1">
+            <label for="fordescription" class="col-sm-2 col-form-label">Address</label> <br>
+            <textarea class="form-control" id="fordescription" rows="4" placeholder="Input your address"></textarea>
+        </div>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <br>
+        <label for="role"> Role</label>
+        <select name="role">
+	    <option value="none" selected>Role</option>
+	    <option value="member">Member</option>
+	    <option value="creator">Creator</option>
+	    <option value="admin">Admin</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+    <script>
+    function preview() {
+        frame.src = URL.createObjectURL(event.target.files[0]);
+    }
+    </script>
+    
+    
+</body>
+</html>
