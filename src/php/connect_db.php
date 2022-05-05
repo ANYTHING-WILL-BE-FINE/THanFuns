@@ -30,5 +30,5 @@ if (!$conn->real_connect($servername, $username, $password, $dbname, 3306, MYSQL
 
 echo 'Success... ' . $conn->host_info . "\n";
 
-$conn->close();
+// $conn->close();
 ?>
