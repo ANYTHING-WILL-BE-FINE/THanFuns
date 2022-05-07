@@ -11,8 +11,39 @@
 
 @media(max-width: 767.98px) {
     .sidebar{
-        top: 36.5rem;
-        padding: 0px;
+        position: absolute;
+        left: -9999px;
+        top: 9999px;
+        padding: 0;
+    }
+}
+
+/* .bottom {
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding:100px 0 0;
+    box-shadow: inset -0.5px 0 0 rgba(195, 189, 189);
+    z-index: 99;
+}
+
+/* @media(min-width: 767.98px) {
+    .bottom{
+        position: fixed;
+        padding: 30px 0 100px;
+        right: 0rem;
+        left: 0rem;
+        top: 5rem;
+    }
+} */ 
+
+@media(min-width: 767.98px) {
+    .bottom{
+        position: fixed;
+        left: -9999px;
+        top: 9999px;
     }
 }
 
@@ -42,4 +73,16 @@
         left: -9999px;
         top: -9999px;
     }
+}
+
+.selectt {
+    color: #fff;
+    padding: 30px;
+    margin-top: 30px;
+    width: 60%;
+    background: green
+}
+  
+label {
+    margin-right: 20px;
 }
