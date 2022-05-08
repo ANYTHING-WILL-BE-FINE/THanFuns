@@ -30,7 +30,7 @@
     <nav class="navbar  navbar-expand-md navbar-light bg-light px-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2">
+                <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2 me-4">
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarlogo">
@@ -38,10 +38,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarlogo">
 
-                <div class="navbar-nav mr-auto">
+                <!-- <div class="navbar-nav mr-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                </div>
+                </div> -->
+
+                <ul class="navbar-nav">
+                    <div class="input-group mb-lg-0" >
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search...">
+                        <div class="input-group-text">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                <i data-feather="search" height="21"></i>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+                
 
                 <ul class="navbar-nav ms-auto mb-lg-0">
                     <li>
