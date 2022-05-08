@@ -8,16 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="src/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="submit.css">
 
-    <style>
-        /* Custom CSS to prevent the content 
-        to go underneath the navbar */
-        body{
-            padding-bottom: 70px;
+    <style type="text/css">
+        .selectt {
+            color: rgb(0, 0, 0);
+            padding: 0px;
+            display: none;
+            margin-top: 15px;
+            background: rgb(255, 255, 255)
+        }
+        label {
+            margin-right: 20px;
         }
     </style>
-
 </head>
 
 <body>
@@ -27,10 +32,17 @@
             <a class="navbar-brand" href="#">
                 <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2">
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarlogo">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarlogo">
+
+                <div class="navbar-nav mr-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </div>
+
                 <ul class="navbar-nav ms-auto mb-lg-0">
                     <li>
                         <a href="#" class="nav-link " aria-current="page">LOGOUT</a>
@@ -169,14 +181,47 @@
                 </div>
         
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="Check1" required>
-                    <label class="form-check-label" for="Check1">Mature Content</label>
+                    <label class="form-check-label" for="check1">
+                    <input type="checkbox" class="form-check-input" id="check1" >
+                    Mature Content</label>
                 </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="check2" value="check2" >
+                    <label class="form-check-label" for="Check2">I want to sold this artwork</label>
+                    <div class="check2 selectt">
+                        <select class="form-select col mb-2" id="auction" required>
+                            <option selected disabled value="">Auction</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Starting Bid" aria-label="Starting Bid" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Bid" aria-label="Bid" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Autobuy" aria-label="Autobuy">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Time period" aria-label="Time period" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
         
                 <div class="d-grid col-4 mx-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-4">Submit</button>
                 </div>
+
             </form>
+
+            
         </div>
     </div>
 
@@ -190,7 +235,14 @@
         feather.replace()
     </script>
     
-    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('input[type="checkbox"]').click(function() {
+                var inputValue = $(this).attr("value");
+                $("." + inputValue).toggle();
+            });
+        });
+    </script>
 
 </body>
 </html>

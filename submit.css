@@ -51,12 +51,10 @@
     box-shadow: inset 0 -0.5px 0 rgb(195, 189, 189);
 }
 
-@media (min-width: 767.98px){
-    .navbar{
-        top: 0;
-        position: sticky;
-        z-index: 999;
-    }
+.navbar{
+    top: 0;
+    position: sticky;
+    z-index: 999;
 }
 
 .sidebar .nav-link {
@@ -73,16 +71,4 @@
         left: -9999px;
         top: -9999px;
     }
-}
-
-.selectt {
-    color: #fff;
-    padding: 30px;
-    margin-top: 30px;
-    width: 60%;
-    background: green
-}
-  
-label {
-    margin-right: 20px;
 }
