@@ -1,3 +1,9 @@
+<?php
+include("src/php/connect_db.php");
+// $conn <<---- 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,9 +124,9 @@
             </nav>
 
             <!--- fixedbuttom --->
-            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block collpase ">
+            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block collpase">
                 <div class="bg-light fixed-bottom bottom">
-                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between">
+                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between bottom">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="home" href="#">
                                 <i data-feather="home"></i>

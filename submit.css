@@ -39,6 +39,10 @@
 }
 
 .bottom .nav-link.active {
+    color: #333;
+}
+
+.bottom .nav-link {
     color: #16125e;
 }
 
