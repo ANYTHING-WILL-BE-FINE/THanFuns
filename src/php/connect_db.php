@@ -2,7 +2,7 @@
 
 $url = "";
 $eal = substr_count($_SERVER['REQUEST_URI'], "/");
-echo $eal;
+// echo $eal;
 for( $i = $eal ; $i > 2 ; $i = $i-1){
     $url .= "..\\";
 } 
