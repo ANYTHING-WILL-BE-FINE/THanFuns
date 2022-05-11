@@ -19,7 +19,7 @@ if (!$conn->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
     die('Setting MYSQLI_INIT_COMMAND failed');
 }
 
-if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 10)) {
+if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 100)) {
     die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
 }
 

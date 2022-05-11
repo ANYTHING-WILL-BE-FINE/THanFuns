@@ -1,23 +1,24 @@
 <?php include("src/php/connect_db.php");?>
 <?php
 
-if(isset($_POST['file_path']))
-{    
-     $file_path = $_POST['file_path'];
-     $sql = "SELECT*FROM pth_file";
-     $mysql = mysqli_query($conn, $sql);
+// if(isset($_POST['file_path']))
+// {    
+   //   $file_path = $_POST['file_path'];
+     $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view,timestamp_update) VALUE ('TEST104',NULL,NULL,NULL,NULL,NULL,NULL,CURRENT_TIMESTAMP)";
+     $mysql = mysqli_multi_query($conn, $sql);
      if ($mysql) {
         echo "New record has been added successfully !";
      } else {
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
-
-     while ($row = mysqli_fetch_row($mysql)) {
-        echo "<h5>Table: {$row['file_path']} </h5>";
+     $sql = "SELECT * FROM pth_file ";
+     $mysql = mysqli_query($conn, $sql);
+     while ($row = mysqli_fetch_assoc($mysql)) {
+         echo "<h5>Table: {$row['file_id']} </h5>";
     }
 
      mysqli_close($conn);
-}
+// }
 
 
     // // print_r($_POST)
