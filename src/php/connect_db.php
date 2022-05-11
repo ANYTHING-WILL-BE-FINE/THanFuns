@@ -1,18 +1,11 @@
 <?php
 
-echo realpath("DigiCertGlobalRootCA.crt.pem");
-
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
-$url = "https://";   
-else  
-$url = "http://";   
-// Append the host(domain name, ip) to the URL.   
-$url.= $_SERVER['HTTP_HOST'];   
-
-// Append the requested resource location to the URL   
-// $url.= $_SERVER['REQUEST_URI'];    
-
-echo $url;  
+$url = "";
+$eal = substr_count($_SERVER['REQUEST_URI'], "/");
+echo $eal;
+for( $i = $eal ; $i > 2 ; $i = $i-1){
+    $url .= "..\\";
+} 
 
 $servername = "funs.mysql.database.azure.com";
 $username = "a6_admin";
@@ -32,7 +25,7 @@ if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 10)) {
     die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
 }
 
-mysqli_ssl_set($conn,NULL,NULL,$dirname(FILE). "THanFuns\src\DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
+mysqli_ssl_set($conn,NULL,NULL, $url. "src\DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
 
 if (!$conn->real_connect($servername, $username, $password, $dbname, 3306, MYSQLI_CLIENT_SSL)) {
     die('Connect Error (' . mysqli_connect_errno() . ') '
