@@ -32,7 +32,7 @@ include("src/php/connect_db.php");
 </head>
 
 <body>
-    <form action="process.php" method="post">
+    <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
     <nav class="navbar  navbar-expand-md navbar-light bg-light px-2">
