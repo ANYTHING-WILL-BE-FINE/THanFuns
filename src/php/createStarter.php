@@ -2,7 +2,8 @@
 include("connect_db.php");
 
 // sql to create table
-$sql = "
+
+/*
 CREATE TABLE `acc_banking` (
     `acc_bank_id` int(11) NOT NULL,
     `user_id` int(11) DEFAULT NULL,
@@ -16,26 +17,12 @@ CREATE TABLE `acc_banking` (
     `active_status` tinyint(4) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_bookmarks`
-  --
-  
   CREATE TABLE `acc_bookmarks` (
     `user_id` int(11) NOT NULL,
     `product_id` int(11) NOT NULL,
     `bookmark_note` text DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_comment`
-  --
-  
   CREATE TABLE `acc_comment` (
     `comment_id` int(11) NOT NULL,
     `user_id` int(11) DEFAULT NULL,
@@ -43,18 +30,11 @@ CREATE TABLE `acc_banking` (
     `creator_id` int(11) DEFAULT NULL,
     `comment_mode` tinyint(4) DEFAULT NULL,
     `comment` text DEFAULT NULL,
-    `time_write` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+    `time_write` timestamp,
     `comment_status` tinyint(4) DEFAULT NULL,
     `reply_comment_id` int(11) DEFAULT NULL,
-    `timestamp_update` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+    `timestamp_update` timestamp NOT NULL DEFAULT  current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_contact`
-  --
-  
   CREATE TABLE `acc_contact` (
     `contact_id` int(11) NOT NULL,
     `user_id` int(11) DEFAULT NULL,
@@ -64,13 +44,6 @@ CREATE TABLE `acc_banking` (
     `contact_data` varchar(200) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_following`
-  --
-  
   CREATE TABLE `acc_following` (
     `creator_id` int(11) NOT NULL,
     `user_id` int(11) NOT NULL,
@@ -78,26 +51,12 @@ CREATE TABLE `acc_banking` (
     `follow_mode` tinyint(4) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_like`
-  --
-  
   CREATE TABLE `acc_like` (
     `product_id` int(11) NOT NULL,
     `user_id` int(11) NOT NULL,
     `like_mode` tinyint(4) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_paybuy`
-  --
-  
   CREATE TABLE `acc_paybuy` (
     `payment_id` varchar(10) NOT NULL,
     `product_id` int(11) DEFAULT NULL,
@@ -113,29 +72,15 @@ CREATE TABLE `acc_banking` (
     `time_slip` datetime DEFAULT NULL,
     `payment_status` tinyint(4) DEFAULT NULL,
     `admin_verify_id` int(11) DEFAULT NULL,
-    `datetime_admin_verify` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-    `datetime_creator_verify` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-    `datetime_user_cofirm` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+    `datetime_admin_verify` timestamp,
+    `datetime_creator_verify` timestamp,
+    `datetime_user_cofirm` timestamp
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_paybuy_code`
-  --
-  
   CREATE TABLE `acc_paybuy_code` (
     `payment_id` varchar(10) NOT NULL,
     `promotion_code` varchar(20) NOT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `acc_user`
-  --
-  
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1; 
   CREATE TABLE `acc_user` (
     `user_id` int(11) NOT NULL,
     `username` varchar(20) DEFAULT NULL,
@@ -158,16 +103,10 @@ CREATE TABLE `acc_banking` (
     `verify_status` tinyint(4) DEFAULT NULL,
     `admin_verify_id` int(11) DEFAULT NULL,
     `status_user` tinyint(4) DEFAULT NULL,
-    `date_in_member` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-    `date_in_creator` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-    `timestamp_update` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+    `date_in_member` timestamp ,
+    `date_in_creator` timestamp ,
+    `timestamp_update` timestamp NOT NULL DEFAULT  current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `bid_auction`
-  --
   
   CREATE TABLE `bid_auction` (
     `bid_product_id` int(11) NOT NULL,
@@ -183,11 +122,6 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `dict_banks`
-  --
   
   CREATE TABLE `dict_banks` (
     `bank_id` int(11) NOT NULL,
@@ -195,23 +129,12 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `dict_category`
-  --
-  
   CREATE TABLE `dict_category` (
     `category_id` int(11) NOT NULL,
     `label` varchar(120) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `dict_tags`
-  --
   
   CREATE TABLE `dict_tags` (
     `tags_id` int(11) NOT NULL,
@@ -219,11 +142,6 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `log_auction`
-  --
   
   CREATE TABLE `log_auction` (
     `product_bid_id` int(11) NOT NULL,
@@ -234,11 +152,7 @@ CREATE TABLE `acc_banking` (
     `bid_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `log_chatting`
-  --
+
   
   CREATE TABLE `log_chatting` (
     `log_room_id` int(11) NOT NULL,
@@ -248,12 +162,6 @@ CREATE TABLE `acc_banking` (
     `text_chat` text DEFAULT NULL,
     `time_chat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-  
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `mkt_commission`
-  --
   
   CREATE TABLE `mkt_commission` (
     `commission_id` varchar(10) NOT NULL,
@@ -272,14 +180,9 @@ CREATE TABLE `acc_banking` (
     `extend_time_status` tinyint(4) DEFAULT NULL,
     `commsission_status` tinyint(4) DEFAULT NULL,
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-    `datetime_create` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+    `datetime_create` timestamp NOT NULL DEFAULT  current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `mkt_product`
-  --
   
   CREATE TABLE `mkt_product` (
     `product_id` int(11) NOT NULL,
@@ -298,11 +201,7 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
   
-  --
-  -- Table structure for table `mkt_product_file`
-  --
   
   CREATE TABLE `mkt_product_file` (
     `product_file_id` int(11) NOT NULL,
@@ -314,11 +213,6 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `mkt_promotion`
-  --
   
   CREATE TABLE `mkt_promotion` (
     `promotion_code` varchar(20) NOT NULL,
@@ -340,11 +234,6 @@ CREATE TABLE `acc_banking` (
     `created_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `pth_file`
-  --
   
   CREATE TABLE `pth_file` (
     `file_id` varchar(200) NOT NULL,
@@ -357,11 +246,6 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `room_chatting`
-  --
   
   CREATE TABLE `room_chatting` (
     `chat_room_id` varchar(10) NOT NULL,
@@ -371,12 +255,6 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  -- --------------------------------------------------------
-  
-  --
-  -- Table structure for table `room_user`
-  --
-  
   CREATE TABLE `room_user` (
     `chat_room_id` varchar(10) NOT NULL,
     `user_id` int(11) NOT NULL,
@@ -384,13 +262,7 @@ CREATE TABLE `acc_banking` (
     `timestamp_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
-  --
-  -- Indexes for dumped tables
-  --
   
-  --
-  -- Indexes for table `acc_banking`
-  --
   ALTER TABLE `acc_banking`
     ADD PRIMARY KEY (`acc_bank_id`),
     ADD KEY `bank_id` (`bank_id`),
@@ -398,46 +270,29 @@ CREATE TABLE `acc_banking` (
     ADD KEY `user_id` (`user_id`),
     ADD KEY `admin_verify_id` (`admin_verify_id`);
   
-  --
-  -- Indexes for table `acc_bookmarks`
-  --
+  
   ALTER TABLE `acc_bookmarks`
     ADD PRIMARY KEY (`user_id`,`product_id`),
     ADD KEY `product_id` (`product_id`);
   
-  --
-  -- Indexes for table `acc_comment`
-  --
   ALTER TABLE `acc_comment`
     ADD PRIMARY KEY (`comment_id`),
     ADD KEY `product_id` (`product_id`),
     ADD KEY `creator_id` (`creator_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `acc_contact`
-  --
   ALTER TABLE `acc_contact`
     ADD PRIMARY KEY (`contact_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `acc_following`
-  --
   ALTER TABLE `acc_following`
     ADD PRIMARY KEY (`creator_id`,`user_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `acc_like`
-  --
   ALTER TABLE `acc_like`
     ADD PRIMARY KEY (`product_id`,`user_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `acc_paybuy`
-  --
   ALTER TABLE `acc_paybuy`
     ADD PRIMARY KEY (`payment_id`),
     ADD KEY `admin_verify_id` (`admin_verify_id`),
@@ -446,261 +301,145 @@ CREATE TABLE `acc_banking` (
     ADD KEY `commission_id` (`commission_id`),
     ADD KEY `acc_banking_id` (`acc_banking_id`);
   
-  --
-  -- Indexes for table `acc_paybuy_code`
-  --
   ALTER TABLE `acc_paybuy_code`
     ADD PRIMARY KEY (`payment_id`,`promotion_code`),
     ADD KEY `promotion_code` (`promotion_code`);
   
-  --
-  -- Indexes for table `acc_user`
-  --
+
   ALTER TABLE `acc_user`
     ADD PRIMARY KEY (`user_id`);
-  
-  --
-  -- Indexes for table `bid_auction`
-  --
+
   ALTER TABLE `bid_auction`
     ADD PRIMARY KEY (`bid_product_id`),
     ADD KEY `product_id` (`product_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `dict_banks`
-  --
   ALTER TABLE `dict_banks`
     ADD PRIMARY KEY (`bank_id`);
   
-  --
-  -- Indexes for table `dict_category`
-  --
   ALTER TABLE `dict_category`
     ADD PRIMARY KEY (`category_id`);
   
-  --
-  -- Indexes for table `dict_tags`
-  --
   ALTER TABLE `dict_tags`
     ADD PRIMARY KEY (`tags_id`);
   
-  --
-  -- Indexes for table `log_auction`
-  --
   ALTER TABLE `log_auction`
     ADD PRIMARY KEY (`product_bid_id`),
     ADD KEY `bid_product_id` (`bid_product_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `log_chatting`
-  --
   ALTER TABLE `log_chatting`
     ADD PRIMARY KEY (`log_room_id`),
     ADD KEY `user_id` (`user_id`),
     ADD KEY `chat_room_id` (`chat_room_id`);
   
-  --
-  -- Indexes for table `mkt_commission`
-  --
   ALTER TABLE `mkt_commission`
     ADD PRIMARY KEY (`commission_id`),
     ADD KEY `job_category` (`job_category`),
     ADD KEY `user_id` (`user_id`),
     ADD KEY `creator_id` (`creator_id`);
   
-  --
-  -- Indexes for table `mkt_product`
-  --
   ALTER TABLE `mkt_product`
     ADD PRIMARY KEY (`product_id`),
     ADD KEY `creator_id` (`creator_id`),
     ADD KEY `category_id` (`category_id`);
   
-  --
-  -- Indexes for table `mkt_product_file`
-  --
   ALTER TABLE `mkt_product_file`
     ADD PRIMARY KEY (`product_file_id`),
     ADD KEY `file_id` (`file_id`),
     ADD KEY `product_id` (`product_id`);
   
-  --
-  -- Indexes for table `mkt_promotion`
-  --
   ALTER TABLE `mkt_promotion`
     ADD PRIMARY KEY (`promotion_code`),
     ADD KEY `cod_for_some_category` (`cod_for_some_category`),
     ADD KEY `cod_for_some_creator` (`cod_for_some_creator`);
   
-  --
-  -- Indexes for table `pth_file`
-  --
   ALTER TABLE `pth_file`
     ADD PRIMARY KEY (`file_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Indexes for table `room_chatting`
-  --
   ALTER TABLE `room_chatting`
     ADD PRIMARY KEY (`chat_room_id`),
     ADD KEY `room_pic` (`room_pic`);
   
-  --
-  -- Indexes for table `room_user`
-  --
   ALTER TABLE `room_user`
     ADD PRIMARY KEY (`chat_room_id`,`user_id`),
     ADD KEY `user_id` (`user_id`);
   
-  --
-  -- Constraints for dumped tables
-  --
-  
-  --
-  -- Constraints for table `acc_banking`
-  --
   ALTER TABLE `acc_banking`
     ADD CONSTRAINT `acc_banking_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `dict_banks` (`bank_id`),
     ADD CONSTRAINT `acc_banking_ibfk_2` FOREIGN KEY (`bank_verify_pic`) REFERENCES `pth_file` (`file_id`),
     ADD CONSTRAINT `acc_banking_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_banking_ibfk_4` FOREIGN KEY (`admin_verify_id`) REFERENCES `acc_user` (`user_id`);
   
-  --
-  -- Constraints for table `acc_bookmarks`
-  --
   ALTER TABLE `acc_bookmarks`
     ADD CONSTRAINT `acc_bookmarks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_bookmarks_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`);
   
-  --
-  -- Constraints for table `acc_comment`
-  --
   ALTER TABLE `acc_comment`
     ADD CONSTRAINT `acc_comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`),
     ADD CONSTRAINT `acc_comment_ibfk_2` FOREIGN KEY (`creator_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_comment_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
   
-  --
-  -- Constraints for table `acc_contact`
-  --
   ALTER TABLE `acc_contact`
     ADD CONSTRAINT `acc_contact_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
   
-  --
-  -- Constraints for table `acc_following`
-  --
   ALTER TABLE `acc_following`
     ADD CONSTRAINT `acc_following_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_following_ibfk_2` FOREIGN KEY (`creator_id`) REFERENCES `acc_user` (`user_id`);
   
-  --
-  -- Constraints for table `acc_like`
-  --
   ALTER TABLE `acc_like`
     ADD CONSTRAINT `acc_like_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`),
     ADD CONSTRAINT `acc_like_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
   
-  --
-  -- Constraints for table `acc_paybuy`
-  --
   ALTER TABLE `acc_paybuy`
     ADD CONSTRAINT `acc_paybuy_ibfk_1` FOREIGN KEY (`admin_verify_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_paybuy_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`),
     ADD CONSTRAINT `acc_paybuy_ibfk_3` FOREIGN KEY (`payer_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `acc_paybuy_ibfk_4` FOREIGN KEY (`commission_id`) REFERENCES `mkt_commission` (`commission_id`),
     ADD CONSTRAINT `acc_paybuy_ibfk_5` FOREIGN KEY (`acc_banking_id`) REFERENCES `acc_banking` (`acc_bank_id`);
-  
-  --
-  -- Constraints for table `acc_paybuy_code`
-  --
   ALTER TABLE `acc_paybuy_code`
     ADD CONSTRAINT `acc_paybuy_code_ibfk_1` FOREIGN KEY (`promotion_code`) REFERENCES `mkt_promotion` (`promotion_code`),
     ADD CONSTRAINT `acc_paybuy_code_ibfk_2` FOREIGN KEY (`payment_id`) REFERENCES `acc_paybuy` (`payment_id`);
-  
-  --
-  -- Constraints for table `bid_auction`
-  --
   ALTER TABLE `bid_auction`
     ADD CONSTRAINT `bid_auction_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`),
     ADD CONSTRAINT `bid_auction_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
-  
-  --
-  -- Constraints for table `log_auction`
-  --
   ALTER TABLE `log_auction`
     ADD CONSTRAINT `log_auction_ibfk_1` FOREIGN KEY (`bid_product_id`) REFERENCES `bid_auction` (`bid_product_id`),
     ADD CONSTRAINT `log_auction_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
-  
-  --
-  -- Constraints for table `log_chatting`
-  --
   ALTER TABLE `log_chatting`
     ADD CONSTRAINT `log_chatting_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `log_chatting_ibfk_2` FOREIGN KEY (`chat_room_id`) REFERENCES `room_user` (`chat_room_id`);
-  
-  --
-  -- Constraints for table `mkt_commission`
-  --
   ALTER TABLE `mkt_commission`
     ADD CONSTRAINT `mkt_commission_ibfk_1` FOREIGN KEY (`job_category`) REFERENCES `dict_category` (`category_id`),
     ADD CONSTRAINT `mkt_commission_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `mkt_commission_ibfk_3` FOREIGN KEY (`creator_id`) REFERENCES `acc_user` (`user_id`);
-  
-  --
-  -- Constraints for table `mkt_product`
-  --
   ALTER TABLE `mkt_product`
     ADD CONSTRAINT `mkt_product_ibfk_1` FOREIGN KEY (`creator_id`) REFERENCES `acc_user` (`user_id`),
     ADD CONSTRAINT `mkt_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `dict_category` (`category_id`);
-  
-  --
-  -- Constraints for table `mkt_product_file`
-  --
   ALTER TABLE `mkt_product_file`
     ADD CONSTRAINT `mkt_product_file_ibfk_1` FOREIGN KEY (`file_id`) REFERENCES `pth_file` (`file_id`),
     ADD CONSTRAINT `mkt_product_file_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `mkt_product` (`product_id`);
-  
-  --
-  -- Constraints for table `mkt_promotion`
-  --
   ALTER TABLE `mkt_promotion`
     ADD CONSTRAINT `mkt_promotion_ibfk_1` FOREIGN KEY (`cod_for_some_category`) REFERENCES `dict_category` (`category_id`),
     ADD CONSTRAINT `mkt_promotion_ibfk_2` FOREIGN KEY (`cod_for_some_creator`) REFERENCES `acc_user` (`user_id`);
-  
-  --
-  -- Constraints for table `pth_file`
-  --
   ALTER TABLE `pth_file`
     ADD CONSTRAINT `pth_file_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
-  
-  --
-  -- Constraints for table `room_chatting`
-  --
   ALTER TABLE `room_chatting`
     ADD CONSTRAINT `room_chatting_ibfk_1` FOREIGN KEY (`room_pic`) REFERENCES `pth_file` (`file_id`),
     ADD CONSTRAINT `room_chatting_ibfk_2` FOREIGN KEY (`chat_room_id`) REFERENCES `room_user` (`chat_room_id`);
-  
-  --
-  -- Constraints for table `room_user`
-  --
   ALTER TABLE `room_user`
     ADD CONSTRAINT `room_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `acc_user` (`user_id`);
   COMMIT;
-  
-  /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-  /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-  /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-  
-";
 
-if ($conn->query($sql) === TRUE) {
-  echo "Table MyGuests created successfully";
-} else {
-  echo "Error creating table: " . $conn->error;
-}
+*/
+$sql = "";
+
+// if ($conn->multi_query($sql) === TRUE) {
+//   echo "Table MyGuests created successfully";
+// } else {
+//   echo "Error creating table: " . $conn->error;
+// }
 echo "fff";
 
 $conn->close();
