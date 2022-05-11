@@ -22,15 +22,18 @@ include("src/php/connect_db.php");
         <div class="profile-pic">
             <label class="-label" for="file">
               <span class="glyphicon glyphicon-camera"></span>
-              <span>Change Image</span>
             </label>
-            <input id="file" type="file" onchange="loadFile(event)"/>
             <div class="card-body text-center">
                 <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
                 alt="Generic placeholder image" 
                 class="rounded-circle"
-                style="width: 70px;" border="0" />
+                style="width: 130px;" border="0" />
             </div>
+            <div class="card-body text-center">
+                <span>Change Image</span>
+                <input id="file" type="file" onchange="loadFile(event)"/>
+            </div>
+    
             
           </div>
 
