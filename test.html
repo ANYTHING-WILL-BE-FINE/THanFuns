@@ -1,3 +1,8 @@
+<?php
+include("src/php/connect_db.php");
+// $conn <<---- 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +18,20 @@
 
 <body>
 
-    <form class="container col-md-6">
+    <form class="container col-md-6" >
         <div class="profile-pic">
             <label class="-label" for="file">
               <span class="glyphicon glyphicon-camera"></span>
               <span>Change Image</span>
             </label>
             <input id="file" type="file" onchange="loadFile(event)"/>
-            <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" alt="4614360009d52083321f6cce10c05398.png" border="0" />
+            <div class="card-body text-center">
+                <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
+                alt="Generic placeholder image" 
+                class="rounded-circle"
+                style="width: 70px;" border="0" />
+            </div>
+            
           </div>
 
           <br>
@@ -62,10 +73,10 @@
 	    <option value="admin">Admin</option>
         </select>
         <br>
-        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
 
     </form>
+
 
     <script>
     function preview() {
