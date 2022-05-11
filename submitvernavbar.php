@@ -32,6 +32,7 @@ include("src/php/connect_db.php");
 </head>
 
 <body>
+    <form action="process.php" method="post">
 
     <!--- navbar --->
     <nav class="navbar  navbar-expand-md navbar-light bg-light px-2">
@@ -124,9 +125,9 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- fixedbuttom --->
-            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block collpase">
+            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block bottom collpase">
                 <div class="bg-light fixed-bottom bottom">
-                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between bottom">
+                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="home" href="#">
                                 <i data-feather="home"></i>
@@ -162,31 +163,31 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-            <form class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
+            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
                 <div class="mt-0 mb-3">
                     <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
-                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="formFile" onchange="preview()" required>
+                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="file_id" onchange="preview()" required>
                     <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/>
                 </div>
                
                 <div class="mb-3">
                     <label for="formtitle" class="form-label">Title</label>
-                    <input type="title" class="form-control" id="formtitle" placeholder="Title..." required>
+                    <input type="text" class="form-control" id="product_name" placeholder="Title..." required>
                 </div>
         
                 <div class="mb-3">
                     <label for="fordescription" class="form-label">Description</label>
-                    <textarea class="form-control" id="fordescription" rows="4" placeholder="Description..."></textarea>
+                    <textarea type="text" class="form-control" id="description" rows="4" placeholder="Description..."></textarea>
                 </div>
         
                 <div class="mb-3">
                     <label for="formtag" class="form-label">Tag</label>
-                    <input type="tag" class="form-control" id="formtag" placeholder="Tag #...">
+                    <input type="text" class="form-control" id="tags_label" placeholder="Tag #...">
                 </div>
         
                 <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
-                    <select class="form-select col mb-1" id="category" required>
+                    <select class="form-select col mb-1" id="label" required>
                         <option selected disabled value="">Select Category</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -196,8 +197,8 @@ include("src/php/connect_db.php");
                 </div>
         
                 <div class="mb-3 form-check">
-                    <label class="form-check-label" for="check1">
-                    <input type="checkbox" class="form-check-input" id="check1" >
+                    <label class="form-check-label" for="mature_mode">
+                    <input type="checkbox" class="form-check-input" id="mature_mode" value="mature_mode">
                     Mature Content</label>
                 </div>
 
@@ -207,7 +208,7 @@ include("src/php/connect_db.php");
                     I want to sold this artwork</label>
                     <div class="check2 selectt">
                         <select class="form-select col mb-2" id="auction" required>
-                            <option selected disabled value="">Auction</option>
+                            <option selected disabled value="sale_mode">Auction</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -234,11 +235,13 @@ include("src/php/connect_db.php");
                     <button type="submit" class="btn btn-primary mb-4">Submit</button>
                 </div>
 
-            </form>
+             </div>
 
         </div>
         
     </div>
+    </form>
+    
 
     <script>
     function preview() {
