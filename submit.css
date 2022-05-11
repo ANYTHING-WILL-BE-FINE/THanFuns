@@ -1,0 +1,79 @@
+/* --- navbar --- */
+.navbar {
+    box-shadow: inset 0 -0.5px 0 rgb(195, 189, 189);
+}
+
+.navbar{
+    top: 0;
+    position: sticky;
+    z-index: 999;
+}
+
+/* --- sidebar --- */
+.sidebar {
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    z-index: 100;
+    padding:100px 0 0;
+    box-shadow: inset -0.5px 0 0 rgba(195, 189, 189);
+    z-index: 99;
+}
+
+@media(max-width: 767.98px) {
+    .sidebar{
+        position: absolute;
+        left: -9999px;
+        top: 9999px;
+        padding: 0;
+    }
+}
+
+.sidebar .nav-link {
+    color: #333;
+}
+
+.sidebar .nav-link.active {
+    color: #16125e;
+}
+
+/* .bottom {
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding:100px 0 0;
+    box-shadow: inset -0.5px 0 0 rgba(195, 189, 189);
+    z-index: 99;
+}
+
+/* @media(min-width: 767.98px) {
+    .bottom{
+        position: fixed;
+        padding: 30px 0 100px;
+        right: 0rem;
+        left: 0rem;
+        top: 5rem;
+    }
+} */ 
+
+/* --- fixedbuttom --- */
+@media(min-width: 767.98px) {
+    .bottom{
+        position: fixed;
+        left: -9999px;
+        top: 9999px;
+    }
+}
+
+/* --- hidden --- */
+@media(max-width: 767.98px) {
+    .hidden{
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+}
+
