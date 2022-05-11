@@ -3,7 +3,7 @@
 
 // if(isset($_POST['file_path']))
 // {    
-   //   $file_path = $_POST['file_path'];
+//    $file_path = $_POST['file_path'];
      $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view,timestamp_update) VALUE ('TEST104',NULL,NULL,NULL,NULL,NULL,NULL,CURRENT_TIMESTAMP)";
      $mysql = mysqli_multi_query($conn, $sql);
      if ($mysql) {
