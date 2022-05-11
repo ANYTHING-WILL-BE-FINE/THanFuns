@@ -16,7 +16,7 @@ if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 10)) {
     die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
 }
 
-mysqli_ssl_set($conn,NULL,NULL, "..\DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
+mysqli_ssl_set($conn,NULL,NULL, "src\DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
 
 if (!$conn->real_connect($servername, $username, $password, $dbname, 3306, MYSQLI_CLIENT_SSL)) {
     die('Connect Error (' . mysqli_connect_errno() . ') '
