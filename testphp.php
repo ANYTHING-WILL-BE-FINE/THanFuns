@@ -19,7 +19,7 @@ include("src/php/connect_db.php");
         
         <div class="mt-0 mb-3">
         <label for="formtitle" class="form-label">Title</label>
-            <input type="text" class="form-control" name="file_path" placeholder="Title..." required>
+            <input type="text" class="form-control" id= "file_path" name="file_path" placeholder="Title..." required>
             <!-- <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/> -->
         </div>
 
