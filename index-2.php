@@ -1,3 +1,12 @@
+<?php
+include("src/php/connect_db.php");
+// $conn <<---- 
+?>
+<?php
+  //mysqli_query($conn,"INSERT INTO mkt_commission (creator_id, user_id, request_price, job_color, job_scale, job_description, job_category, job_mature, job_private)
+                      //VALUES ('$idcreator','$iduser','$price','$color','$scale','$description','$category','$mature','$private')");
+  
+?>
 
 <!DOCTYPE html>
 <html lang ="en">
@@ -11,8 +20,7 @@
 </head>
 <body>
 
-    
-  <div class="offcanvas offcanvas-bottom" id="demo">
+<div class="offcanvas offcanvas-bottom" id="demo">
     <div class="offcanvas-header">
       <h1 class="offcanvas-title">COMMISSION</h1>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
@@ -41,13 +49,21 @@
           <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
           <label class="form-check-label">สี</label>
         </div>
+        <div class="mb-3">
+          <label for="idcreator" class="form-label">scaleของงาน</label><br>
+          <input class="form-check-input" type="checkbox" id="0" name="option1" value="something" >
+          <label class="form-check-label">Protrait</label>
+          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <label class="form-check-label">Bust-up</label>
+          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <label class="form-check-label">Bust-up</label>
+        </div>
         
        
       <button class="btn btn-danger" type="button">ยืนยัน</button>
       <button class="btn btn-secondary" type="button">ยกเลิก</button>
     </div>
   </div>
-  
       
       <form class="container-fluid mt-3" align = 'left'>
         <h3> กฏของการทำCOMMISION</h3>
