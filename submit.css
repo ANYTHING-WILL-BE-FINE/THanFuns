@@ -38,6 +38,14 @@
     color: #16125e;
 }
 
+.bottom .nav-link.active {
+    color: rgb(222, 59, 59);
+}
+
+.bottom .nav-link {
+    color: #16125e;
+}
+
 /* .bottom {
     position:fixed;
     top: 0;
