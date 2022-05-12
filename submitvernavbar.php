@@ -240,7 +240,7 @@ include("src/php/connect_db.php");
         </div>
         
     </div>
-    </form>
+    <!-- </form> -->
     
 
     <script>
