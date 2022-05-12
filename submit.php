@@ -35,7 +35,7 @@ include("src/php/connect_db.php");
     <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
-    <nav class="navbar  navbar-expand-md navbar-light bg-light px-2">
+    <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2 me-4">
@@ -125,9 +125,9 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- fixedbuttom --->
-            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block bottom collpase">
+            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block bottom collpase bottom">
                 <div class="bg-light fixed-bottom bottom">
-                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between">
+                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between bottom">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="home" href="#">
                                 <i data-feather="home"></i>
@@ -166,7 +166,7 @@ include("src/php/connect_db.php");
             <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
                 <div class="mt-0 mb-3">
                     <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
-                    <input class="form-control" type="file" accept=".jpg,.gif,.png" id="file_id" onchange="preview()" required>
+                    <input class="form-control" type="file" accept=".jpg,.gif,.png" name ="file_id" onchange="preview()" required>
                     <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/>
                 </div>
                
