@@ -35,15 +35,15 @@
 }
 
 .sidebar .nav-link.active {
-    color: #16125e;
-}
-
-.bottom .nav-link.active {
-    color: #333;
+    color: #282382;
 }
 
 .bottom .nav-link {
-    color: #16125e;
+    color: #333;
+}
+
+.bottom .nav-link.active {
+    color: #282382;
 }
 
 /* .bottom {
