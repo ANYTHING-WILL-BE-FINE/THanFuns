@@ -13,14 +13,6 @@ $vp = 1;
           } else {
             echo "Error: " . $sql . ":-" . mysqli_error($conn);
           }
-
-      $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
-      //   $mysql = $conn->mysqli_query($sql);
-         if ($conn->query($sql)=== TRUE) {
-           echo "New record has been added successfully !";
-         } else {
-           echo "Error: " . $sql . ":-" . mysqli_error($conn);
-         }
     
     //  $sql = "SELECT * FROM dict_tags";
     //  $mysql = mysqli_query($conn, $sql);
