@@ -1,10 +1,27 @@
-<?php include("src/php/connect_db.php");?>
+<?php include_once("src/php/connect_db.php");?>
 <?php
 
 // if(isset($_POST['file_path']))
 // {    
 //    $file_path = $_POST['file_path'];
-$vp = 1;
+
+$action = $_POST['action'];
+
+if($action == "insertCommission") {
+  $iduser = $_POST['iduser'];
+  $idcreator = $_POST['idcreator'];
+  $price = $_POST['price'];
+  $color = $_POST['color'];
+  $scale = $_POST['scale']; 
+  $description = $_POST['description'];
+  $category = $_POST['category'];
+  $mature = $_POST['mature'];
+  $publiceArt = $_POST['publiceArt'];
+  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_category,job_mature,job_private)
+   VALUES ($iduser,$idcreator,$price,$color,$scale,$description,$category,$mature,$publiceArt ); ";
+}
+else {
+  $vp = 1;
 
 $sql = "SELECT tags_id FROM dict_tags ";
      $mysql = mysqli_query($conn, $sql);
@@ -24,6 +41,9 @@ $sql = "SELECT tags_id FROM dict_tags ";
      while ($row = mysqli_fetch_assoc($mysql)) {
          echo "<h5>Table: {$row['tags_label']} </h5>";
     }
+
+}
+
     mysqli_close($conn);
     
 // }

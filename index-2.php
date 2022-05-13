@@ -1,10 +1,26 @@
+<?php include("src/php/connect_db.php"); ?>
 <?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
-<?php
-  //mysqli_query($conn,"INSERT INTO mkt_commission (creator_id, user_id, request_price, job_color, job_scale, job_description, job_category, job_mature, job_private)
-                      //VALUES ('$idcreator','$iduser','$price','$color','$scale','$description','$category','$mature','$private')");
+  $vp = 1;
+
+  $sql = "SELECT tags_id FROM dict_tags ";
+       $mysql = mysqli_query($conn, $sql);
+       while ($row = mysqli_fetch_assoc($mysql)) {
+        $vp= $vp+1;
+      }
+       $sql = "INSERT INTO mkt_commission (acc_id,idcreator,request_price,job_color,job_scale,job_description,job_category,job_mature,job_private) VALUES ( "",'SAES')";
+     //   $mysql = $conn->mysqli_query($sql);
+       if ($conn->query($sql)=== TRUE) {
+          echo "New record has been added successfully !";
+       } else {
+          echo "Error: " . $sql . ":-" . mysqli_error($conn);
+       }
+      
+       $sql = "SELECT * FROM dict_tags";
+       $mysql = mysqli_query($conn, $sql);
+       while ($row = mysqli_fetch_assoc($mysql)) {
+           echo "<h5>Table: {$row['tags_label']} </h5>";
+      }
+      mysqli_close($conn);
   
 ?>
 
@@ -16,6 +32,30 @@ include("src/php/connect_db.php");
     <title>Anything will be fine</title>
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
     <script src="src/js/bootstrap.min.js"></script>
+    <script>
+
+      
+      $.ajax({
+      type: "POST", 
+      url: 'process.php',
+      data: {
+        iduser: $('input[id="iduser"]:'),
+        idcreator: Document.getElementById("idcreator"),
+        price: Document.getElementById("price"),
+        color: $('input[id="color"]:checked'),
+        scale: $('input[id="scale"]:checked'),
+        description: Document.getElementById("description"),
+        category: $('input[id="category"]:checked'),
+        mature: $('input[id="mature"]:checked'),
+        publiceArt: $('input[id="publiceArt"]:checked'),
+        action : "insertCommission"},
+      success: function(data){
+      console.log(data);
+      },
+      error: function(xhr, status, error){
+      console.error(xhr);
+    }
+    });</script>
 
 </head>
 <body>
@@ -27,55 +67,55 @@ include("src/php/connect_db.php");
     </div>
     <div class="offcanvas-body">
        <div class="mb-3"> <label>รหัสประจำตัวUser</label><br>
-        <input class="md-4" type="iduser">
+        <input class="md-4" id="iduser" name="acc_id">
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
-            <input class="md-4" type="idcreator" >
+            <input class="md-4" id="idcreator" name="acc_id" >
         </div> 
        
          <div class="mb-3">
             <label >ราคา</label>
-            <input class="md-4" type="price"><label >บาท</label>
+            <input class="md-4" id="price" name="request_price"><label >บาท</label>
         </div> 
         <div class="mb-3">
           <label>ประเภทสี</label><br>
-          <input class="form-check-input" type="checkbox" id="0" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="color" name="job_color" value="something" >
           <label class="form-check-label">สีขาว-ดำ</label>
-          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="color" name="job_color" value="something" >
           <label class="form-check-label">สี</label>
         </div>
         <div class="mb-3">
-          <label for="idcreator" class="form-label">scaleของงาน</label><br>
-          <input class="form-check-input" type="checkbox" id="0" name="option1" value="something" >
+          <label class="form-label">scaleของงาน</label><br>
+          <input class="form-check-input" type="checkbox" id="scale" name="job_scale" value="something">
           <label class="form-check-label">Protrait</label>
-          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="scale" name="job_scale" value="something" >
           <label class="form-check-label">Bust-up</label>
-          <input class="form-check-input" type="checkbox" id="2" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="scale" name="job_scale" value="something">
           <label class="form-check-label">Knee-up</label>
-          <input class="form-check-input" type="checkbox" id="3" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="scale" name="job_scale" value="something">
           <label class="form-check-label">Full Body</label>
         </div> 
         <div class="mb-3">
             <label for="detail" class="form-label">รายละเอียดผลงาน</label>
-            <textarea name="textarea" id="description" cols="30" row="30"class="form-control"></textarea>
+            <textarea name="job_description" id="description" cols="30" row="30"class="form-control"></textarea>
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">category</label><br>
-            <input class="md-4" type="price" class="form-control "><label ></label>
+            <label for="category" class="form-label">category</label><br>
+            <input class="md-4" id="category" class="form-control" name="job_category"><label ></label>
         </div> 
         <div class="mb-3">
-          <label for="idcreator" class="form-label">mature?</label><br>
-          <input class="form-check-input" type="checkbox" id="0" name="option1" value="something" >
+          <label  class="form-label">mature?</label><br>
+          <input class="form-check-input" type="checkbox" id="mature" name="job_mature" value="something">
           <label class="form-check-label">NO</label>
-          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="mature" name="job_mature" value="something">
           <label class="form-check-label">YES</label>
         </div>
         <div class="mb-3">
-          <label for="idcreator" class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
-          <input class="form-check-input" type="checkbox" id="0" name="option1" value="something" >
+          <label class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
+          <input class="form-check-input" type="checkbox" id="publiceArt" name="job_private" value="0" >
           <label class="form-check-label">ไม่อนุญาต</label>
-          <input class="form-check-input" type="checkbox" id="1" name="option1" value="something" >
+          <input class="form-check-input" type="checkbox" id="publiceArt" name="job_private" value="1" >
           <label class="form-check-label">อนุญาต</label>
         </div>
        
