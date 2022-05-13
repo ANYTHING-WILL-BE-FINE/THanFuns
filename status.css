@@ -8,7 +8,7 @@ color: #455A64;
 
 #progressbar-2 li {
 list-style-type: none;
-font-size: 13px;
+font-size: 15px;
 width: 33.33%;
 float: left;
 position: relative;
@@ -61,7 +61,7 @@ border-radius: 50%;
 #progressbar-2 li:after {
 content: '';
 width: 100%;
-height: 10px;
+height: 5px;
 background: #c5cae9;
 position: absolute;
 left: 0%;
@@ -98,7 +98,7 @@ width: 0;
 
 #progressbar-2 li.active:before,
 #progressbar-2 li.active:after {
-background: #6520ff;
+background: #2d087b;
 }
 
 
