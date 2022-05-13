@@ -21,23 +21,31 @@ color: #fff;
 width: 37px;
 margin-left: 0px;
 padding-left: 0px;
+text-align: center;
 }
 
 #progressbar-2 #step2:before {
-content: '\f058';
+content: '';
 font-family: "Font Awesome 5 Free";
-color: #fff;
+color: #6520ff;
 width: 15px;
 height: 15px;
+top: 0%;
+margin-top: 0px;
+padding-top: 0px;
+padding-bottom: 0px;
+padding-left: 0px;
+text-align: center;
 }
 
 #progressbar-2 #step3:before {
-content: '\f058';
+content: '';
 font-family: "Font Awesome 5 Free";
-color: #fff;
+color: #6520ff;
 width: 15px;
 height: 15px;
-margin-right: 0;
+margin-top: 0%;
+margin-right: 0px;
 text-align: center;
 }
 
@@ -70,12 +78,14 @@ top: 15px;
 z-index: -1;
 }
 
+/* Line */
 #progressbar-2 li:nth-child(1):after {
 left: 1%;
 width: 100%
 }
 
 #progressbar-2 li:nth-child(2):after {
+/* top: 40%; */
 left: 1%;
 width: 100%;
 }
@@ -98,7 +108,7 @@ width: 0;
 
 #progressbar-2 li.active:before,
 #progressbar-2 li.active:after {
-background: #2d087b;
+background: #6520ff;
 }
 
 

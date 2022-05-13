@@ -1,10 +1,6 @@
 <?php include_once("src/php/connect_db.php");?>
 <?php
 
-// if(isset($_POST['file_path']))
-// {    
-//    $file_path = $_POST['file_path'];
-
 $action = $_POST['action'];
 
 if($action == "insertCommission") {
@@ -18,31 +14,20 @@ if($action == "insertCommission") {
   $mature = $_POST['mature'];
   $publiceArt = $_POST['publiceArt'];
   $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_category,job_mature,job_private)
-   VALUES ($iduser,$idcreator,$price,$color,$scale,$description,$category,$mature,$publiceArt ); ";
+   VALUES ($iduser,$idcreator,$price,$color,$scale,"$description",$category,$mature,$publiceArt)";
+  $mysql = mysqli_query($conn, $sql);
+  if ($mysql=== TRUE) {
+    echo "New record has been added successfully !";
+ } else {
+    echo "Error: " . $sql . ":-" . mysqli_error($conn);
+ }
 }
 else {
-  $vp = 1;
 
-$sql = "SELECT tags_id FROM dict_tags ";
-     $mysql = mysqli_query($conn, $sql);
-     while ($row = mysqli_fetch_assoc($mysql)) {
-      $vp= $vp+1;
-    }
-     $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
-   //   $mysql = $conn->mysqli_query($sql);
-     if ($conn->query($sql)=== TRUE) {
-        echo "New record has been added successfully !";
-     } else {
-        echo "Error: " . $sql . ":-" . mysqli_error($conn);
-     }
-    
-     $sql = "SELECT * FROM dict_tags";
-     $mysql = mysqli_query($conn, $sql);
-     while ($row = mysqli_fetch_assoc($mysql)) {
-         echo "<h5>Table: {$row['tags_label']} </h5>";
-    }
-
-}
+    //  while ($row = mysqli_fetch_assoc($mysql)) {
+    //      echo "<h5>Table: {$row['tags_label']} </h5>";
+    // }
+  }
 
     mysqli_close($conn);
     
