@@ -4,19 +4,26 @@
 $action = $_POST['action'];
 
 if($action == "insertCommission") {
+  
   $iduser = $_POST['iduser'];
   $idcreator = $_POST['idcreator'];
   $price = $_POST['price'];
   $color = $_POST['color'];
   $scale = $_POST['scale']; 
   $description = $_POST['description'];
-  $category = $_POST['category'];
+  // $category = $_POST['category'];
   $mature = $_POST['mature'];
   $publiceArt = $_POST['publiceArt'];
-  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_category,job_mature,job_private)
-   VALUES ($iduser,$idcreator,$price,$color,$scale,"$description",$category,$mature,$publiceArt)";
+  $idcommission = $_POST['idcommission'];
+  $firstpay = $_POST['firstpay'];
+  $mode = $_POST['mode'];
+  $datetime = $_POST['datetime'];
+  $extend = $_POST['extend'];
+  $status = $_POST['status'];
+  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit,extend_time_status,commission_status)
+   VALUES ($iduser,$idcreator,$price,$color,$scale,"$description",$mature,$publiceArt,$idcommission,$firstpay,$mode,"$datetime",$extend,$status)";
   $mysql = mysqli_query($conn, $sql);
-  if ($mysql=== TRUE) {
+  if ($mysql === TRUE) {
     echo "New record has been added successfully !";
  } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
