@@ -14,20 +14,33 @@ float: left;
 position: relative;
 }
 
-#progressbar-2 #step1:before {
-content: '\f058';
-font-family: "Font Awesome 5 Free";
+/* #progressbar-2 #step1:before {
+content: url(photo/logo.png);
+transform: scale(.1);
 color: #fff;
-width: 37px;
+height: 600px;
+width: 600px;
 margin-left: 0px;
 padding-left: 0px;
 text-align: center;
-}
+} */
+
+#progressbar-2 #step1:before {
+    background-image: url('/photo/1.jpg');
+    background-size: cover;
+    display: inline-block;
+    background-position: center;
+    width: 100px; 
+    height: 100px;
+    content:"";
+    border: 5px solid #3A3D74;
+    box-sizing: border-box;
+    }
 
 #progressbar-2 #step2:before {
 content: '';
-font-family: "Font Awesome 5 Free";
-color: #6520ff;
+font-family: "";
+color: #3A3D74;
 width: 15px;
 height: 15px;
 top: 0%;
@@ -35,28 +48,37 @@ margin-top: 0px;
 padding-top: 0px;
 padding-bottom: 0px;
 padding-left: 0px;
-text-align: center;
 }
 
 #progressbar-2 #step3:before {
 content: '';
-font-family: "Font Awesome 5 Free";
-color: #6520ff;
+font-family: "";
+color: #c5cae9;
 width: 15px;
 height: 15px;
-margin-top: 0%;
-margin-right: 0px;
-text-align: center;
 }
 
 #progressbar-2 #step4:before {
+    background-image: url('/photo/2.png');
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    width: 100px; 
+    height: 100px;
+    content:"";
+    border: 5px solid #3A3D74;
+    box-sizing: border-box;
+
+    }
+
+/* #progressbar-2 #step4:before {
 content: '\f111';
 font-family: "Font Awesome 5 Free";
 color: #fff;
 width: 37px;
 margin-right: 0;
 text-align: center;
-}
+} */
 
 #progressbar-2 li:before {
 line-height: 37px;
@@ -74,32 +96,34 @@ background: #c5cae9;
 position: absolute;
 left: 0%;
 right: 0%;
-top: 15px;
+top: 50px;
 z-index: -1;
 }
 
 /* Line */
-#progressbar-2 li:nth-child(1):after {
+/* #progressbar-2 li:nth-child(1):after {
 left: 1%;
-width: 100%
-}
+width: 100px;
+} */
 
 #progressbar-2 li:nth-child(2):after {
 /* top: 40%; */
-left: 1%;
-width: 100%;
+
+/* left: 55%;
+width: 100%; */
+background: #c5cae9 !important
 }
 
 #progressbar-2 li:nth-child(3):after {
-left: 1%;
-width: 100%;
-background: #c5cae9 !important;
+/* left: 1%;
+width: 100%; */
+background: #c5cae9 !important
 }
 
-#progressbar-2 li:nth-child(4) {
+/* #progressbar-2 li:nth-child(4) {
 left: 0;
-width: 37px;
-}
+width: 100px;
+} */
 
 #progressbar-2 li:nth-child(4):after {
 left: 0;
@@ -108,7 +132,7 @@ width: 0;
 
 #progressbar-2 li.active:before,
 #progressbar-2 li.active:after {
-background: #6520ff;
+background: #3A3D74;
 }
 
 
