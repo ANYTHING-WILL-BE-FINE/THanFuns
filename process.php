@@ -6,25 +6,28 @@
 //    $file_path = $_POST['file_path'];
 $vp = 1;
 
-$sql = "SELECT tags_id FROM dict_tags ";
-     $mysql = mysqli_query($conn, $sql);
-     while ($row = mysqli_fetch_assoc($mysql)) {
-      $vp= $vp+1;
-    }
-     $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
-   //   $mysql = $conn->mysqli_query($sql);
-     if ($conn->query($sql)=== TRUE) {
-        echo "New record has been added successfully !";
-     } else {
-        echo "Error: " . $sql . ":-" . mysqli_error($conn);
-     }
+      $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
+         //   $mysql = $conn->mysqli_query($sql);
+         if ($conn->query($sql)=== TRUE) {
+           echo "New record has been added successfully !";
+          } else {
+            echo "Error: " . $sql . ":-" . mysqli_error($conn);
+          }
+
+      $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
+      //   $mysql = $conn->mysqli_query($sql);
+         if ($conn->query($sql)=== TRUE) {
+           echo "New record has been added successfully !";
+         } else {
+           echo "Error: " . $sql . ":-" . mysqli_error($conn);
+         }
     
-     $sql = "SELECT * FROM dict_tags";
-     $mysql = mysqli_query($conn, $sql);
-     while ($row = mysqli_fetch_assoc($mysql)) {
-         echo "<h5>Table: {$row['tags_label']} </h5>";
-    }
-    mysqli_close($conn);
+    //  $sql = "SELECT * FROM dict_tags";
+    //  $mysql = mysqli_query($conn, $sql);
+    //  while ($row = mysqli_fetch_assoc($mysql)) {
+    //      echo "<h5>Table: {$row['tags_label']} </h5>";
+    // }
+    // mysqli_close($conn);
     
 // }
 
