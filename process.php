@@ -4,20 +4,28 @@
 // if(isset($_POST['file_path']))
 // {    
 //    $file_path = $_POST['file_path'];
-     $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view,timestamp_update) VALUE ('TEST104',NULL,NULL,NULL,NULL,NULL,NULL,CURRENT_TIMESTAMP)";
-     $mysql = mysqli_multi_query($conn, $sql);
-     if ($mysql) {
+$vp = 1;
+
+$sql = "SELECT tags_id FROM dict_tags ";
+     $mysql = mysqli_query($conn, $sql);
+     while ($row = mysqli_fetch_assoc($mysql)) {
+      $vp= $vp+1;
+    }
+     $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
+   //   $mysql = $conn->mysqli_query($sql);
+     if ($conn->query($sql)=== TRUE) {
         echo "New record has been added successfully !";
      } else {
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
-     $sql = "SELECT * FROM pth_file ";
+    
+     $sql = "SELECT * FROM dict_tags";
      $mysql = mysqli_query($conn, $sql);
      while ($row = mysqli_fetch_assoc($mysql)) {
-         echo "<h5>Table: {$row['file_id']} </h5>";
+         echo "<h5>Table: {$row['tags_label']} </h5>";
     }
-
-     mysqli_close($conn);
+    mysqli_close($conn);
+    
 // }
 
 

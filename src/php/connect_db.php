@@ -15,13 +15,13 @@ if (!$conn) {
     die('mysqli_init failed');
 }
 
-if (!$conn->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
-    die('Setting MYSQLI_INIT_COMMAND failed');
-}
+// if (!$conn->options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
+//     die('Setting MYSQLI_INIT_COMMAND failed');
+// }
 
-if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 100)) {
-    die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
-}
+// if (!$conn->options(MYSQLI_OPT_CONNECT_TIMEOUT, 100)) {
+//     die('Setting MYSQLI_OPT_CONNECT_TIMEOUT failed');
+// }
 
 mysqli_ssl_set($conn,NULL,NULL, $url. "src\DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 
