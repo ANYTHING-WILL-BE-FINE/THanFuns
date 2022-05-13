@@ -8,7 +8,7 @@ color: #455A64;
 
 #progressbar-2 li {
 list-style-type: none;
-font-size: 13px;
+font-size: 15px;
 width: 33.33%;
 float: left;
 position: relative;
@@ -21,23 +21,31 @@ color: #fff;
 width: 37px;
 margin-left: 0px;
 padding-left: 0px;
+text-align: center;
 }
 
 #progressbar-2 #step2:before {
-content: '\f058';
+content: '';
 font-family: "Font Awesome 5 Free";
-color: #fff;
+color: #6520ff;
 width: 15px;
 height: 15px;
+top: 0%;
+margin-top: 0px;
+padding-top: 0px;
+padding-bottom: 0px;
+padding-left: 0px;
+text-align: center;
 }
 
 #progressbar-2 #step3:before {
-content: '\f058';
+content: '';
 font-family: "Font Awesome 5 Free";
-color: #fff;
+color: #6520ff;
 width: 15px;
 height: 15px;
-margin-right: 0;
+margin-top: 0%;
+margin-right: 0px;
 text-align: center;
 }
 
@@ -61,7 +69,7 @@ border-radius: 50%;
 #progressbar-2 li:after {
 content: '';
 width: 100%;
-height: 10px;
+height: 5px;
 background: #c5cae9;
 position: absolute;
 left: 0%;
@@ -70,12 +78,14 @@ top: 15px;
 z-index: -1;
 }
 
+/* Line */
 #progressbar-2 li:nth-child(1):after {
 left: 1%;
 width: 100%
 }
 
 #progressbar-2 li:nth-child(2):after {
+/* top: 40%; */
 left: 1%;
 width: 100%;
 }

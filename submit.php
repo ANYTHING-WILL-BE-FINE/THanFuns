@@ -32,7 +32,7 @@ include("src/php/connect_db.php");
 </head>
 
 <body>
-    <!-- <form action="process.php" method="post"> -->
+    
 
     <!--- navbar --->
     <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
@@ -163,7 +163,7 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
+            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4" style="background-color: #8c9eff;">
                 <div class="mt-0 mb-3">
                     <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
                     <input class="form-control" type="file" accept=".jpg,.gif,.png" name ="file_id" onchange="preview()" required>
@@ -240,7 +240,6 @@ include("src/php/connect_db.php");
         </div>
         
     </div>
-    <!-- </form> -->
     
 
     <script>
