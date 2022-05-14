@@ -18,10 +18,21 @@ if($action == "insertCommission") {
   $firstpay = $_POST['firstpay'];
   $mode = $_POST['mode'];
   $datetime = $_POST['datetime'];
-  $extend = $_POST['extend'];
-  $status = $_POST['status'];
-  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit,extend_time_status,commission_status)
-   VALUES ($iduser,$idcreator,$price,$color,$scale,"$description",$mature,$publiceArt,$idcommission,$firstpay,$mode,"$datetime",$extend,$status)";
+  // $iduser =1065;
+  // $idcreator =6338;
+  // $price = 1234;
+  // $color = 0;
+  // $scale = 1; 
+  // $description = "lol";
+  // // $category = $_POST['category'];
+  // $mature = 1;
+  // $publiceArt = 0;
+  // $idcommission =44456;
+  // $firstpay = 123;
+  // $mode = 0;
+  // $datetime = "2011-08-23";
+  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
+   VALUES ($iduser,$idcreator,$price,$color,$scale,'$description',$mature,$publiceArt,$idcommission,$firstpay,$mode,'$datetime')";
   $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
