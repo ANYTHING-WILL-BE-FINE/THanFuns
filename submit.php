@@ -29,6 +29,43 @@ include("src/php/connect_db.php");
             margin-right: 20px;
         }
     </style>
+
+    <script>
+        function insertMyday(){
+      $.ajax({
+      type: "POST", 
+      url: 'process.php',
+      data:{
+          commission_id:4,
+          user_id: $("#user_id").val(),
+          creator_id: $("#user_creator").val(),
+          request_price: $("#request_price").val(),
+          job_color:0,
+          job_scale:$("#job_scale").val(),
+          job_mature:1,
+          job_private:0,
+          job_description: $("#job_description").val(),
+          first_pay:234,
+          job_co_right_mode:0,
+          datetime_limit:"2022-09-13",
+
+          // iduser: document.getElementById("iduser"),
+          // idcreator: document.getElementById("idcreator"),
+          // price: document.getElementById("price"),
+          // description: document.getElementById("description"),
+          // category: $('input[id="category"]:checked'),
+          // job_private: $('input[id="job_private"]:checked'),
+          action : 'insertCommission'},
+      success: function(data){
+      console.log(data);
+      },
+      error: function(xhr, status, error){
+      console.error(xhr);
+    }
+    });
+  }
+    </script>
+    
 </head>
 
 <body>
