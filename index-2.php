@@ -82,11 +82,11 @@
           if (yes.checked == true && no.checked == true){  
           return document.getElementById("error").innerHTML = "Please mark only one checkbox either Yes or No";  
          }  
-          else if (yes.checked == true){  
+          else if (yes.checked == true && no.checked == false){  
           var y = document.getElementById("yes").value;  
           return document.getElementById("result").innerHTML = y;   
         }   
-          else if (no.checked == true){  
+          else if (yes.checked == false && no.checked == true){  
           var n = document.getElementById("no").value;  
           return document.getElementById("result").innerHTML = n;  
         }  
@@ -100,10 +100,10 @@
       type: "POST", 
       url: 'process.php',
       data:{
-        idcommission:789,
+        idcommission:333333,
         iduser: 1065,
         idcreator:1065,
-        price:1225,
+        request_price: $("#request_price").val(),
         color:0,
         scale:1,
         mature:1,
@@ -140,16 +140,16 @@
         <div class="col-sm-3"><p style="color:black">  3.Creator จะสามารถขอยืดเวลาการทำงานได้ 15 วัน หากเลย 15 วันแล้วยังไม่เสร็จ ผู้จ้างวานจะสามารถยื่นขอคืนเงินได้ </p></div>
         <div class="mb-3">
        <div class="mb-3"> <label>รหัสประจำตัวUser</label><br>
-        <input class="md-4" id="iduser" name="acc_id">
+        <input class="md-4" id="iduser" name="user_id">
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
-            <input class="md-4" id="idcreator" name="acc_id" >
+            <input class="md-4" id="idcreator" name="user_id" >
         </div> 
        
          <div class="mb-3">
             <label >ราคา</label>
-            <input class="md-4" id="price" name="request_price"><label >บาท</label>
+            <input class="md-4" id="request_price" name="request_price"><label >บาท</label>
         </div> 
         <div class="mb-3">
           <label>ประเภทสี</label><br>
@@ -188,7 +188,7 @@
           <label class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
           <input class="form-check-input" type="checkbox" id="yes" name="job_private" value="0" >
           <label class="form-check-label">ไม่อนุญาต</label>
-          <input class="form-check-input" type="checkbox" id="no" name="job_private" value="1" >
+          <input class="form-check-input" type="checkbox" id="no" name="job_private" value="1"  >
           <label class="form-check-label">อนุญาต</label>
         </div>   
       <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
