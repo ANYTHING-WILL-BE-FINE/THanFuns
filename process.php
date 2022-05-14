@@ -1,25 +1,59 @@
-<?php include("src/php/connect_db.php");?>
+<?php include_once("src/php/connect_db.php");?>
 <?php
 
-// if(isset($_POST['file_path']))
-// {    
-//    $file_path = $_POST['file_path'];
-$vp = 1;
+$action = $_POST['action'];
 
-      $sql = "INSERT INTO dict_tags (tags_id,tags_label) VALUES ( $vp,'SAES')";
-         //   $mysql = $conn->mysqli_query($sql);
-         if ($conn->query($sql)=== TRUE) {
-           echo "New record has been added successfully !";
-          } else {
-            echo "Error: " . $sql . ":-" . mysqli_error($conn);
-          }
-    
-    //  $sql = "SELECT * FROM dict_tags";
-    //  $mysql = mysqli_query($conn, $sql);
+if($action == "insertCommission") {
+  
+  // $iduser = $_POST['iduser'];
+  // $idcreator = $_POST['idcreator'];
+  // $request_price = $_POST['request_price'];
+  // $color = $_POST['color'];
+  // $scale = $_POST['scale']; 
+  // $description = $_POST['description'];
+  // // $category = $_POST['category'];
+  // $mature = $_POST['mature'];
+  // $publiceArt = $_POST['publiceArt'];
+  // $idcommission = $_POST['idcommission'];
+  // $firstpay = $_POST['firstpay'];
+  // $mode = $_POST['mode'];
+  // $datetime = $_POST['datetime'];
+  // $extend = $_POST['extend'];
+  // $status = $_POST['status'];
+
+  $user_id = $_POST['user_id'];
+  $creator_id = $_POST['creator_id'];
+  $request_price = $_POST['request_price'];
+  $job_color = $_POST['job_color'];
+  $job_scale = $_POST['job_scale']; 
+  $job_description = $_POST['job_description'];
+  // $category = $_POST['category'];
+  $job_mature = $_POST['job_mature'];
+  $job_private = $_POST['job_private'];
+  $commission_id = $_POST['commission_id'];
+  $first_pay = $_POST['first_pay'];
+  $job_co_right_mode = $_POST['job_co_right_mode'];
+  $datetime_limit = $_POST['datetime_limit'];
+  // $extend = $_POST['extend'];
+  // $status = $_POST['status'];
+
+  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
+   VALUES ($user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,'$job_private',$commission_id,$first_pay,$job_co_right_mode,'$datetime_limit')";
+  $mysql = mysqli_query($conn, $sql);
+  if ($mysql === TRUE) {
+    echo "New record has been added successfully !";
+ } else {
+    echo "Error: " . $sql . ":-" . mysqli_error($conn);
+ }
+}
+else {
+
     //  while ($row = mysqli_fetch_assoc($mysql)) {
     //      echo "<h5>Table: {$row['tags_label']} </h5>";
     // }
-    // mysqli_close($conn);
+  }
+
+    mysqli_close($conn);
     
 // }
 

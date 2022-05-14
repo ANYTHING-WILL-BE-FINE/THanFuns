@@ -15,7 +15,7 @@ include("src/php/connect_db.php");
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <link rel="stylesheet" href="submit.css">
+    <link rel="stylesheet" href="bar.css">
 
     <style type="text/css">
         .selectt {
@@ -163,7 +163,7 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4" style="background-color: #8c9eff;">
+            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
                 <div class="mt-0 mb-3">
                     <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
                     <input class="form-control" type="file" accept=".jpg,.gif,.png" name ="file_id" onchange="preview()" required>
