@@ -189,10 +189,15 @@ include("src/php/connect_db.php");
 
           <br>
 
-          <label for="fname">First name</label>
+          <div>
+              <label for="fname">First name</label>
           <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
-          <label for="lname">Last name</label>
+          </div>
+          <div>
+              <label for="lname">Last name</label>
           <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+        </div>
+          
 
           <br>
           Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
@@ -225,9 +230,22 @@ include("src/php/connect_db.php");
 	    <option value="creator">Creator</option>
 	    <option value="admin">Admin</option>
         </select>
+        
+
+        <div>
+            <label for="fname">รหัสบัตรประชาชน</label>
+        <input type="text" id="idcard" name="idcard" placeholder="idcard" required>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">รูปบัตรประชาชน</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">รูปถ่ายกับบัตรประชาชน</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
-
     </form>
 
 
