@@ -47,7 +47,7 @@
           if($result -> num_rows > 0) {
             while($row = $result -> fetch_row()) {
               ?>
-              <img src="<?php echo isset($row['file_path']);
+              <img src="<?php echo $row['file_path'];
               }}?>">  
         </div>
         <div class="card-body">
