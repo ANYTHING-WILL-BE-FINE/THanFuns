@@ -20,9 +20,9 @@
     <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
-    <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
+    <nav class="navbar navbar-expand-md navbar-light bg-light px-0">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand hidden" href="#">
                 <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2 me-4">
             </a>
             
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarlogo">
 
                 <ul class="navbar-nav">
-                    <div class="input-group mb-lg-0" >
+                    <div class="input-group mt-2 mt-mb-0 mb-lg-0" >
                         <input type="text" class="form-control" placeholder="Search..." aria-label="Search...">
                         <div class="input-group-text">
                             <li class="nav-item">
@@ -157,114 +157,75 @@
 
             <!--- content --->
             <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4" style="background-color: #ffffff;">
-
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <!-- <div class="col-12"> -->
-                                <div class="card card-stepper text-black" style="border-radius: 30px; ">
-                  
-                                    <div class="card-body p-4" >
-
-                                        <div class="text-center mt-5 mb-4">
-                                                <h5><span class="font-weight-bold" style="color: #282382;">PROGRESS</span></h5>
-                                        </div>
-
-                                        <!-- <ul id="progressbar-2" class="d-flex justify-content-between mx-0 mt-0 mb-0 px-0 pt-0 pb-1">
-                                            
-                                                <li class="step0 active" id="step1"></li>
-                                                <li class="step0 active " style="padding-top: 45px;" id="step2"></li>
-                                                <li class="step0 text-muted text-center" style="padding-top: 45px; " id="step3"></li>
-                                                <li class="step0 text-muted text-end" id="step4"></li>
-                                            
-                                        </ul> -->
-                                        <div class="">
-
-                                            <div id="progress" class="d-flex flex-row justify-content-between align-items-center align-content-center px-0 mb-0">
-                                                <div class="d-flex justify-content-center align-items-center" id="img1"></div>
-                                                <div class="flex-fill" id="onecolor1">
-                                                    <p><h6 class="text-muted text-center mt-1 mb-0 small hidden2" >ผู้ว่าจ้างชำระเงิน</h6></p>
-                                                </div>
-                                                <span class="dot1" id="dot1"></span>
-                                                <div class="flex-fill text-center" id="twocolor">
-                                                    <p><h6 class="text-muted mt-1 mb-0 small hidden2" >ผู้วาดทำตามคำขอ</h6></p>
-                                                </div>
-                                                <span class="dot2" id="dot2"></span>
-                                                <div class="flex-fill" id="onecolor2">
-                                                    <p><h6 class="text-muted text-center mt-1 mb-0 small hidden2" >ผู้ว่าจ้างชำระเงิน</h6>
-                                                    <h6 class="text-muted text-center mt-0 mb-0 small hidden2" >รอบที่ 2</h6></p>
-                                                </div>
-                                                <span class="d-flex justify-content-center align-items-center" id="img2"></span>
-                                            </div>
-                                            <!-- <div class="d-flex flex-row justify-content-between align-items-center align-content-center px-0 mb-0 row mb-3">
-                                                <h5 class="col-2 text-center" >user</h5>
-                                                <h5 class="col-8"></h5>
-                                                <h5 class="col-2 text-center" >creator</h5>
-                                            </div> -->
-                                        </div>
-
-                                        <div class="row mt-5 mb-3">
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ราคาสินค้า</h5>
-                                            <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >1000</h5>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ส่วนลด</h5>
-                                            <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >0</h5>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >รวม</h5>
-                                            <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >1000</h5>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >มัดจำ</h5>
-                                            <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >0</h5>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >สถานะ</h5>
-                                            <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                            <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >......</h5>
-                                        </div>
-                  
-                                        <!-- <div class="d-flex justify-content-between">
-                                            <div class="d-lg-flex align-items-center">
-                                                <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>
-                                                <div>
-                                                    <p class="fw-bold mb-1">Order</p>
-                                                    <p class="fw-bold mb-0">Processed</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i>
-                                                <div>
-                                                    <p class="fw-bold mb-1">Order</p>
-                                                    <p class="fw-bold mb-0">Shipped</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i>
-                                                <div>
-                                                    <p class="fw-bold mb-1">Order</p>
-                                                    <p class="fw-bold mb-0">En Route</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-lg-flex align-items-center">
-                                                <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i>
-                                                <div>
-                                                    <p class="fw-bold mb-1">Order</p>
-                                                    <p class="fw-bold mb-0">Arrived</p>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                    </div>
+                <div class="row d-flex justify-content-center align-items-center mb-4">
+                        <div class="card card-stepper text-black" style="border-radius: 30px; ">
+                            <div class="card-body p-4" >
+                                <div class="text-center mt-5 mb-4">
+                                        <h5><span class="font-weight-bold" style="color: #282382;">PROGRESS</span></h5>
                                 </div>
-                            <!-- </div> -->
+                                <div class="">
+
+                                    <div id="progress" class="d-flex flex-row justify-content-between align-items-center align-content-center px-0 mb-0">
+                                        <div class="d-flex justify-content-center align-items-center" id="img1"></div>
+                                        <div class="flex-fill" id="onecolor1">
+                                            <p><h6 class="text-muted text-center mt-1 mb-0 small hidden2" >ผู้ว่าจ้างชำระเงิน</h6></p>
+                                        </div>
+                                        <span class="dot1" id="dot1"></span>
+                                        <div class="flex-fill text-center" id="twocolor">
+                                            <p><h6 class="text-muted mt-1 mb-0 small hidden2" >ผู้วาดทำตามคำขอ</h6></p>
+                                        </div>
+                                        <span class="dot2" id="dot2"></span>
+                                        <div class="flex-fill" id="onecolor2">
+                                            <p><h6 class="text-muted text-center mt-1 mb-0 small hidden2" >ผู้ว่าจ้างชำระเงิน</h6>
+                                            <h6 class="text-muted text-center mt-0 mb-0 small hidden2" >รอบที่ 2</h6></p>
+                                        </div>
+                                        <span class="d-flex justify-content-center align-items-center" id="img2"></span>
+                                    </div>
+                                    <!-- <div class="d-flex flex-row justify-content-between align-items-center align-content-center px-0 mb-0 row mb-3">
+                                        <h5 class="col-2 text-center" >user</h5>
+                                        <h5 class="col-8"></h5>
+                                        <h5 class="col-2 text-center" >creator</h5>
+                                    </div> -->
+                                </div>
+
+                                <div class="row mt-5 mb-3">
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ราคาสินค้า</h5>
+                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >1000</h5>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ส่วนลด</h5>
+                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >0</h5>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >รวม</h5>
+                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >1000</h5>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >มัดจำ</h5>
+                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >0</h5>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >สถานะ</h5>
+                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >......</h5>
+                                </div>
+            
+                            </div>
                         </div>
+                    </div>
+
+                <div class="d-grid col-6 col-sm-3 mx-auto">
+                    <button type="submit" class="btn btn-primary mb-5">ติดต่อครีเอเตอร์</button>
+                </div>
+
             </div>
             <!--- content end --->
 
