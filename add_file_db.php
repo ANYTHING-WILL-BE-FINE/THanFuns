@@ -37,12 +37,12 @@ if($upload !='') {   //not select file
 	mysqli_close($conn);
 	// javascript แสดงการ upload file
 	
-    exit;
+    // exit;
 
 	if($mysql){
 	echo "<script type='text/javascript'>";
 	echo "alert('Upload File Succesfuly');";
-	echo "window.location = 'uploadfile.php'; ";
+	echo "window.location = 'form.php'; ";
 	echo "</script>";
 	}
 	else{
