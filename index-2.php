@@ -99,10 +99,15 @@
       $.ajax({
       type: "POST", 
       url: 'process.php',
-      data:{idcommission:2234,
+      data:{
+        idcommission:789,
         iduser: 1065,
-        idcreator:6338,
+        idcreator:1065,
         price:1225,
+        color:0,
+        scale:1,
+        mature:1,
+        publiceArt:0,
         description:"cat",
         firstpay:234,
         mode:0,
