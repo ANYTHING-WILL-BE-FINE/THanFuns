@@ -34,28 +34,17 @@ include("src/php/connect_db.php");
         function insertMyday(){
       $.ajax({
       type: "POST", 
-      url: 'process.php',
+      url: 'add_file_db.php',
       data:{
-          commission_id:4,
-          user_id: $("#user_id").val(),
-          creator_id: $("#user_creator").val(),
-          request_price: $("#request_price").val(),
-          job_color:0,
-          job_scale:$("#job_scale").val(),
-          job_mature:1,
-          job_private:0,
-          job_description: $("#job_description").val(),
-          first_pay:234,
-          job_co_right_mode:0,
-          datetime_limit:"2022-09-13",
-
-          // iduser: document.getElementById("iduser"),
-          // idcreator: document.getElementById("idcreator"),
-          // price: document.getElementById("price"),
-          // description: document.getElementById("description"),
-          // category: $('input[id="category"]:checked'),
-          // job_private: $('input[id="job_private"]:checked'),
-          action : 'insertCommission'},
+          creator_id: 1065,
+        //   file_id: $("#file_id").val(),
+          product_name: $("#product_name").val(),
+          description: $("#description").val(),
+          tags_label: $("#tags_label").val(),
+          category_id: $("#category_id").val(),
+          mature_mode: 1
+        //   action : 'submit'
+        },
       success: function(data){
       console.log(data);
       },
@@ -200,81 +189,83 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
-                <div class="mt-0 mb-3">
-                    <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
-                    <input class="form-control" type="file" accept=".jpg,.gif,.png" name ="file_id" onchange="preview()" required>
-                    <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/>
-                </div>
-               
-                <div class="mb-3">
-                    <label for="formtitle" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="product_name" placeholder="Title..." required>
-                </div>
-        
-                <div class="mb-3">
-                    <label for="fordescription" class="form-label">Description</label>
-                    <textarea type="text" class="form-control" id="description" rows="4" placeholder="Description..."></textarea>
-                </div>
-        
-                <div class="mb-3">
-                    <label for="formtag" class="form-label">Tag</label>
-                    <input type="text" class="form-control" id="tags_label" placeholder="Tag #...">
-                </div>
-        
-                <div class="mb-3">
-                    <label for="category" class="form-label">Category</label>
-                    <select class="form-select col mb-1" id="label" required>
-                        <option selected disabled value="">Select Category</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </div>
-        
-                <div class="mb-3 form-check">
-                    <label class="form-check-label" for="mature_mode">
-                    <input type="checkbox" class="form-check-input" id="mature_mode" value="mature_mode">
-                    Mature Content</label>
-                </div>
-
-                <div class="mb-3 form-check">
-                    <label class="form-check-label" for="check2">
-                    <input type="checkbox" class="form-check-input" id="check2" value="check2">
-                    I want to sold this artwork</label>
-                    <div class="check2 selectt">
-                        <select class="form-select col mb-2" id="auction" required>
-                            <option selected disabled value="sale_mode">Auction</option>
+            <form action="add_file_db.php" method="post" enctype="multipart/form-data">
+                <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
+                    <div class="mt-0 mb-3">
+                        <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
+                        <input class="form-control" type="file" accept=".jpg,.gif,.png" name="file_id" id="file_id" onchange="preview()" required>
+                        <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="formtitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Title..." required>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="fordescription" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" id="description" name="description" rows="4" placeholder="Description..."></textarea>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="formtag" class="form-label">Tag</label>
+                        <input type="text" class="form-control" id="tags_label" name="tags_label" placeholder="Tag #...">
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select col mb-1" id="category_id" name="category_id" required>
+                            <option selected disabled value="">Select Category</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            </select>
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Starting Bid" aria-label="Starting Bid" required>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Bid" aria-label="Bid" required>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Autobuy" aria-label="Autobuy">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Time period" aria-label="Time period" required>
+                        </select>
+                    </div>
+            
+                    <div class="mb-3 form-check">
+                        <label class="form-check-label" for="mature_mode">
+                        <input type="checkbox" class="form-check-input" id="mature_mode" name="mature_mode" value="1">
+                        Mature Content</label>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" value="check2">
+                        I want to sold this artwork</label>
+                        <div class="check2 selectt">
+                            <select class="form-select col mb-2" id="sale_mode" name="sale_mode" required>
+                                <option selected disabled value="sale_mode">Auction</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Starting Bid" aria-label="Starting Bid" required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Bid" aria-label="Bid" required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Autobuy" aria-label="Autobuy">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Time period" aria-label="Time period" required>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="d-grid col-4 mx-auto">
+                        <button type="submit" class="btn btn-primary mb-4" onclick="insertMyday()" >Submit</button>
+                    </div>
+
                 </div>
 
-                <div class="d-grid col-4 mx-auto">
-                    <button type="submit" class="btn btn-primary mb-4">Submit</button>
-                </div>
-
-             </div>
-
-        </div>
+            </div>
+        </form>
         
     </div>
     

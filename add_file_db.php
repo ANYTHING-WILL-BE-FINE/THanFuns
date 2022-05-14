@@ -1,8 +1,13 @@
 <meta charset="UTF-8">
 <?php
 //1. เชื่อมต่อ database: 
-include("src/php/connect_db.php");  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
-// $file_id = $_POST['file_id']; //รับค่าไฟล์จากฟอร์ม	
+include("src/php/connect_db.php");  
+
+$creator_id = $_POST['creator_id'];
+$product_name = $_POST['creator_id'];
+$description = $_POST['description'];
+$tags_label = $_POST['tags_label'];
+
 $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
 
 //ฟังก์ชั่นวันที่
@@ -19,7 +24,7 @@ if($upload !='') {   //not select file
         //เอาชื่อไฟล์เก่าออกให้เหลือแต่นามสกุล
         $type = strrchr($_FILES['file_id']['name'],".");
             
-        //ตั้งชื่อไฟล์ใหม่โดยเอาเวลาไว้หน้าชื่อไฟล์เดิม
+        //ตั้งชื่อไฟล์ใหม่
         $newname = 'PVS'.$numrand.$date.$type;
         $path_copy=$path.$newname;
         $path_link="file_id/".$newname;
@@ -28,7 +33,6 @@ if($upload !='') {   //not select file
         move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);  	
 	}
 	// เพิ่มไฟล์เข้าไปในตาราง uploadfile
-	
 		$sql = "INSERT INTO pth_file (file_id) 
 		VALUES('$newname')";
 		
@@ -37,7 +41,7 @@ if($upload !='') {   //not select file
 	mysqli_close($conn);
 	// javascript แสดงการ upload file
 	
-    // exit;
+    exit;
 
 	if($mysql){
 	echo "<script type='text/javascript'>";
