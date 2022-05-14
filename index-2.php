@@ -100,25 +100,25 @@
       type: "POST", 
       url: 'process.php',
       data:{
-        idcommission:333333,
-        iduser: 1065,
-        idcreator:1065,
+        commission_id:2,
+        user_id: $("#user_id").val(),
+        creator_id: $("#user_creator").val(),
         request_price: $("#request_price").val(),
-        color:0,
-        scale:1,
-        mature:1,
-        publiceArt:0,
-        description:"cat",
-        firstpay:234,
-        mode:0,
-        datetime:"2022-09-13",
+        job_color:0,
+        job_scale:1,
+        job_mature:1,
+        job_private:0,
+        job_description: $("#job_description").val(),
+        first_pay:234,
+        job_co_right_mode:0,
+        datetime_limit:"2022-09-13",
 
         // iduser: document.getElementById("iduser"),
         // idcreator: document.getElementById("idcreator"),
         // price: document.getElementById("price"),
         // description: document.getElementById("description"),
         // category: $('input[id="category"]:checked'),
-        // publiceArt: $('input[id="publiceArt"]:checked'),
+        // publiceArt: $('input[id="job_private"]:checked'),
         action : 'insertCommission'},
       success: function(data){
       console.log(data);
@@ -140,11 +140,11 @@
         <div class="col-sm-3"><p style="color:black">  3.Creator จะสามารถขอยืดเวลาการทำงานได้ 15 วัน หากเลย 15 วันแล้วยังไม่เสร็จ ผู้จ้างวานจะสามารถยื่นขอคืนเงินได้ </p></div>
         <div class="mb-3">
        <div class="mb-3"> <label>รหัสประจำตัวUser</label><br>
-        <input class="md-4" id="iduser" name="user_id">
+        <input class="md-4" id="user_id" name="user_id">
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
-            <input class="md-4" id="idcreator" name="user_id" >
+            <input class="md-4" id="user_creator" name="user_id" >
         </div> 
        
          <div class="mb-3">
@@ -171,7 +171,7 @@
         </div> 
         <div class="mb-3">
             <label for="detail" class="form-label">รายละเอียดผลงาน</label>
-            <textarea name="job_description" id="description" cols="30" row="30"class="form-control"></textarea>
+            <textarea name="job_description" id="job_description" cols="30" row="30"class="form-control"></textarea>
         </div>
         <!-- <div class="mb-3">
             <label for="category" class="form-label">category</label><br>
@@ -179,9 +179,9 @@
         </div>  -->
         <div class="mb-3">
           <label  class="form-label">mature?</label><br>
-          <input class="form-check-input" type="checkbox" id="nonmature" name="job_mature" value="something">
+          <input class="form-check-input" type="checkbox" id="job_mature" name="job_mature" value="nonmature">
           <label class="form-check-label">NO</label>
-          <input class="form-check-input" type="checkbox" id="mature" name="job_mature" value="something">
+          <input class="form-check-input" type="checkbox" id="job_mature" name="job_mature" value="mature">
           <label class="form-check-label">YES</label>
         </div>
         <div class="mb-3">

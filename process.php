@@ -28,17 +28,17 @@ if($action == "insertCommission") {
   $job_scale = $_POST['job_scale']; 
   $job_description = $_POST['job_description'];
   // $category = $_POST['category'];
-  $mature = $_POST['mature'];
-  $publiceArt = $_POST['publiceArt'];
-  $idcommission = $_POST['idcommission'];
-  $firstpay = $_POST['firstpay'];
-  $mode = $_POST['mode'];
-  $datetime = $_POST['datetime'];
-  $extend = $_POST['extend'];
-  $status = $_POST['status'];
+  $job_mature = $_POST['job_mature'];
+  $job_private = $_POST['job_private'];
+  $commission_id = $_POST['commission_id'];
+  $first_pay = $_POST['first_pay'];
+  $job_co_right_mode = $_POST['job_co_right_mode'];
+  $datetime_limit = $_POST['datetime_limit'];
+  // $extend = $_POST['extend'];
+  // $status = $_POST['status'];
 
   $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
-   VALUES ($user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$mature,'$publiceArt',$idcommission,$firstpay,$mode,'$datetime')";
+   VALUES ($user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,'$job_private',$commission_id,$first_pay,$job_co_right_mode,'$datetime_limit')";
   $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
