@@ -107,8 +107,6 @@
         firstpay:234,
         mode:0,
         datetime:"2022-09-13",
-        extend:0,
-        status:1,
 
         // iduser: document.getElementById("iduser"),
         // idcreator: document.getElementById("idcreator"),
@@ -136,9 +134,14 @@
         <div class="col-sm-3"><p style="color:black">  2.การจ้างงานแบบ commission ต้องมีการแบ่งชำระเป็นสองงวดเท่านั้น หากงวดที่สองไม่ชำระจะถือว่าสัญญาเป็นโมฆะ </p></div>
         <div class="col-sm-3"><p style="color:black">  3.Creator จะสามารถขอยืดเวลาการทำงานได้ 15 วัน หากเลย 15 วันแล้วยังไม่เสร็จ ผู้จ้างวานจะสามารถยื่นขอคืนเงินได้ </p></div>
         <div class="mb-3">
+          <div class="mb-3">
+            <label >รหัสcommission</label><br>
+            <input class="md-4" id="idcommission" name="acc_id" >
+        </div> 
        <div class="mb-3"> <label>รหัสประจำตัวUser</label><br>
-        <input class="md-4" id="iduser" name="acc_id">
+        <input class="md-4" id="iduser" name="commission_id">
         </div>
+        
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
             <input class="md-4" id="idcreator" name="acc_id" >
@@ -146,8 +149,18 @@
        
          <div class="mb-3">
             <label >ราคา</label>
-            <input class="md-4" id="price" name="request_price"><label >บาท</label>
+            <input class="md-4" id="price" name="request_price"><label>บาท</label>
         </div> 
+        <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select col mb-1" id="label" required>
+                        <option selected disabled value="">Select Category</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
         <div class="mb-3">
           <label>ประเภทสี</label><br>
           <input class="form-check-input" type="checkbox" id="color" name="job_color" value="something" >
@@ -182,12 +195,27 @@
           <label class="form-check-label">YES</label>
         </div>
         <div class="mb-3">
+            <label >ราคาที่จ่ายรอบแรก</label>
+            <input class="md-4" id="firstpay" name="first_pay"><label>บาท</label>
+        </div> 
+        <div class="mb-3">
           <label class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
-          <input class="form-check-input" type="checkbox" id="yes" name="job_private" value="0" >
+          <input class="form-check-input" type="checkbox" id="yes" name="job_co_right_mode" value="0" >
           <label class="form-check-label">ไม่อนุญาต</label>
-          <input class="form-check-input" type="checkbox" id="no" name="job_private" value="1" >
+          <input class="form-check-input" type="checkbox" id="no" name="job_co_right_mode" value="1" >
           <label class="form-check-label">อนุญาต</label>
-        </div>   
+        </div> 
+         <div class="mb-3">
+          <label>ลักษณะการใช้งานของผลงาน</label><br>
+          <input class="form-check-input" type="checkbox" id="mode" name="datetime_limit" value="something" >
+          <label class="form-check-label">ใช้ในเชิงส่วนตัว</label>
+          <input class="form-check-input" type="checkbox" id="mode1" name="datetime_limit" value="something" >
+          <label class="form-check-label"> ใช้ในเชิงพาณิชย์</label>
+        </div> 
+        </div> 
+       <div class="mb-3"> <label>วันที่ส่งงาน</label><br>
+        <input class="md-4" id="datetime" name="commission_id">
+        </div>
       <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
       <button class="btn btn-secondary" type="button">ยกเลิก</button>
     </div>
