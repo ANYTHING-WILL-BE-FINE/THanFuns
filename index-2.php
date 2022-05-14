@@ -77,8 +77,8 @@
       }
 
       function publiceArt() {  
-          var yes = document.getElementById("yes");  
-          var no = document.getElementById("no");  
+          var yes = document.getElementById("1");  
+          var no = document.getElementById("2");  
           if (yes.checked == true && no.checked == true){  
           return document.getElementById("error").innerHTML = "Please mark only one checkbox either Yes or No";  
          }  
@@ -100,14 +100,14 @@
       type: "POST", 
       url: 'process.php',
       data:{
-        commission_id:28,
+        commission_id:3,
         user_id: $("#user_id").val(),
         creator_id: $("#user_creator").val(),
         request_price: $("#request_price").val(),
         job_color:0,
         job_scale:1,
         job_mature:1,
-        job_private:0,
+        // job_private:0,
         job_description: $("#job_description").val(),
         first_pay:234,
         job_co_right_mode:0,
@@ -118,7 +118,7 @@
         // price: document.getElementById("price"),
         // description: document.getElementById("description"),
         // category: $('input[id="category"]:checked'),
-        // publiceArt: $('input[id="job_private"]:checked'),
+        job_private: $('input[id="job_private"]:checked'),
         action : 'insertCommission'},
       success: function(data){
       console.log(data);
@@ -186,9 +186,9 @@
         </div>
         <div class="mb-3">
           <label class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
-          <input class="form-check-input" type="checkbox" id="yes" name="job_private" value="0" >
+          <input class="form-check-input" type="checkbox" id="job_private" name="job_private" value="0" >
           <label class="form-check-label">ไม่อนุญาต</label>
-          <input class="form-check-input" type="checkbox" id="no" name="job_private" value="1"  >
+          <input class="form-check-input" type="checkbox" id="job_private" name="job_private" value="1"  >
           <label class="form-check-label">อนุญาต</label>
         </div>   
       <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
