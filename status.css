@@ -52,7 +52,7 @@ padding-left: 0px;
 
 #progressbar-2 #step3:before {
 content: '';
-font-family: "";
+font-family: "Font Awesome 5 Free";
 color: #c5cae9;
 width: 15px;
 height: 15px;
@@ -86,6 +86,7 @@ display: block;
 font-size: 12px;
 background: #c5cae9;
 border-radius: 50%;
+margin: auto;
 }
 
 #progressbar-2 li:after {
@@ -135,91 +136,72 @@ width: 0;
 background: #3A3D74;
 }
 
+#progress #onecolor1 {
+    height: 4px !important;
+    background-color: #3A3D74;
+    opacity: 1;
+    }
 
-/* .card-stepper {
-z-index: 0
-}
+#progress #onecolor2 {
+    height: 4px !important;
+    background-color: #FD968D;
+    opacity: 1;
+    }
 
-#progressbar-2 {
-color: #455A64;
-}
+#progress #twocolor {
+    height: 4px !important;
+    background:linear-gradient(to right, #3A3D74 50%, #FD968D 50%);
+    opacity: 1;
+    }
+    
+    #progress #dot1 {
+        height: 10px;
+        width: 10px;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-top: 0px;
+        background-color: #3A3D74;
+        border-radius: 50%;
+        display: inline-block
+        }
 
-#progressbar-2 li {
-list-style-type: none;
-font-size: 13px;
-width: 33.33%;
-float: left;
-position: relative;
-}
+    #progress #dot2 {
+        height: 10px;
+        width: 10px;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-top: 0px;
+        background-color: #FD968D;
+        border-radius: 50%;
+        display: inline-block
+        }
+    
+    #progress #img1 {
+        background-image: url('/photo/1.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100px;
+        width: 100px;
+        border: 5px solid #3A3D74;
+        border-radius: 50%;
+        display: inline-block;
+        }
 
-#progressbar-2 #step1:before {
-content: '\f058';
-font-family: "Font Awesome 5 Free";
-color: #fff;
-width: 37px;
-margin-left: 0px;
-text-align: center;
-}
+    #progress #img2 {
+        background-image: url('/photo/2.png');
+        background-size: cover;
+        background-position: center;
+        height: 100px;
+        width: 100px;
+        border: 5px solid #3A3D74;
+         border-radius: 50%;
+        display: inline-block;
+         }
 
-#progressbar-2 #step2:before {
-content: '\f058';
-font-family: "Font Awesome 5 Free";
-color: #fff;
-width: 37px;
-text-align: center;
-}
-
-#progressbar-2 #step3:before {
-content: '\f058';
-font-family: "Font Awesome 5 Free";
-color: #fff;
-width: 37px;
-margin-right: 0;
-text-align: center;
-}
-
-#progressbar-2 li:before {
-line-height: 37px;
-display: inline-block;
-font-size: 15px;
-background: #c5cae9;
-border-radius: 50%;
-}
-
-#progressbar-2 li:after {
-content: '';
-width: 100%;
-height: 10px;
-background: #c5cae9;
-position: absolute;
-left: 0%;
-right: 0%;
-top: 15px;
-z-index: -1;
-}
-
-#progressbar-2 li:nth-child(1):after {
-left: 1%;
-width: 150%;
-}
-
-#progressbar-2 li:nth-child(2):after {
-left: 1%;
-width: 150%;
-background: #c5cae9 !important;
-}
-
-#progressbar-2 li:nth-child(3) {
-left: 1%;
-width: 37px;
-}
-
-#progressbar-2 li:nth-child(3):after {
-left: 0%;
-width: 90%;
-}
-
-#progressbar-2 li.active:before,
-#progressbar-2 li.active:after {
-background: #6520ff;
-} */
+    .big-dot i {
+    font-size: 12px;
+    }
+    
+    .card-stepper {
+    z-index: 0
+    }
