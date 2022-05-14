@@ -4,22 +4,6 @@
 $action = $_POST['action'];
 
 if($action == "insertCommission") {
-  
-  // $iduser = $_POST['iduser'];
-  // $idcreator = $_POST['idcreator'];
-  // $request_price = $_POST['request_price'];
-  // $color = $_POST['color'];
-  // $scale = $_POST['scale']; 
-  // $description = $_POST['description'];
-  // // $category = $_POST['category'];
-  // $mature = $_POST['mature'];
-  // $publiceArt = $_POST['publiceArt'];
-  // $idcommission = $_POST['idcommission'];
-  // $firstpay = $_POST['firstpay'];
-  // $mode = $_POST['mode'];
-  // $datetime = $_POST['datetime'];
-  // $extend = $_POST['extend'];
-  // $status = $_POST['status'];
 
   $user_id = $_POST['user_id'];
   $creator_id = $_POST['creator_id'];
@@ -34,8 +18,6 @@ if($action == "insertCommission") {
   $first_pay = $_POST['first_pay'];
   $job_co_right_mode = $_POST['job_co_right_mode'];
   $datetime_limit = $_POST['datetime_limit'];
-  // $extend = $_POST['extend'];
-  // $status = $_POST['status'];
 
   $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
    VALUES ($user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,'$job_private',$commission_id,$first_pay,$job_co_right_mode,'$datetime_limit')";
