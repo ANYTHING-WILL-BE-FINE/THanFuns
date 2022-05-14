@@ -20,8 +20,9 @@ if($action == "insertCommission") {
   $datetime = $_POST['datetime'];
   $extend = $_POST['extend'];
   $status = $_POST['status'];
-  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit,extend_time_status,commission_status)
-   VALUES ($iduser,$idcreator,$price,$color,$scale,'$description',$mature,$publiceArt,$idcommission,$firstpay,$mode,'$datetime')";
+  $sql = "INSERT INTO mkt_commission(user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
+   VALUES ($iduser,$idcreator,$price,$color,$scale,"$description",$mature,$publiceArt,$idcommission,$firstpay,$mode,"$datetime")";
+  $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
  } else {
