@@ -16,15 +16,15 @@ $mysql = mysqli_query($conn, $query);
 // <!-- //4 . แสดงข้อมูลที่ query ออกมา:  -->
 
 // <!-- //ใช้ตารางในการจัดข้อมูล -->
-echo "<table border='1' align='center' width='500'>";
+// echo "<table border='1' align='center' width='500'>";
 // <!-- //หัวข้อตาราง -->
-echo "<tr align='center' bgcolor='#CCCCCC'><td>File ID</td><td>File</td><td>date_create</td></tr>";
-while($row = mysqli_fetch_array($mysql)) { 
-  echo "<tr>";
-  echo "<td align='center'>" .$row["file_id"] .  "</td> "; 
-  echo "<td align='center'>" .$row["timestamp_update"] .  "</td> ";
-  echo "</tr>";
-}
+// echo "<tr align='center' bgcolor='#CCCCCC'><td>File ID</td><td>File</td><td>date_create</td></tr>";
+// while($row = mysqli_fetch_array($mysql)) { 
+//   echo "<tr>";
+//   echo "<td align='center'>" .$row["file_id"] .  "</td> "; 
+//   echo "<td align='center'>" .$row["timestamp_update"] .  "</td> ";
+//   echo "</tr>";
+// }
 echo "</table>";
 // 5. close connection
 mysqli_close($conn);
