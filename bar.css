@@ -46,27 +46,6 @@
     color: #282382;
 }
 
-/* .bottom {
-    position:fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding:100px 0 0;
-    box-shadow: inset -0.5px 0 0 rgba(195, 189, 189);
-    z-index: 99;
-}
-
-/* @media(min-width: 767.98px) {
-    .bottom{
-        position: fixed;
-        padding: 30px 0 100px;
-        right: 0rem;
-        left: 0rem;
-        top: 5rem;
-    }
-} */ 
-
 /* --- fixedbuttom --- */
 @media(min-width: 767.98px) {
     .bottom{
@@ -79,6 +58,14 @@
 /* --- hidden --- */
 @media(max-width: 767.98px) {
     .hidden{
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+}
+
+@media(max-width: 848.98px) {
+    .hidden2{
         position: absolute;
         left: -9999px;
         top: -9999px;
