@@ -1,3 +1,8 @@
+<?php
+include("/navbar.php");
+// $conn <<---- 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +18,6 @@
     <link rel="stylesheet" href="src/css/fontawesome.css">
     <link rel="stylesheet" href="src/css/icon/all.css">
 
-    <style type="text/css">
-        .selectt {
-            color: rgb(0, 0, 0);
-            padding: 0px;
-            display: none;
-            margin-top: 15px;
-            background: rgb(255, 255, 255)
-        }
-        label {
-            margin-right: 20px;
-        }
-    </style>
 </head>
 
 <body>
