@@ -100,26 +100,26 @@
       type: "POST", 
       url: 'process.php',
       data:{
-        commission_id:4,
-        user_id: $("#user_id").val(),
-        creator_id: $("#user_creator").val(),
-        request_price: $("#request_price").val(),
-        job_color:0,
-        job_scale:$("#job_scale").val(),
-        job_mature:1,
-        job_private:0,
-        job_description: $("#job_description").val(),
-        first_pay:234,
-        job_co_right_mode:0,
-        datetime_limit:"2022-09-13",
+          commission_id:6,
+          user_id: $("#user_id").val(),
+          creator_id: $("#creator_id").val(),
+          request_price: $("#request_price").val(),
+          job_color:0,
+          job_scale:$("#job_scale").val(),
+          job_mature:1,
+          job_private:0,
+          job_description: $("#job_description").val(),
+          first_pay:234,
+          job_co_right_mode:0,
+          datetime_limit:"2022-09-13",
 
-        // iduser: document.getElementById("iduser"),
-        // idcreator: document.getElementById("idcreator"),
-        // price: document.getElementById("price"),
-        // description: document.getElementById("description"),
-        // category: $('input[id="category"]:checked'),
-        // job_private: $('input[id="job_private"]:checked'),
-        action : 'insertCommission'},
+          // iduser: document.getElementById("iduser"),
+          // idcreator: document.getElementById("idcreator"),
+          // price: document.getElementById("price"),
+          // description: document.getElementById("description"),
+          // category: $('input[id="category"]:checked'),
+          // job_private: $('input[id="job_private"]:checked'),
+          action : 'insertCommission'},
       success: function(data){
       console.log(data);
       },
@@ -131,6 +131,8 @@
   </script>
 
 </head>
+
+
 <body>
     <div class="container-fluid mt-3" align = 'left'>
         <h3> กฏของการทำCOMMISION</h3>
@@ -144,7 +146,7 @@
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
-            <input class="md-4" id="user_creator" name="user_id" >
+            <input class="md-4" id="creator_id" name="user_id" >
         </div> 
        
          <div class="mb-3">
@@ -160,7 +162,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="scale" class="form-label">Category</label>
+            <label for="scale" class="form-label">Scale</label>
             <select class="form-select col mb-1" id="job_scale" name="job_scale" required>
                 <option selected disabled value="">Select Category</option>
                 <option value="1">Protrait</option>

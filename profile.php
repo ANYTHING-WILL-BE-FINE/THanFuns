@@ -27,28 +27,20 @@
             fdkslkfldsfks;flds;fksdsald;s'ald;'sald;a'ld;s'ald;a'ld;sa'<br />ldas;'dls;a'lldfkopektfoekfldskfldsfklsfkdlskfl;kdkapriw[
           </p>
           <button type="button" class="btn btn-outline-primary" data-bs-toggle="button">FOLLOW</button>
+          
         </div>
       </div>
     </div>
   
    
   
-    <div class="mt-5">
+    <div class="container-fluid mt-5">
     <div class="row">
       <div class="col-md-4" align="center">
-          <!-- <img
+          <img
           src="https://i.pinimg.com/564x/97/88/1a/97881a6721c59f83d7aa201fa85edcb0.jpg"
           wigth="100%"
-        /> -->
-        <div class="photo">
-          <?php
-          $sql="SELECT file_path FROM pth_file";
-          $result = mysqli_query($conn, $sql);
-          if($result -> num_rows > 0) {
-            while($row = $result -> fetch_row()) {
-              ?>
-              <img src="<?php echo isset($row['file_path']);
-              }}?>">  
+        />
         </div>
         <div class="card-body">
           <h5>productname</h5>
@@ -124,9 +116,11 @@
               src="https://i.pinimg.com/564x/97/88/1a/97881a6721c59f83d7aa201fa85edcb0.jpg"
               wigth="300"
               height="500"
+              id
             />
             <p>รายละเอียดผลงาน</p>
             <h4>ราคา 2,800 บาท</h4>
+
           </div>
 
           <!-- Modal footer -->

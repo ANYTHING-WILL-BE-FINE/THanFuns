@@ -1,11 +1,3 @@
-.card-stepper {
-z-index: 0
-}
-
-#progressbar-2 {
-color: #455A64;
-}
-
 #progressbar-2 li {
 list-style-type: none;
 font-size: 15px;
@@ -59,7 +51,7 @@ height: 15px;
 }
 
 #progressbar-2 #step4:before {
-    background-image: url('/photo/2.png');
+    background-image: url('../photo/2.png');
     background-size: cover;
     background-position: center;
     display: inline-block;

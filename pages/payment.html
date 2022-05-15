@@ -30,16 +30,19 @@
     <title>let's it completely</title>
 
     <script>
-        myButtonClick();
         // Save this as fetch.js --------------------------------------------------------------------------
         // ref:https://www.nbest.co.uk/Fetch/index.php
-        function success(obj) {
+        function success() {
             // json.product_name;
             // json = JSON.stringify(data);
-            console.log(obj);
-            document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
-            document.getElementById('product_price').innerHTML = (obj[0].default_price);
-            document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
+            // console.log(obj);
+            document.getElementById("spinnerIA").remove();
+            // document.getElementById("data").innerHTML;
+            // document.getElementById("headerPay").innerHTML = headerMy;
+            // document.getElementById("bodyPay").innerHTML = bodyMy;
+            // document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
+            // document.getElementById('product_price').innerHTML = (obj[0].default_price);
+            // document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
         }
         // ----------------------------------------------------------------------------------------------
 
@@ -48,39 +51,83 @@
             // console.log("ERROR: " + error);
         }
         // ----------------------------------------------------------------------------------------------
+        function headertext(text) {
 
-        function myButtonClick() {
-            var url = '../src/php/json.php';
-            var data = {
-                product_id: 10651
-            };
+            hideSpinner();
+        }
+        // ----------------------------------------------------------------------------------------------
+        // Defining async function 
+        async function getapi() {
+            var headerMy;
+            var bodyMy;
 
-            // document.getElementById('before').innerHTML = "BEFORE: " + JSON.stringify(before);
-            // console.log("BEFORE: " + JSON.stringify(data)); // ทำให้เป็น JS OP --> JSON
-
-            fetch(url, {
+            fetch('../src/php/header.php', {
                     method: 'POST',
-                    body: JSON.stringify(data),
+                    // body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res => res.json())
-                .then(response => success(response))
+                }).then(res => res.text())
+                .then(response =>  document.getElementById("headerPay").innerHTML = response)
                 .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?action=qpagedt', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: 'PT0000001'
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("bodyPay").innerHTML  = response)
+                .catch(error => failure(error));
+
+            await success();
+
+            // await fetch('../src/php/payment_mataphp', {
+            //         method: 'POST',
+            //         body: JSON.stringify(data),
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         }
+            //     }).then(res => res.json())
+            //     .then(response => success(response))
+            //     .catch(error => failure(error));
+
+
+
         }
-        // ----------------------------------------------------------------------------------------------
+
+        // Calling that async function 
+        getapi();
+
+        // Function to hide the Spinner
+        function hideSpinner() {
+            document.getElementById("spinnerIA").remove();
+        }
     </script>
 </head>
 
-<body class="d-flex text-center align-items-center justify-content-center align-content-center" style="height: 100vh;" >
-    <h3>กำลังพัฒนาระบบ โหลดอยู่.... </h3>
-    <div class="">
-        <div class=" spinner-border spinner-grow " role="status">
-            <span class="visually-hidden">Loading...</span>
+<body class="" >
+    <div id="spinnerIA" class="sticky-top bg-super-light " style="z-index: 3000;">
+        <div class=" d-flex text-center  align-items-center justify-content-center align-content-center"
+            style="height: 100vh;">
+            <div class=" spinner-border spinner-grow " role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
-        <div id="data"></div>
+    </div>
+    <div id="headerPay">
+
+    </div>
+    <div id="bodyPay" class="container-xl">
+
     </div>
 
+    <div id="stepPay" class="container-xl">
+
+    </div>
 </body>
 
 <!-- MDB -->
@@ -98,6 +145,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-</body>
+
 
 </html>
