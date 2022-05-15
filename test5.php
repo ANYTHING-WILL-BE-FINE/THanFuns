@@ -2,6 +2,10 @@
 <?php $sql = "SELECT username FROM acc_user
               WHERE user_id = 6338";
     $result = $conn->query($sql); ?>
+
+<?php $a = "SELECT contact_type FROM acc_contact
+              WHERE user_id = 6338;";
+    $resultt = $conn->query($a); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -197,11 +201,19 @@
                     <div class="p-4" style="background-color: #f8f9fa;">
                         <!-- <p class="font-italic mb-1">Thailand</p> -->
                         <div class="d-flex flex-row bd-highlight mb-2 ms-3">
-                            <div align="center"><a href="https://www.facebook.com/profile.php?id=100002404106020"><i data-feather="facebook"></i></a></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.instagram.com/primsrps/"style="color:indianred"><i data-feather="instagram"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.twitch.tv/johnolsen_"style="color:purple"><i data-feather="twitch"></i></a></div></div>
+                            <?php $roww = $resultt->fetch_assoc();
+                                echo $roww['contact_type'];
+                                  if($roww=="1"){
+                                    echo '<div align="center"><a href=""><i data-feather="facebook"></i></a></div>';
+                                  }elseif($roww=="2"){
+                                    echo '<div align="center"><a href=""><i data-feather="twitch"></i></a></div>';
+                                  }else{
+                                    echo '<div align="center"><a href=""><i data-feather="instagram"></i></a></div>';
+                                  }?>
+
+                            <!-- <div class="ms-5"><div align="center"><a href="https://www.twitch.tv/johnolsen_"style="color:purple"><i data-feather="twitch"></i></a></div></div>
                             <div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.youtube.com/c/MRHEARTROCKERz"style="color:red"><i data-feather="youtube"></i></a></div></div>
+                            <div class="ms-5"><div align="center"><a href="https://www.youtube.com/c/MRHEARTROCKERz"style="color:red"><i data-feather="youtube"></i></a></div></div> -->
                             
                             
                         </div>
