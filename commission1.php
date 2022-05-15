@@ -2,12 +2,17 @@
 <!DOCTYPE html>
 <html lang ="en">
 <head>
+<title>ThanFun</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Anything will be fine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <script src="src/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="src/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bar.css">
+    
     <script>
       function color() {  
           var yes = document.getElementById("color");  
@@ -134,6 +139,138 @@
 
 
 <body>
+   <!-- <form action="process.php" method="post"> -->
+
+    <!--- navbar --->
+    <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="photo\logo.png" alt="" width="100" class=" d-inline-block align-text-top mb-2 me-4">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarlogo">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarlogo">
+
+                <ul class="navbar-nav">
+                    <div class="input-group mb-lg-0" >
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search...">
+                        <div class="input-group-text">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                <i data-feather="search" height="21"></i>
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+                
+                <ul class="navbar-nav ms-auto mb-lg-0">
+                    <li>
+                        <a href="#" class="nav-link " aria-current="page">LOGOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i data-feather="mail" ></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i data-feather="bell"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <i data-feather="user"></i>
+                        </a>
+                    </li>
+                    
+                    <a class="btn btn-primary" href="#" role="button">SUBMIT</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!--- sidebar --->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light px-2 sidebar collpase ">
+                <ul class="nav mt-2 d-flex flex-md-column flex-row flex-nowrap justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link active mb-2" aria-current="home" href="#">
+                            <i data-feather="home"></i>
+                            <span class="ml-1 d-none hidden d-sm-inline">HOME</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mb-2" aria-current="discovery" href="#">
+                            <i data-feather="compass"></i>
+                            <span class="ml-1 d-none hidden d-sm-inline">DISCOVERY</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mb-2" aria-current="ranking" href="#">
+                            <i data-feather="award"></i>
+                            <span class="ml-1 d-none hidden d-sm-inline">RANKING</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mb-2" aria-current="timeline" href="#">
+                            <i data-feather="file-text"></i>
+                            <span class="ml-1 d-none hidden d-sm-inline">TIMELINE</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="setting" href="#">
+                            <i data-feather="settings"></i>
+                            <span class="ml-1 d-none hidden d-sm-inline">SETTING</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!--- fixedbuttom --->
+            <nav id="bottom" class="col-md-3 col-lg-2 d-md-block bottom collpase bottom">
+                <div class="bg-light fixed-bottom bottom">
+                    <ul class="nav d-flex flex-md-column flex-row flex-nowrap justify-content-between bottom">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="home" href="#">
+                                <i data-feather="home"></i>
+                                <span class="ml-1 d-none hidden d-sm-inline"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="discovery" href="#">
+                                <i data-feather="compass"></i>
+                                <span class="ml-1 d-none hidden d-sm-inline"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="ranking" href="#">
+                                <i data-feather="award"></i>
+                                <span class="ml-1 d-none hidden d-sm-inline"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="timeline" href="#">
+                                <i data-feather="file-text"></i>
+                                <span class="ml-1 d-none hidden d-sm-inline"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="setting" href="#">
+                                <i data-feather="settings"></i>
+                                <span class="ml-1 d-none hidden d-sm-inline"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!--- content --->
+            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
     <div class="container-fluid mt-3" align = 'left'>
         <h3> กฏของการทำCOMMISION</h3>
         <div class="col-sm-3"><p style="color:black">  1.การสร้างสัญญาการจ้างวานทั้งสองฝ่ายต้องติดต่อคุย ตกลงให้เรียบร้อยแล้วเท่านั้นจึงลงข้อมูลเข้าระบบและทำการชำระตามที่ระบบกำหนด โดยผู้ที่ต้องสร้าง commission จะต้องเป็นผู้จ้างวานเท่านั้น อีกทั้งการติดต่อ commission
@@ -154,11 +291,11 @@
             <input class="md-4" id="request_price" name="request_price"><label >บาท</label>
         </div> 
         <div class="mb-3">
-          <label>ประเภทสี</label><br>
-          <input class="form-check-input" type="checkbox" id="color" name="job_color" value="something" >
-          <label class="form-check-label">สีขาว-ดำ</label>
-          <input class="form-check-input" type="checkbox" id="black-white" name="job_color" value="something" >
-          <label class="form-check-label">สี</label>
+          <label>ประเภทสี</label><select class="form-select mt-3">
+          <option selected disabled value="">Select Color</option>
+          <option>สีขาว-ดำ</option>
+          <option>สี</option>
+         </select>
         </div>
 
         <div class="mb-3">
@@ -193,23 +330,58 @@
             <input class="md-4" id="category" class="form-control" name="job_category"><label ></label>
         </div>  -->
         <div class="mb-3">
-          <label  class="form-label">mature?</label><br>
-          <input class="form-check-input" type="checkbox" id="job_mature" name="job_mature" value="nonmature">
-          <label class="form-check-label">NO</label>
-          <input class="form-check-input" type="checkbox" id="job_mature" name="job_mature" value="mature">
-          <label class="form-check-label">YES</label>
+        <label>mature?</label><select class="form-select mt-3">
+          <option selected disabled value="">Select Mature</option>
+          <option>no</option>
+          <option>yes</option>
+         </select>
         </div>
         <div class="mb-3">
-          <label class="form-label">เปิดผลงานเป็นสาธารณะหรือไม่</label><br>
-          <input class="form-check-input" type="checkbox" id="job_private" name="job_private" value="0" >
-          <label class="form-check-label">ไม่อนุญาต</label>
-          <input class="form-check-input" type="checkbox" id="job_private" name="job_private" value="1"  >
-          <label class="form-check-label">อนุญาต</label>
+        <label>เปิดผลงานเป็นสาธารณะหรือไม่?</label><select class="form-select mt-3">
+          <option selected disabled value="">Select Public</option>
+          <option>ไม่อนุญาต</option>
+          <option>อนุญาต</option>
+         </select>
         </div>  
 
         <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
       <button class="btn btn-secondary" type="button">ยกเลิก</button>
 
     </div>
-  </div></body>
+  </div>
+  
+  </div>
+                
+                </div>
+            
+            </div>
+            
+            </div>
+</div>
+            <!-- </form> -->
+            
+            
+            <script>
+            function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+            }
+            </script>
+            
+            <script> feather.replace() </script>
+            
+            <script type="text/javascript">
+            $(document).ready(function() {
+              $('input[type="checkbox"]').click(function() {
+                  var inputValue = $(this).attr("value");
+                  $("." + inputValue).toggle();
+              });
+            });
+            </script>
+            
+            
+            
+            
+            
+            <script> feather.replace()</script>
+</body>
 </html>
