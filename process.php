@@ -27,11 +27,11 @@ if($action == "insertCommission") {
  
 
   $sql = "INSERT INTO mkt_commission(commission_status,user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
-   VALUES ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,'$job_private','$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
+   VALUES ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,$job_private,'$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
   $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
-    echo  $commission_status;
+    // echo  $commission_status;
  } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
  }

@@ -113,9 +113,9 @@
           job_mature:1,
           job_private:0,
           job_description: $("#job_description").val(),
-          first_pay:234,
+          first_pay:$("#first_pay").val(),
           job_co_right_mode:0,
-          datetime_limit:"2022-09-13",
+          datetime_limit:$("#datetime_limit").val(),
           commission_status :2,
 
           // iduser: document.getElementById("iduser"),
@@ -199,7 +199,7 @@
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light px-2 sidebar collpase ">
                 <ul class="nav mt-2 d-flex flex-md-column flex-row flex-nowrap justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link active mb-2" aria-current="home" href="#">
+                        <a class="nav-link active mb-2" aria-current="home" href="feed.html">
                             <i data-feather="home"></i>
                             <span class="ml-1 d-none hidden d-sm-inline">HOME</span>
                         </a>
@@ -289,6 +289,14 @@
          <div class="mb-3">
             <label >ราคา</label>
             <input class="md-4" id="request_price" name="request_price"><label >บาท</label>
+        </div> 
+        <div class="mb-3">
+            <label >ราคาที่จ่ายรอบแรก</label>
+            <input class="md-4" id="first_pay" name="request_price"><label >บาท</label>
+        </div> 
+        <div class="mb-3">
+            <label >วันส่งงาน</label>
+            <input class="md-4" id="datetime_limit" name="request_price" placeholder=" YYY-MM-DD"><label ></label>
         </div> 
         <div class="mb-3">
           <label>ประเภทสี</label><select class="form-select mt-3">
