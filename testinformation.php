@@ -3,6 +3,7 @@
 
 $action = $_POST['action'];
 
+if($action == "information") {
 $con = mysqli_connect('localhost', 'a6_admin', 'cpe231_kass','acc_user');
 
 $file = $_POST['file'];
@@ -41,5 +42,22 @@ $sql2 = "INSERT INTO 'acc_banking' (bank_account_no,
 value('$bank_account_no','$bank_account_name','$bank_info','$bankpic')";
 
 $rs2 = mysqli_query($con2, $sql2);
+if ($mysql === TRUE) {
+    echo "New record has been added successfully !";
+    // echo  $commission_status;
+ } else {
+    echo "Error: " . $sql . ":-" . mysqli_error($conn);
+ }
+}
+else {
+
+    //  while ($row = mysqli_fetch_assoc($mysql)) {
+    //      echo "<h5>Table: {$row['tags_label']} </h5>";
+    // }
+  }
+
+    mysqli_close($conn);
+    
+?>
 
 ?>
