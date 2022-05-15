@@ -100,7 +100,6 @@
       type: "POST", 
       url: 'process.php',
       data:{
-          commission_id:4,
           user_id: $("#user_id").val(),
           creator_id: $("#user_creator").val(),
           request_price: $("#request_price").val(),
@@ -112,6 +111,7 @@
           first_pay:234,
           job_co_right_mode:0,
           datetime_limit:"2022-09-13",
+          commission_status :2,
 
           // iduser: document.getElementById("iduser"),
           // idcreator: document.getElementById("idcreator"),
@@ -205,9 +205,11 @@
           <label class="form-check-label">ไม่อนุญาต</label>
           <input class="form-check-input" type="checkbox" id="job_private" name="job_private" value="1"  >
           <label class="form-check-label">อนุญาต</label>
-        </div>   
-      <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
+        </div>  
+
+        <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
       <button class="btn btn-secondary" type="button">ยกเลิก</button>
+
     </div>
   </div></body>
 </html>

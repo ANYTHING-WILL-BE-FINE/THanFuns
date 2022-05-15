@@ -27,6 +27,9 @@
             fdkslkfldsfks;flds;fksdsald;s'ald;'sald;a'ld;s'ald;a'ld;sa'<br />ldas;'dls;a'lldfkopektfoekfldskfldsfklsfkdlskfl;kdkapriw[
           </p>
           <button type="button" class="btn btn-outline-primary" data-bs-toggle="button">FOLLOW</button>
+          <?php $result = mysqli_query($conn, 'SELECT SUM(value) AS value_sum FROM codes'); 
+          $row = mysqli_fetch_assoc($result); 
+          $sum = $row['value_sum'];
         </div>
       </div>
     </div>
@@ -124,9 +127,11 @@
               src="https://i.pinimg.com/564x/97/88/1a/97881a6721c59f83d7aa201fa85edcb0.jpg"
               wigth="300"
               height="500"
+              id
             />
             <p>รายละเอียดผลงาน</p>
             <h4>ราคา 2,800 บาท</h4>
+
           </div>
 
           <!-- Modal footer -->
