@@ -9,6 +9,14 @@
     <?php $b = "SELECT contact_app FROM acc_contact
               WHERE user_id = 6338;";
     $resulttt = $conn->query($b); ?>
+    <?php $c = "SELECT contact_type FROM acc_contact
+              WHERE user_id = 6338;";
+    $resultt = $conn->query($c); ?>
+    <?php $d = "SELECT file_path FROM pth_file
+              WHERE user_id = 6338;";
+    $resultttt = $conn->query($d); 
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -225,13 +233,8 @@
                                 echo '<div class="ms-5"><div align="center"><a href=""style="color:purple"><i data-feather="twitch"></i></a></div></div>';
                               }else{
                                 echo '<div class="ms-5"><div align="center"><a href=""style="color:black"><i data-feather="tv"></i></a></div></div>';
-                              }?>
-                            
-                            
+                              }?> 
                         </div>
-                      
-                      
-                      <!-- <p class="font-italic mb-0">primsrps</p> -->
                     </div>
                   </div>
                   <div class="d-flex justify-content-between align-items-center mb-4">
@@ -240,23 +243,11 @@
                   </div>
                   <div class="row g-2">
                     <div class="col mb-2">
-                        <a href="test4.html"><img src="photo/1.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
-                    <div class="col mb-2">
-                        <a href="test4.html"><img src="photo/129620692420220515.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
+                      <?php  while( $rowwww= mysqli_fetch_assoc($resultttt)){
+                          echo '<a href="test4.html"><img src="'.$rowwww['file_path'].'" class="col-4 w-50"></a>';}
+                      ?>
                     </div>
                   </div>
-                  <div class="row g-2">
-                    <div class="col">
-                        <a href="test4.html"><img src="https://i.pinimg.com/564x/fa/62/b2/fa62b224162bca157bd10ec714cd0b7f.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
-                    <div class="col">
-                        <a href="test4.html"><img src="https://i.pinimg.com/564x/40/7a/de/407ade5f0291c23639a78bd810cf0d9c.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
                   </div>
                 </div>
               </div>
