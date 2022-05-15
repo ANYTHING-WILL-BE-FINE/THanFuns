@@ -27,6 +27,7 @@ if($action == 'submit'){
     
     $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
             VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+    $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
 }
 else{
 
@@ -59,7 +60,7 @@ else{
     }
     $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view) 
             VALUES('$newname',$creator_id,'$path_copy','เริส','สวย','$type',1)";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+    $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
 }
 
             
