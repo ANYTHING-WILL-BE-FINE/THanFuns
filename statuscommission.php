@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="src/css/icon/all.css">
     <link rel="stylesheet" href="bar.css">
     <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
