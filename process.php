@@ -19,7 +19,7 @@ if($action == "insertCommission") {
           $row = mysqli_fetch_assoc($result); 
           $sum = $row['value_sum']+1;
           $commission_id = 'C'.sprintf('%08d', $sum);
-          // echo  $commission_id;
+          echo  $commission_id;
   $first_pay = $_POST['first_pay'];
   $job_co_right_mode = $_POST['job_co_right_mode'];
   $datetime_limit = $_POST['datetime_limit'];

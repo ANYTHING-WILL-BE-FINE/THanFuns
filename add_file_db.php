@@ -3,9 +3,9 @@
 //1. เชื่อมต่อ database: 
 include("src/php/connect_db.php");  
 
-$auction = $_POST['auction'];
+$action = $_POST['action'];
 
-if($auction == "submit"){
+if($action == 'submit'){
 
     $product_id = $_POST['product_id'];
     $creator_id = $_POST['creator_id'];
@@ -20,17 +20,18 @@ if($auction == "submit"){
     $sale_mode = $_POST['sale_mode'];
     $co_right_mode =$_POST['co_right_mode'];
     $quantity = $_POST['quantity'];
+    
+    $file_id = $_POST['file_id'];
 
-
-    $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
-
+    // $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
+    $upload = $_FILES['file_id'];
     //ฟังก์ชั่นวันที่
         date_default_timezone_set('Asia/Bangkok');
         $date = date("Ymd");	
     //ฟังก์ชั่นสุ่มตัวเลข
-        $numrand = (mt_rand());
+        $numrand = rand(1000,1000000);
     //เพิ่มไฟล์
-    $upload=$_FILES['file_id'];
+    
     if($upload !='') {   //not select file
             //โฟลเดอร์ที่จะ upload file เข้าไป 
             $path="photo/";  
@@ -45,13 +46,13 @@ if($auction == "submit"){
 
             //คัดลอกไฟล์ไปเก็บที่เว็บเซริ์ฟเวอร์
             move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);  	
-        }
+            }
         // เพิ่มไฟล์เข้าไปในตาราง uploadfile
             $sql = "INSERT INTO pth_file (file_id,user_id) 
             VALUES('$newname',$creator_id)";
 
-            // $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
-            // VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,4,1,1,3,2,1)";
+            $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+            VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
 
             
             $mysql = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
