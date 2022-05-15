@@ -100,9 +100,9 @@
       type: "POST", 
       url: 'process.php',
       data:{
-          commission_id:4,
+          commission_id:6,
           user_id: $("#user_id").val(),
-          creator_id: $("#user_creator").val(),
+          creator_id: $("#creator_id").val(),
           request_price: $("#request_price").val(),
           job_color:0,
           job_scale:$("#job_scale").val(),
@@ -146,7 +146,7 @@
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
-            <input class="md-4" id="user_creator" name="user_id" >
+            <input class="md-4" id="creator_id" name="user_id" >
         </div> 
        
          <div class="mb-3">

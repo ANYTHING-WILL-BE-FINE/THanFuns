@@ -36,16 +36,16 @@ include("src/php/connect_db.php");
       type: "POST", 
       url: 'add_file_db.php',
       data:{
-        //   creator_id: 1065,
-        //   product_id:1,
-        //   file_id: $("#file_id").val(),
+          creator_id: 1065,
+          product_id:1,
+          file_id: $("#file_id").val(),
           product_name: $("#product_name").val(),
           description: $("#description").val(),
           tags_label: $("#tags_label").val(),
           category_id: $("#category_id").val(),
           mature_mode:1,
-        //   default_price:500
-        //   action : 'submit'
+          default_price:500,
+          auction : 'submit'
         },
       success: function(data){
       console.log(data);
@@ -265,9 +265,9 @@ include("src/php/connect_db.php");
                     </div>
 
                 </div>
-
-            </div>
-        </form>
+            </form>
+        </div>
+            
         
     </div>
     
