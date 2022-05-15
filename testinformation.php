@@ -27,4 +27,19 @@ value('$file','$nickname','$first_name','$last_name','$gender','$date_birth','$p
 
 $rs = mysqli_query($con, $sql);
 
+$con2 = mysqli_connect('localhost', 'a6_admin', 'cpe231_kass','acc_banking');
+
+$bank_account_no = $_POST['bank_account_no'];
+$bank_account_name = $_POST['bank_account_name'];
+$bank_info = $_POST['bank_info'];
+$bankpic = $_POST['bankpic'];
+
+
+$sql2 = "INSERT INTO 'acc_banking' (bank_account_no,
+                      bank_account_name,bank_info,bank_verify_pic
+                      )
+value('$bank_account_no','$bank_account_name','$bank_info','$bankpic')";
+
+$rs2 = mysqli_query($con2, $sql2);
+
 ?>
