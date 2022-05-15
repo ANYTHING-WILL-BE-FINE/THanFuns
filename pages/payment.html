@@ -23,13 +23,18 @@
         rel="stylesheet">
 
     <!-- MDB -->
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" />
     <link rel="stylesheet" href="../src/css/payment_section.css" />
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
     <title>let's it completely</title>
 
     <script>
+        var param = window.location.search.substr(1);
+        // alert(param);
         // Save this as fetch.js --------------------------------------------------------------------------
         // ref:https://www.nbest.co.uk/Fetch/index.php
         function success() {
@@ -61,26 +66,47 @@
             var headerMy;
             var bodyMy;
 
-            fetch('../src/php/header.php', {
+            function moveT(reg){
+                if(reg == "NO"){
+                    location.replace('../feed.php');
+                }
+            }
+
+            await fetch('../src/php/permission.php', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        user_id: 1234,
+                        action: "payment"
+                        
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => moveT(response))
+                .catch(error => failure(error));
+
+            await fetch('../src/php/header.php', {
                     method: 'POST',
                     // body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }).then(res => res.text())
-                .then(response =>  document.getElementById("headerPay").innerHTML = response)
+                .then(response => document.getElementById("headerPay").innerHTML = response)
                 .catch(error => failure(error));
             await fetch('../src/php/detailPayment.php?action=qpagedt', {
                     method: 'POST',
                     body: JSON.stringify({
-                        payment_id: 'PT0000001'
+                        payment_id: param
                     }),
                     // ส่ง ดึงจากเพลย์บาย
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }).then(res => res.text())
-                .then(response => document.getElementById("bodyPay").innerHTML  = response)
+                .then(response => document.getElementById("bodyPay").innerHTML = response)
                 .catch(error => failure(error));
 
             await success();
@@ -109,7 +135,7 @@
     </script>
 </head>
 
-<body class="" >
+<body class="">
     <div id="spinnerIA" class="sticky-top bg-super-light " style="z-index: 3000;">
         <div class=" d-flex text-center  align-items-center justify-content-center align-content-center"
             style="height: 100vh;">
@@ -128,6 +154,7 @@
     <div id="stepPay" class="container-xl">
 
     </div>
+   
 </body>
 
 <!-- MDB -->

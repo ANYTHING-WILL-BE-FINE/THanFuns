@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> -->
+
+    <!-- CSS -->
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" />
+    <link rel="stylesheet" href="../src/css/payment_section.css" />
+    <title>let's it completely</title>
+
+    <script>
+        myButtonClick();
+        // Save this as fetch.js --------------------------------------------------------------------------
+        // ref:https://www.nbest.co.uk/Fetch/index.php
+        function success(obj) {
+            // json.product_name;
+            // json = JSON.stringify(data);
+            console.log(obj);
+            document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
+            document.getElementById('product_price').innerHTML = (obj[0].default_price);
+            document.getElementById('name_of_product').innerHTML = (obj[0].product_name);
+        }
+        // ----------------------------------------------------------------------------------------------
+
+        function failure(error) {
+            // document.getElementById('after').innerHTML = "ERROR: " + error;
+            // console.log("ERROR: " + error);
+        }
+        // ----------------------------------------------------------------------------------------------
+
+        function myButtonClick() {
+            var url = '../src/php/json.php';
+            var data = {
+                product_id: 10651
+            };
+
+            // document.getElementById('before').innerHTML = "BEFORE: " + JSON.stringify(before);
+            // console.log("BEFORE: " + JSON.stringify(data)); // ทำให้เป็น JS OP --> JSON
+
+            fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                .then(response => success(response))
+                .catch(error => failure(error));
+        }
+        // ----------------------------------------------------------------------------------------------
+    </script>
+</head>
+
+<body>
+    <div class="spinner-border text-primary" id="spinner" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div id="data"></div>
+</body>
+
+<body>
+
+    <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar section -->
+    <header>
+        <nav class="sticky-top navbar navbar-expand-md navbar-light bg-light">
+            <div class="container-sm">
+                <a class="navbar-brand" href="#">THanfuns</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        Navbar text with an inline element
+                    </span>
+                </div>
+            </div>
+        </nav>
+        <!-- Heading -->
+        <div class=" p-5 bg-light mb-4">
+            <div class="container-sm">
+                <h1 class="">คำสั่งซื้อ</h1>
+                <!-- Breadcrumb -->
+                <nav class="d-flex">
+                    <h6 class="mb-0">
+                        <a href="" class="text-reset">Home</a>
+                        <span>/</span>
+                        <a href="" class="text-reset">Analytics</a>
+                        <span>/</span>
+                        <a href="" class="text-reset"><u>Dashboard</u></a>
+                    </h6>
+                </nav>
+            </div>
+            <!-- Breadcrumb -->
+        </div>
+        <!-- Heading -->
+    </header>
+
+    <div class="container-xl">
+        <!-- https://www.bootdey.com/snippets/tagged/stepper -->
+        <div class="col  mb-3 px-5">
+            <div class="">
+                <div
+                    class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                    <div class="step completed">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+                        </div>
+                        <h4 class="step-title">สินค้า</h4>
+                    </div>
+                    <div class="step completed">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="fas fa-percentage"></i></div>
+                        </div>
+                        <h4 class="step-title">ยืนยันและโค้ดส่วนลด</h4>
+                    </div>
+                    <div class="step ">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="fas fa-wallet"></i></div>
+                        </div>
+                        <h4 class="step-title">เลือกช่องทางชำระ</h4>
+                    </div>
+                    <div class="step ">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="fas fa-receipt"></i></div>
+                        </div>
+                        <h4 class="step-title">ยืนยันการชำระเงิน</h4>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="fas fa-balance-scale"></i></div>
+                        </div>
+                        <h4 class="step-title">ตรวจสอบ</h4>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon-wrap">
+                            <div class="step-icon"><i class="far fa-check-circle"></i></div>
+                        </div>
+                        <h4 class="step-title">สำเร็จ</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-xl">
+
+
+        <div class="padding-bottom-3x mb-1">
+            <div class="row pt-5">
+
+
+                <div class="col ">
+                    <!-- <div class="rounded border bg-light border-light">
+                        <div class="card-body">
+                            <div class=" ">
+                                <h4 class="fw-bold">สินค้า/บริการ</h4>
+                            </div>
+                            <div class="row d-flex justify-content-md-start justify-content-center align-items-center">
+                                <div class="col-auto mb-2  ">
+                                    <div class="mb-1 rounded bg-image hover-overlay ripple"
+                                        style="display: block;width: 170px;height: 170px;position: relative;overflow: hidden;">
+                                        <img src="https://pbs.twimg.com/media/FRIdtZwaQAE0h1z?format=jpg&name=900x900"
+                                            style="display: block;min-width: 100%;min-height: 100%; position: absolute;top: 0;bottom: 0;left: 0;right: 0;"
+                                            class="" alt="..." />
+                                        <div class="mask " style="background-color: rgba(0, 0, 0, 0.6);">
+                                            <div class="d-flex justify-content-center align-items-center h-100">
+                                                <p class="text-white mb-0"> <a href="#"> <span
+                                                            class="badge badge-light">ดูโพสต์ <i
+                                                                class="fas fa-share"></i></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <h4 id="name_of_product" class="card-title text-secondary"></h4>
+                                    <span class="badge rounded-pill badge-primary">โพตอนย</span>
+                                    <span class="badge rounded-pill badge-primary">ยาอนุ</span>
+                                    <span class="badge rounded-pill badge-primary">ปัญญา</span>
+                                    <span class="badge rounded-pill badge-primary">Danger</span>
+                                    <span class="badge rounded-pill badge-primary">ระมัดระวะง</span>
+                                    <span class="badge rounded-pill badge-primary">จิตตกลง</span>
+                                    <span class="badge rounded-pill badge-primary">เหนื่อย</span>
+                                    <span class="badge rounded-pill badge-primary">ว่่าง</span>
+                                    <p>บางครั้งคนดีก็ไม่มีจริง</p>
+                                    <h3><span class="fw-bold">ราคา <span id="product_price"></span></h3>
+                                    <p id="before">This is the JSON before the fetch.</p>
+                                    <p id="after">This is the JSON after the fetch.</p>
+                                    <button type="button" class="btn btn-primary" data-mdb-toggle="modal"
+                                        data-mdb-target="#staticBackdrop">ดูตัวอย่างไฟล์</button>
+                                    <button type="button" onclick="myButtonClick()">Press Me</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="rounded border bg-light border-light ">
+                        <div class="card-body">
+                            <div class=" ">
+                                <h4 class="fw-bold">รูปแบบการชำระ</h4>
+                                <h5 class="fw-subtitle">รองรับการชำระภายในราชอาณาไทยเท่านั้น</h5>
+                            </div>
+
+                            <div class="mt-5 ">
+                                <h6 class="fw-bold">ที่สามารถเลือกได้</h6>
+
+                            </div>
+                            <div class="">
+                                <div class="card mb-3 form-check-label" for="flexRadioDefault11111">
+                                    <div class="row g-0 d-flex align-items-center  ">
+                                        <div class="rounded-start align-self-stretch"
+                                            style="width:12px;background-color:rgb(140, 0, 255);">
+                                        </div>
+                                        <div class="col row d-flex align-items-center justify-content-evenly ">
+                                            <div class=" col-auto col-md col-lg-auto ">
+                                                <p class="card-text">
+                                                    <div class="d-flex row align-items-center">
+                                                        <div class="col-md-3  pb-2 pb-md-0">
+                                                            <img src="https://www.matichon.co.th/wp-content/uploads/2016/09/scb-2.jpg"
+                                                                class="img img-fluid" style="" />
+                                                        </div>
+                                                        <div class="col-auto ms-3">
+                                                            <h5 class="fw-bold mb-1">927-206906-2  <span
+                                                                    class="text-success" data-mdb-toggle="tooltip"
+                                                                    data-mdb-placement="top"
+                                                                    title="บัญชีนี้ส่งข้อมูลยืนยันแล้ว"><i
+                                                                        class="far fa-check-circle "></i> </span></h5>
+                                                            <p class="text-muted mb-0">ชื่อ นางสาวจิราพัชร์
+                                                                นำแสงจรรยาสุข</p>
+                                                            <p class="text-muted mb-0">ธนาคารไทยพาณิชย์ (หัวหินมาร์เก็ต
+                                                                วิลเลจ)</p>
+                                                        </div>
+                                                        <div class="col-1 ms-auto me-auto ">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="flexRadioDefault" id="flexRadioDefault11111"
+                                                                >
+                                                        </div>
+                                                    </div>
+
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="card mb-3 form-check-label" for="flexRadioDefault2444">
+                                    <div class="row g-0 d-flex align-items-center  ">
+                                        <div class="rounded-start align-self-stretch"
+                                            style="width:12px;background-color:rgb(0, 187, 25);">
+                                        </div>
+                                        <div class="col row d-flex align-items-center justify-content-evenly ">
+                                            <div class=" col-auto col-md col-lg-auto ">
+                                                <p class="card-text">
+                                                    <div class="d-flex row align-items-center">
+                                                        <div class="col-md-3  pb-2 pb-md-0">
+                                                            <img src="http://i3.wp.com/www.chiangmaialphard.com/wp-content/uploads/2017/04/kbank-logo.jpg"
+                                                                class="img img-fluid" style="" />
+                                                        </div>
+                                                        <div class="col-auto ms-3">
+                                                            <h5 class="fw-bold mb-1">485-2-35135-22 <span
+                                                                    class="text-success" data-mdb-toggle="tooltip"
+                                                                    data-mdb-placement="top"
+                                                                    title="บัญชีนี้ส่งข้อมูลยืนยันแล้ว"><i
+                                                                        class="far fa-check-circle "></i> </span></h5>
+                                                            <p class="text-muted mb-0">ชื่อ นางสาวจิราพัชร์
+                                                                นำแสงจรรยาสุข</p>
+                                                            <p class="text-muted mb-0">ธนาคารกสิกรไทย (หัวหินมาร์เก็ต
+                                                                วิลเลจ)</p>
+                                                        </div>
+                                                        <div class="col-1 ms-auto me-auto ">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="flexRadioDefault" id="flexRadioDefault2444"
+                                                                checked>
+                                                        </div>
+                                                    </div>
+
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-center p-5">
+                                    <nav aria-label="...">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link">Previous</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item active" aria-current="page">
+                                                <a class="page-link" href="#">2 <span
+                                                        class="visually-hidden">(current)</span></a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col col-md-auto ps-md-5">
+                    <div class="card-body">
+                        <div class=" ">
+                            <h4 class="fw-bold">การซื้อขายระหว่าง</h4>
+                        </div>
+                        <div class="stepper d-flex flex-column mt-1 ml-2 ">
+                            <div class="d-flex mb-1">
+                                <div class="d-flex flex-column align-items-center" style="width:60px">
+                                    <div class="mb-1" style="width:60px; height:120px; position:relative;">
+                                        <img src="https://ui-avatars.com/api/?name=Mam+S&background=random"
+                                            style="width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; "
+                                            class="img img-responsive full-width rounded-circle" alt="...">
+                                    </div>
+                                    <div class="line h-100 "></div>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="text-dark">คุณอนุรักษ์ ปัญหา</h5>
+                                    <p class="lead text-muted pb-3">ในฐานะผู้ซื้อ</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-1">
+                                <div class="d-flex flex-column pr-4 align-items-center">
+                                    <div class="mb-1" style="width:60px; height:60px; position:relative;">
+                                        <img src="https://ui-avatars.com/api/?name=RE+D&background=random"
+                                            style="width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; "
+                                            class="img img-responsive full-width rounded-circle" alt="...">
+                                    </div>
+                                    <div class="line h-100 d-none"></div>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="text-dark">คุณอนุรา ปัจจวคี</h5>
+                                    <p class="lead text-muted pb-3">ในฐานะผู้ขาย</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="sticky-top top-10 start-0 alert alert-danger d-flex align-items-center"
+                            role="alert">
+
+                            <div>
+                                <i class="fas fa-exclamation-triangle"></i> สินค้าในราคานี้
+                                ไม่อนุญาตให้นำไปใช้เชิงพาณิชย์
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shadow-2-strong  card-body p-4 rounded-5 border-1 border border-warning">
+                        <h5 class="text-center">Order Summary</h5>
+                        <h6 class="text-center text-muted">ID #PCO1502WE150</h6>
+                        <hr />
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0 bg-white">
+                                <thead class="bg-light">
+                                    <tr>
+
+                                        <th>ชื่อ</th>
+                                        <th class="align-right text-end">บาท</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            <p class="fw-normal mb-1 text-danger"><i class="fas fa-caret-up "></i>
+                                                ภาพวาราคาพี</p>
+                                            <p class="text-muted mb-0">ประเภทสินค้าขายตรง</p>
+                                        </td>
+
+                                        <td class="align-right text-end fw-bold text-danger"><i class="fas fa-plus"></i>
+                                            1,920</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            <p class="fw-normal mb-1 text-success"><i class="fas fa-caret-down "></i>
+                                                ราคาคูปอง</p>
+                                            <p class="text-muted mb-0">Finance</p>
+                                        </td>
+                                        <td class="align-right text-end fw-bold text-success"><i
+                                                class="fas fa-minus"></i> 500</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            <h4 class="fw-bold mb-1">Total</h4>
+
+                                        </td>
+
+                                        <td class="align-right text-end">
+                                            <h4 class=" fw-bold text-decoration-underline">1,420</h4>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="mt-5 m-2 w-100" style="height:1px;background-color: black;">
+        </div>
+
+        <div class=" p-4 ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto mb-3">
+                    <button type="button" class="btn btn-dark btn-lg ">ยืนยันการสั่งซื้อ</button>
+                </div>
+                <div class="col-auto mb-3">
+                    <button type="button" class="btn btn-outline-dark btn-lg"
+                        data-mdb-ripple-color="dark">ยกเลิก</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div
+            class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
+            <div class="custom-control custom-checkbox mr-3">
+                <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
+                <label class="custom-control-label" for="notify_me">Notify me when order is delivered</label>
+            </div>
+            <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm"
+                    href="orderDetails" data-toggle="modal" data-target="#orderDetails">View Order Details</a>
+            </div>
+        </div> -->
+    </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class=" text-center text-lg-start bg-light text-muted">
+        <!-- Section: Social media -->
+        <section class="container-xl d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class=" me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>THANFUNS TH.CO
+                        </h6>
+                        <p>
+                            Vīta brevis,
+                            ars longa,
+                            occāsiō praeceps,
+                            experīmentum perīculōsum,
+                            iūdicium difficile.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Products
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">React</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Vue</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Laravel</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Pricing</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Settings</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Orders</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Contact
+                        </h6>
+                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@example.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js">
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script> -->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

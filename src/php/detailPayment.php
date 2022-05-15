@@ -169,12 +169,16 @@ $data = '
                             <div class=" ">
                                 <h4 class="fw-bold">ส่วนลด</h4>
                             </div>
+                            
                             <div>
                                 <div class="form-outline mt-3">
-                                    <input type="search" id="form1" class="form-control" />
-                                    <label class="form-label" for="form1">กรอกรหัสส่วนลด</label>
-                                    <!-- <input type="search" id="form1" class="form-control" placeholder="Type query" aria-label="Search" /> -->
+                                    <input type="search" id="form1" class="form-control" aria-describedby="textExample1" />
+                                    <label class="form-label" for="form1">คลิกเพื่อกรอกรหัสส่วนลด</label>
+                                  
                                 </div>
+                                <!--- <div id="textExample1" class="form-text">
+                                 ดีลดี ๆ มีได้ในทุกวัน !
+                                 </div> --->
                             </div>
                             <div class="mt-5 ">
                                 <h6 class="fw-bold">ส่วนลดที่สามารถใข้งานได้</h6>
@@ -185,7 +189,7 @@ $data = '
                                 <div class="card mb-3" style="">
                                     <div class="row g-0 d-flex align-items-center  ">
                                         <div class="col-md-2  rounded-start align-self-stretch"
-                                            style="background-image: url('."'https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp'".');">
+                                            style="background: rgb(255,135,179);background: linear-gradient(125deg, rgba(255,135,179,1) 0%, rgba(199,49,198,1) 28%, rgba(69,233,198,1) 51%, rgba(32,198,232,1) 100%)">
 
 
                                         </div>
@@ -284,16 +288,33 @@ $data = '
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="sticky-top top-10 start-0 alert alert-danger d-flex align-items-center"
+                        </div>';
+                        
+                        
+                        if ($product['co_right_mode']){
+                            $data .= '<div class="alert alert-success d-flex align-items-center"
                             role="alert">
 
                             <div>
-                                <i class="fas fa-exclamation-triangle"></i> สินค้าในราคานี้
-                                ไม่อนุญาตให้นำไปใช้เชิงพาณิชย์
+                            <i class="fas fa-copyright"></i> สินค้านี้
+                                ได้รับอนุญาตให้นำไปใช้ในเชิงพาณิชย์
                             </div>
-                        </div>
-                    </div>
+                        </div>'; 
+                        }else{
+                            $data .= '<div class="alert alert-danger d-flex align-items-center"
+                            role="alert">
+
+                            <div>
+                                <i class="fas fa-exclamation-triangle"></i> สินค้านี้
+                                ไม่อนุญาตให้นำไปใช้ในเชิงพาณิชย์
+                            </div>
+                        </div>'; 
+                        }
+                        
+
+
+                        
+                        $data .= ' </div>
                     <div class="shadow-2-strong  card-body p-4 rounded-5 border-1 border border-warning">
                         <h5 class="text-center">Order Summary</h5>
                         <h6 class="text-center text-muted">ID #'.$payment_id.'</h6>
@@ -363,7 +384,7 @@ $data = '
         <div class=" p-4 ">
             <div class="row d-flex justify-content-center">
                 <div class="col-auto mb-3">
-                    <button type="button" class="btn btn-dark btn-lg ">ยืนยันการสั่งซื้อ</button>
+                    <button type="button" class="btn btn-dark btn-lg">ยืนยันการสั่งซื้อ</button>
                 </div>
                 <div class="col-auto mb-3">
                     <button type="button" class="btn btn-outline-dark btn-lg"
@@ -388,9 +409,10 @@ $data = '
 echo $data;
 
 
-
-
-
+echo '<div class="form-floating mb-3">
+<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+<label for="floatingInput">Email address</label>
+</div>';
 
 
 
