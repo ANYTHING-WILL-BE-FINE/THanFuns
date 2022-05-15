@@ -27,31 +27,20 @@
             fdkslkfldsfks;flds;fksdsald;s'ald;'sald;a'ld;s'ald;a'ld;sa'<br />ldas;'dls;a'lldfkopektfoekfldskfldsfklsfkdlskfl;kdkapriw[
           </p>
           <button type="button" class="btn btn-outline-primary" data-bs-toggle="button">FOLLOW</button>
-          <?php $result = mysqli_query($conn, 'SELECT SUM(value) AS value_sum FROM codes'); 
-          $row = mysqli_fetch_assoc($result); 
-          $sum = $row['value_sum'];
+          
         </div>
       </div>
     </div>
   
    
   
-    <div class="mt-5">
+    <div class="container-fluid mt-5">
     <div class="row">
       <div class="col-md-4" align="center">
-          <!-- <img
+          <img
           src="https://i.pinimg.com/564x/97/88/1a/97881a6721c59f83d7aa201fa85edcb0.jpg"
           wigth="100%"
-        /> -->
-        <div class="photo">
-          <?php
-          $sql="SELECT file_path FROM pth_file";
-          $result = mysqli_query($conn, $sql);
-          if($result -> num_rows > 0) {
-            while($row = $result -> fetch_row()) {
-              ?>
-              <img src="<?php echo $row['file_path'];
-              }}?>">  
+        />
         </div>
         <div class="card-body">
           <h5>productname</h5>

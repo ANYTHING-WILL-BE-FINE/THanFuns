@@ -19,7 +19,7 @@ if($action == "insertCommission") {
           $row = mysqli_fetch_assoc($result); 
           $sum = $row['value_sum']+1;
           $commission_id = 'C'.sprintf('%08d', $sum);
-          // echo  $commission_id;
+          echo  $commission_id;
   $first_pay = $_POST['first_pay'];
   $job_co_right_mode = $_POST['job_co_right_mode'];
   $datetime_limit = $_POST['datetime_limit'];
@@ -27,11 +27,11 @@ if($action == "insertCommission") {
  
 
   $sql = "INSERT INTO mkt_commission(commission_status,user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
-   VALUES ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,'$job_private','$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
+   VALUES ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,$job_private,'$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
   $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
-    echo  $commission_status;
+    // echo  $commission_status;
  } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
  }
@@ -45,27 +45,4 @@ else {
 
     mysqli_close($conn);
     
-// }
-
-
-    // // print_r($_POST)
-    // $file_path = $_POST['file_path'];
-    // // $product_name = $_POST[product_name];
-    // // $description = $_POST[description];
-    // // $tags_label = $_POST[tags_label];
-    // // $label = $_POST[label];
-    // // $mature_mode = $_POST[mature_mode];
-    // // $sale_mode = $_POST[sale_mode];
-
-    // mysqli_query($conn, "INSERT INTO pth_file (file_path)
-    //                             VALUE ('$file_path')");
-
-    // if(mysqli_query($conn)){
-    //     echo'<p> success </p>';
-    //     echo'<a href="submitvernavbar.php" > Back </a>';
-    // }else{
-    //     echo 'Not';
-    //     echo mysqli_connect_error($conn);
-        
-    // }
 ?>

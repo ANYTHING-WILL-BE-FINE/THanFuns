@@ -1,42 +1,21 @@
-<?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
-
+<?php include("src/php/connect_db.php"); ?>
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 6338";
+    $result = $conn->query($sql); ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>ThanFun</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Anything will be fine</title>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css" />
+    <script src="src/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="test5.css">
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="src/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <link rel="stylesheet" href="src/css/fontawesome.css">
     <link rel="stylesheet" href="bar.css">
-    <link rel="stylesheet" href="status.css">
-    <link rel="stylesheet" href="src/css/icon/all.css">
-    
-    
-        <style type="text/css">
-            .selectt {
-                color: rgb(0, 0, 0);
-                padding: 0px;
-                display: none;
-                margin-top: 15px;
-                background: rgb(255, 255, 255)
-            }
-            label {
-                margin-right: 20px;
-            }
-        </style>
-    </head>
-
-<body>
-
-    <!-- <form action="process.php" method="post"> -->
+  </head>
+  <body>
+      <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
     <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
@@ -96,7 +75,7 @@ include("src/php/connect_db.php");
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light px-2 sidebar collpase ">
                 <ul class="nav mt-2 d-flex flex-md-column flex-row flex-nowrap justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link active mb-2" aria-current="home" href="#">
+                        <a class="nav-link active mb-2" aria-current="home" href="feed.html">
                             <i data-feather="home"></i>
                             <span class="ml-1 d-none hidden d-sm-inline">HOME</span>
                         </a>
@@ -167,121 +146,126 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-
-    <form class="container col-md-5 justify-content-center" action="testinformation.php" method="post" >
-        <div class="profile-pic">
-            <label class="-label" for="file">
-              <span class="glyphicon glyphicon-camera"></span>
-            </label>
-            <div class="card-body text-center">
-                <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
-                alt="Generic placeholder image" 
-                class="rounded-circle"
-                style="width: 130px;" border="0" />
+                <div class="h-100 gradient-custom-2">
+        <div class="container py-5 h-100 coi-6 ">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+              <div class="card">
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(136, 149, 207); height:200px;">
+                  <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                    <img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"
+                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-5 mb-2 rounded-circle" 
+                      style="width: 150px; z-index: 1">
+                    <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                      style="z-index: 1;">
+                      Edit profile
+                    </button>
+                    
+                  </div>
+                  
+                  <div class="ms-3" style="margin-top: 130px;">
+                  <?php $row = $result->fetch_assoc();
+                        echo $row['username']; ?>
+                    <!-- <h5>PUDDINGKAI</h5> -->
+                    <!-- <p></p> -->
+                  </div>
+                </div>
+                <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                    
+                  <div class="d-flex justify-content-end text-center py-1">
+                      
+                    
+                    <!-- <div>
+                      <p class="mb-1 h5">253</p>
+                      <i data-feather="heart"></i>
+                      <p class="small text-muted mb-0">Likes</p>
+                    </div> -->
+                    <div class="px-3">
+                      <p class="mb-1 h5">1026</p>
+                      <!-- <i data-feather="heart"></i> -->
+                      <p class="small text-muted mb-0">Likes</p>
+                    </div>
+                    <div>
+                      <p class="mb-1 h5">478</p>
+                      <p class="small text-muted mb-0">Following</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-4 text-black">
+                  <div class="mb-5">
+                    <p class="lead fw-normal mb-1">About</p>
+                    <div class="p-4" style="background-color: #f8f9fa;">
+                        <!-- <p class="font-italic mb-1">Thailand</p> -->
+                        <div class="d-flex flex-row bd-highlight mb-2 ms-3">
+                            <div align="center"><a href="https://www.facebook.com/profile.php?id=100002404106020"><i data-feather="facebook"></i></a></div>
+                            <div class="ms-5"><div align="center"><a href="https://www.instagram.com/primsrps/"style="color:indianred"><i data-feather="instagram"></i></a></div></div>
+                            <div class="ms-5"><div align="center"><a href="https://www.twitch.tv/johnolsen_"style="color:purple"><i data-feather="twitch"></i></a></div></div>
+                            <div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>
+                            <div class="ms-5"><div align="center"><a href="https://www.youtube.com/c/MRHEARTROCKERz"style="color:red"><i data-feather="youtube"></i></a></div></div>
+                            
+                            
+                        </div>
+                      
+                      
+                      <!-- <p class="font-italic mb-0">primsrps</p> -->
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="lead fw-normal mb-0">photos</p>
+                    <!-- <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p> -->
+                  </div>
+                  <div class="row g-2">
+                    <div class="col mb-2">
+                        <a href="test4.html"><img src="photo/1.jpg"
+                        alt="image 1" class="w-100 rounded-3"></a>
+                    </div>
+                    <div class="col mb-2">
+                        <a href="test4.html"><img src="photo/129620692420220515.jpg"
+                        alt="image 1" class="w-100 rounded-3"></a>
+                    </div>
+                  </div>
+                  <div class="row g-2">
+                    <div class="col">
+                        <a href="test4.html"><img src="https://i.pinimg.com/564x/fa/62/b2/fa62b224162bca157bd10ec714cd0b7f.jpg"
+                        alt="image 1" class="w-100 rounded-3"></a>
+                    </div>
+                    <div class="col">
+                        <a href="test4.html"><img src="https://i.pinimg.com/564x/40/7a/de/407ade5f0291c23639a78bd810cf0d9c.jpg"
+                        alt="image 1" class="w-100 rounded-3"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-body text-center">
-                <span>Change Image</span>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-            </div>
+          </div>
+        </div>
+      </div>
     
-            
-          </div>
+    </div>
+                
+</div>
 
-          <br>
+</div>
 
-          <div>
-              <label for="fname">First name</label>
-          <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
-          </div>
-          <div>
-              <label for="lname">Last name</label>
-          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
-        </div>
-          
-
-          <br>
-          Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
-          <br>
-
-          <label for="gender"> Gender</label>
-        <select name="gender" required>
-	    <option value="none" selected>Gender</option>
-	    <option value="male">Male</option>
-	    <option value="female">Female</option>
-	    <option value="other">other</option>
-        </select>
-
-        <div class="row mb-1">
-            <label for="address" class="col-sm-2 col-form-label">Address</label> <br>
-            <textarea class="form-control" id="address" rows="4" placeholder="Input your address" required></textarea>
-        </div>
-
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-
-        <label for="nickname">Nickname</label>
-        <input type="nickname" id="nickname" name="nickname" required>
-
-        <br>
-        <label for="role"> Role</label>
-        <select name="role" required>
-	    <option value="none" selected>Role</option>
-	    <option value="member">Member</option>
-	    <option value="creator">Creator</option>
-	    <option value="admin">Admin</option>
-        </select>
-        
-
-        <div>
-            <label for="idnum">รหัสบัตรประชาชน</label>
-        <input type="text" id="idnum" name="idnum" placeholder="idcard" required>
-        </div>
-        <div class="mb-3">
-            <label for="idcard" class="form-label">รูปบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idcard" required>
-          </div>
-          <div class="mb-3">
-            <label for="idpic" class="form-label">รูปถ่ายกับบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idpic" required>
-          </div>
-        
-
-        <div>
-            <label for="bank_account_no">เลขบัญชีธนาคาร</label>
-          <input type="varchar(30)" id="bank_account_no" name="bank_account_no" placeholder="bank_account_no" >
-        </div>
-        <div>
-            <label for="bank_account_name">ชื่อบัญชีธนาคาร</label>
-          <input type="varchar(100)" id="bank_account_name" name="bank_account_name" placeholder="bank_account_name">
-        </div>
-        <div class="mb-3">
-            <label for="bankpic" class="form-label">สำเนาบัญชีธนาคาร</label>
-            <input class="form-control" type="file" id="formFile">
-          </div>
-          
-          <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+</div>
+<!-- </form> -->
 
 
-    <script>
-        function preview() {
-            frame.src = URL.createObjectURL(event.target.files[0]);
-        }
-        </script>
-    
-        <script> feather.replace() </script>
-        
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="checkbox"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    $("." + inputValue).toggle();
-                });
-            });
-        </script>
+<script>
+function preview() {
+frame.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
 
-    <script> feather.replace()</script>
-    
-</body>
+<script> feather.replace() </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('input[type="checkbox"]').click(function() {
+  var inputValue = $(this).attr("value");
+  $("." + inputValue).toggle();
+});
+});
+</script>
+  </body>
 </html>
