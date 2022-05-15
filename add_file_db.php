@@ -3,9 +3,13 @@
 //1. เชื่อมต่อ database: 
 include("src/php/connect_db.php");  
 
-$action = $_POST['action'];
+// print_r($_POST);
 
-if($action == 'submit'){
+// exit;
+
+// $action = $_POST['action'];
+
+// if($action == 'submit'){
 
     $product_id = $_POST['product_id'];
     $creator_id = $_POST['creator_id'];
@@ -20,8 +24,8 @@ if($action == 'submit'){
     $sale_mode = $_POST['sale_mode'];
     $co_right_mode =$_POST['co_right_mode'];
     $quantity = $_POST['quantity'];
-    
-    $file_id = $_POST['file_id'];
+
+    $file_id = $_FILES['file_id'];
 
     // $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
     $upload = $_FILES['file_id'];
@@ -52,10 +56,10 @@ if($action == 'submit'){
             VALUES('$newname',$creator_id)";
 
             $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
-            VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+            VALUES (1,1065,'$product_name','$description','$tags_label',$category_id,500,1,1,1,$sale_mode,0,5)";
 
             
-            $mysql = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
+            // $mysql = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
         
         mysqli_close($conn);
         // javascript แสดงการ upload file
@@ -73,6 +77,6 @@ if($action == 'submit'){
         echo "alert('Error back to upload again');";
         echo "</script>";
     }
-}
+
 
 ?>
