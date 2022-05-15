@@ -1,7 +1,5 @@
-<?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
+<?php include("src/php/connect_db.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +30,60 @@ include("src/php/connect_db.php");
                 margin-right: 20px;
             }
         </style>
+        <script>
+      function insertMyDay(){
+      $.ajax({
+      type: "POST", 
+      url: 'testinformation.php',
+      data:{
+        file: $("#file").val(),
+        first_name: $("#first_name").val(),
+        last_name: $("#last_name").val(),
+        date_birth:$("#date_birth").val(),
+        gender:$("#gender").val(),
+        address:$("#address").val(),
+        phone:$("#phone").val(),
+        nickname: $("#nickname").val(),
+        role:$("#role").val(),
+        idnum:$("#idnum").val(),
+        idcard:$("#idcard").val(),
+        idpic:$("#idpic").val(),
+
+//           $file = $_POST['file'];
+// $first_name = $_POST['first_name'];
+// $last_name = $_POST['last_name'];
+// $date_birth = $_POST['date_birth'];
+// $gender = $_POST['gender'];
+// $address = $_POST['address'];
+// $phone = $_POST['phone'];
+// $nickname = $_POST['nickname'];
+// $role = $_POST['role'];
+// $idnum = $_POST['idnum'];
+// $idcard = $_POST['idcard'];
+// $idpic = $_POST['idpic'];
+
+// $sql = "INSERT INTO 'acc_user' (pic_user,
+//                       nickname,first_name,last_name,gender,date_birth,
+//                       phone,address,user_role,
+//                       id_card,papercard_pic,user_w_card_pic,
+//                       )
+
+          // iduser: document.getElementById("iduser"),
+          // idcreator: document.getElementById("idcreator"),
+          // price: document.getElementById("price"),
+          // description: document.getElementById("description"),
+          // category: $('input[id="category"]:checked'),
+          // job_private: $('input[id="job_private"]:checked'),
+          action : 'information'},
+      success: function(data){
+      console.log(data);
+      },
+      error: function(xhr, status, error){
+      console.error(xhr);
+    }
+    });
+  }
+  </script>
     </head>
 
 <body>
@@ -168,7 +220,7 @@ include("src/php/connect_db.php");
 
             <!--- content --->
 
-    <form class="container col-md-5 justify-content-center" action="testinformation.php" method="post" >
+    <form class="container col-md-5 justify-content-center"  >
         <div class="profile-pic">
             <label class="-label" for="file">
               <span class="glyphicon glyphicon-camera"></span>
@@ -179,10 +231,10 @@ include("src/php/connect_db.php");
                 class="rounded-circle"
                 style="width: 130px;" border="0" />
             </div>
-            <div class="card-body text-center">
-                <span>Change Image</span>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-            </div>
+            <div class="mb-3">
+            <label for="user_pic" class="form-label">Change Profile</label>
+            <input class="form-control" type="file" id="user_pic">
+          </div>
     
             
           </div>
@@ -217,7 +269,7 @@ include("src/php/connect_db.php");
         </div>
 
         <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+        <input type="tel" id="phone" name="phone" required>
 
         <label for="nickname">Nickname</label>
         <input type="nickname" id="nickname" name="nickname" required>
@@ -254,13 +306,17 @@ include("src/php/connect_db.php");
             <label for="bank_account_name">ชื่อบัญชีธนาคาร</label>
           <input type="varchar(100)" id="bank_account_name" name="bank_account_name" placeholder="bank_account_name">
         </div>
+        <div>
+            <label for="bank_info">สาขาธนาคาร</label>
+          <input type="varchar(100)" id="bank_info" name="bank_info" placeholder="bank_info">
+        </div>
         <div class="mb-3">
             <label for="bankpic" class="form-label">สำเนาบัญชีธนาคาร</label>
             <input class="form-control" type="file" id="formFile">
           </div>
           
           <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="insertMyDay();">Submit</button>
     </form>
 
 

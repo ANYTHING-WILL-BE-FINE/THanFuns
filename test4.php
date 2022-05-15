@@ -1,13 +1,12 @@
-<?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
-
+<?php include("src/php/connect_db.php"); ?>
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 6338";
+    $result = $conn->query($sql); ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>ThanFun</title>
+    <head>
+        <title>ThanFun</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
@@ -15,76 +14,29 @@ include("src/php/connect_db.php");
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="src/css/fontawesome.css">
     <link rel="stylesheet" href="bar.css">
-
-    <style type="text/css">
-        .selectt {
-            color: rgb(0, 0, 0);
-            padding: 0px;
-            display: none;
-            margin-top: 15px;
-            background: rgb(255, 255, 255)
-        }
-        label {
-            margin-right: 20px;
-        }
-    </style>
-
-    <script>
-        function insertMyday(){
-            
-        $.ajax({
-            type: "POST", 
-            url: 'add_file_db.php',
-            data:{
-                creator_id: 1065,
-                product_id:1,
-                // file_id: $("#file_id").val(),
-                product_name: $("#product_name").val(),
-                description: $("#description").val(),
-                tags_label: $("#tags_label").val(),
-                category_id: $("#category_id").val(),
-                mature_mode:1,
-                default_price:500,
-                access_mode: 2,
-                product_status:2,
-                sale_mode:2,
-                co_right_mode:2,
-                quantity:4,
-                action : 'submit'
-                },
-            success: function(data){
-            console.log(data);
-            },
-            error: function(xhr, status, error){
-            console.error(xhr);
-            }
-            });
-
-            if( file_id.length > 0 ){
-
-                var file_id = $('#file_id')[0].files;
-                var fd = new FormData();
-                fd.append('file_id',file_id[0]);
-
-                $.ajax({
-                    type: "POST", 
-                    url: 'add_file_db.php',
-                    enctype: "multipart/form-data",
-                    data:fd,
-                    contentType: false,
-                    processData: false,
-                })
-
-            }
+    <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="src/css/icon/all.css">
     
-        }
-    </script>
     
-</head>
+        <style type="text/css">
+            .selectt {
+                color: rgb(0, 0, 0);
+                padding: 0px;
+                display: none;
+                margin-top: 15px;
+                background: rgb(255, 255, 255)
+            }
+            label {
+                margin-right: 20px;
+            }
+        </style>
+    </head>
 
 <body>
     
+    <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
     <nav class="navbar navbar-expand-md navbar-light bg-light px-2">
@@ -215,106 +167,73 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
-            <div method="post">
-                <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
-                    <div class="mt-0 mb-3">
-                        <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
-                        <form>
-                            <input class="form-control" type="file" accept=".jpg,.gif,.png" name="file_id" id="file_id" onchange="preview()" required>
-                        </form>
-                        
-                        <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-auto d-block mt-3 " width="720" height="360"/>
-                    </div>
-                
-                    <div class="mb-3">
-                        <label for="formtitle" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Title..." required>
-                    </div>
-            
-                    <div class="mb-3">
-                        <label for="fordescription" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description" rows="4" placeholder="Description..."></textarea>
-                    </div>
-            
-                    <div class="mb-3">
-                        <label for="formtag" class="form-label">Tag</label>
-                        <input type="text" class="form-control" id="tags_label" name="tags_label" placeholder="Tag #...">
-                    </div>
-            
-                    <div class="mb-3">
-                        <label for="category" class="form-label">Category</label>
-                        <select class="form-select col mb-1" id="category_id" name="category_id" required>
-                            <option selected disabled value="">Select Category</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </div>
-            
-                    <div class="mb-3 form-check">
-                        <label class="form-check-label" for="mature_mode">
-                        <input type="checkbox" class="form-check-input" id="mature_mode" name="mature_mode" value="1">
-                        Mature Content</label>
-                    </div>
 
-                    <div class="mb-3 form-check">
-                        <label class="form-check-label" for="check2">
-                        <input type="checkbox" class="form-check-input" id="check2" value="check2">
-                        I want to sold this artwork</label>
-                        <div class="check2 selectt">
-                            <select class="form-select col mb-2" id="sale_mode" name="sale_mode" required>
-                                <option selected disabled value="sale_mode">Auction</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Starting Bid" aria-label="Starting Bid" required>
+            
+            <div class="container mt-5 mb-5 justify-content-center" >
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="d-flex justify-content-between p-2 px-3">
+                                <div class="d-flex flex-row align-items-center"> <img src="https://pbs.twimg.com/profile_images/378800000346467287/ce6a8754abf7e84e796395cf4d576839_400x400.jpeg" width="50" class="rounded-circle">
+                                    <div class="d-flex flex-column ml-2"> 
+                                        <p>
+                                        <?php $row = $result->fetch_assoc();
+                        echo $row['username']; ?> add <span class="font-weight-bold">Me and friends</span>
+                                       </p>
+                                            <small class="text-primary">13 May 2022</small> 
+                                        </div> 
+                                    
+                                        
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Bid" aria-label="Bid" required>
+                                <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i class="fa fa-ellipsis-h"></i> </div>
+                            </div> <img src="http://f.ptcdn.info/854/045/000/oda8gwd3oARidfZNq4h-o.jpg" class="img-fluid">
+                            <div class="p-2">
+                                <p class="text-justify">bababa babanana</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i class="fa fa-smile-o ml-2"></i> </div>
+                                    <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Autobuy" aria-label="Autobuy">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Time period" aria-label="Time period" required>
+                                <hr>
+                                <div class="comments">
+                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image">
+                                        <div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small class="comment-text">I like this alot! thanks alot</small>
+                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/1YrCKa1.jpg" width="40" class="rounded-image">
+                                        <div class="d-flex flex-column ml-2"> <span class="name">Elizabeth goodmen</span> <small class="comment-text">Thanks for sharing!</small>
+                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>8 mins</small> </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-input"> <input type="text" class="form-control">
+                                        <div class="fonts"> <i class="fa fa-camera"></i> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="d-grid col-4 mx-auto">
-                        <button type="submit" class="btn btn-primary mb-4" id="but_upload" onclick="insertMyday()" >Submit</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
+
+
+            <script>
+                function preview() {
+                    frame.src = URL.createObjectURL(event.target.files[0]);
+                }
+                </script>
             
-        
-    </div>
-    
+                <script> feather.replace() </script>
+                
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('input[type="checkbox"]').click(function() {
+                            var inputValue = $(this).attr("value");
+                            $("." + inputValue).toggle();
+                        });
+                    });
+                </script>
 
-    <script>
-    function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-    }
-    </script>
-
-    <script> feather.replace() </script>
-    
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('input[type="checkbox"]').click(function() {
-                var inputValue = $(this).attr("value");
-                $("." + inputValue).toggle();
-            });
-        });
-    </script>
-
+            <script> feather.replace()</script>
 </body>
 </html>

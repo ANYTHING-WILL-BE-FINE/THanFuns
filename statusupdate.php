@@ -19,12 +19,12 @@ if($action == "update") {
  }
 }
 
-if($action == 'status'){
+// if($action == 'status'){
   
-  $commission_id = $_POST['commission_id'];
-  $commission_status = $_POST['commission_status'];
+//   $commission_id = $_POST['commission_id'];
+//   $commission_status = $_POST['commission_status'];
 
-}
+// }
 
     mysqli_close($conn);
     
