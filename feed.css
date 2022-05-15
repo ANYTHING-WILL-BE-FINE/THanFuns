@@ -4,19 +4,19 @@
     box-sizing: border-box;
 }
 .main{
-    max-width: 520px;
+    width: 520px;
     margin: 0 auto;
     margin-top: 2rem;
     height: 500px;
-    box-shadow: 3px 3px 10px rgb(117, 116, 116);
+    box-shadow: 3px 3px 10px rgb(141, 141, 141);
     overflow: hidden;
 }
 
-
 .main h3{
-    margin-left: 1rem;
+    margin-left: 2rem;
+    align-items: left;
+    
 }
-
 
 .img img{
     width: 100%;
@@ -31,16 +31,16 @@
 
 .footer{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     background: #ffffff;
     align-items: center;
-    height: 55px;
+    height: 60px;
 }
 
 .user{
     display: flex;
     align-items: center;
-    margin-left: 2rem;
+    padding-left: 2rem;
     margin-top: .7rem;
 }
 .user img{
@@ -62,11 +62,9 @@
     
 }
 
-
 .ft-r {
-    margin-left: 18rem;
+    padding-right: 2rem;
     margin-top: 2.5rem;
-    padding-right: 18rem ;
 }
 
 .ft-l{
@@ -74,8 +72,7 @@
     margin-left: 2rem;
 }
 
-.ft-c {
-    margin-left: 2rem; 
-     margin-top: 2.5rem;
-} 
-
+.ft-c{
+    margin-right: 17rem;
+    margin-top: 2.5rem;
+}
