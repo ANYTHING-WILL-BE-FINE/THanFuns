@@ -1,3 +1,5 @@
+<?php include_once("src/php/connect_db.php");?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +18,13 @@
 
     <script>
         function insertMyday(){
+            $.ajax({
             type: "POST", 
-            url: 'process.php',
+            url:'statusoption.php',
             data:{
-                user_id: 1065,
-                product_id:1,
+                commission_id: '1',
                 commission_status: $("#commission_status").val(),
-                action : 'status'
-                },
+                action : 'status'},
             success: function(data){
             console.log(data);
             },
@@ -31,9 +32,6 @@
             console.error(xhr);
             }
             });
-        }else{
-           alert("Please select a file.");
-        }
         }
     </script>
 
@@ -240,7 +238,7 @@
                                     <h5 class="col-lg-6 col-md-6 col-sm-4 col-2 text-start" ></h5>
                                     <div class="col-lg-3 col-md-3 col-sm-4 col-5 text-start" >
                                     <select class="form-select col mb-2" id="commission_status" name="commission_status" required>
-                                        <option selected disabled value="status">Status</option>
+                                        <option selected disabled value="0">Status</option>
                                         <option value="1">ไม่รับคำขอ</option>
                                         <option value="2">อยู่ในระหว่างการยอมรับคำขอ</option>
                                         <option value="3">สำเร็จ รอการชำระเงินครั้งที่ 1</option>
@@ -258,7 +256,7 @@
                     </div>
 
                 <div class="d-grid col-6 col-sm-3 mx-auto">
-                    <button type="submit" class="btn btn-primary mb-5">ติดต่อครีเอเตอร์</button>
+                    <button type="submit" class="btn btn-primary mb-5" id="status" onclick="insertMyday()" >ติดต่อครีเอเตอร์</button>
                 </div>
 
             </div>
