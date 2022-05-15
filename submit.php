@@ -38,7 +38,7 @@ include("src/php/connect_db.php");
             url: 'add_file_db.php',
             data:{
                 creator_id: 1065,
-                product_id:1,
+                product_id:25,
                 // file_id: $("#file_id").val(),
                 product_name: $("#product_name").val(),
                 description: $("#description").val(),
@@ -61,11 +61,13 @@ include("src/php/connect_db.php");
             }
             });
 
+            var file_id = $('#file_id')[0].files;
+                var fd = new FormData();
             if( file_id.length > 0 ){
 
-                var file_id = $('#file_id')[0].files;
-                var fd = new FormData();
+                
                 fd.append('file_id',file_id[0]);
+                fd.append('creater_id',1065);
 
                 $.ajax({
                     type: "POST", 
