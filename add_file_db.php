@@ -3,10 +3,13 @@
 //1. เชื่อมต่อ database: 
 include("src/php/connect_db.php");  
 
+$product_id = $_POST['product_id'];
 $creator_id = $_POST['creator_id'];
-$product_name = $_POST['creator_id'];
+$product_name = $_POST['product_name'];
 $description = $_POST['description'];
 $tags_label = $_POST['tags_label'];
+$category_id = $_POST['category_id'];
+$default_price = $_POST['default_price'];
 
 $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
 
@@ -35,6 +38,10 @@ if($upload !='') {   //not select file
 	// เพิ่มไฟล์เข้าไปในตาราง uploadfile
 		$sql = "INSERT INTO pth_file (file_id) 
 		VALUES('$newname')";
+
+        $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price)
+        VALUES (1,1065,'$product_name','$description','$tags_label',$category_id,500)";
+
 		
 		$mysql = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
 	
