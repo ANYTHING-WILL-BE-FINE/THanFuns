@@ -6,6 +6,9 @@
 <?php $a = "SELECT contact_type FROM acc_contact
               WHERE user_id = 6338;";
     $resultt = $conn->query($a); ?>
+    <?php $b = "SELECT contact_app FROM acc_contact
+              WHERE user_id = 6338;";
+    $resulttt = $conn->query($b); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -202,18 +205,27 @@
                         <!-- <p class="font-italic mb-1">Thailand</p> -->
                         <div class="d-flex flex-row bd-highlight mb-2 ms-3">
                             <?php $roww = $resultt->fetch_assoc();
-                                echo $roww['contact_type'];
-                                  if($roww=="1"){
-                                    echo '<div align="center"><a href=""><i data-feather="facebook"></i></a></div>';
-                                  }elseif($roww=="2"){
-                                    echo '<div align="center"><a href=""><i data-feather="twitch"></i></a></div>';
-                                  }else{
-                                    echo '<div align="center"><a href=""><i data-feather="instagram"></i></a></div>';
-                                  }?>
+                                // echo $roww['contact_type'];
+                                  if($roww['contact_type']==1){
+                                    echo '<div align="center"><a href="https://www.instagram.com/primsrps/"style="color:#ff007f"><i data-feather="instagram"></i></a></div>';
 
-                            <!-- <div class="ms-5"><div align="center"><a href="https://www.twitch.tv/johnolsen_"style="color:purple"><i data-feather="twitch"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.youtube.com/c/MRHEARTROCKERz"style="color:red"><i data-feather="youtube"></i></a></div></div> -->
+                                  }elseif($roww['contact_type']==2){
+                                    echo '<div align="center"><a href=""style="color:gray"><i data-feather="mail"></i></a></div>';
+                                  }else{
+                                    echo '<div align="center"><a href=""style="color:green"><i data-feather="phone"></i></a></div>';
+                                  }?>
+                              <?php $rowww = $resulttt->fetch_assoc();
+                              if($rowww['contact_app']==1){
+                                echo '<div class="ms-5"><div align="center"><a href="https://www.facebook.com/profile.php?id=100002404106020"style="color:blue"><i data-feather="facebook"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==2){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:red"><i data-feather="youtube"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==3){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==4){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:purple"><i data-feather="twitch"></i></a></div></div>';
+                              }else{
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:black"><i data-feather="tv"></i></a></div></div>';
+                              }?>
                             
                             
                         </div>
