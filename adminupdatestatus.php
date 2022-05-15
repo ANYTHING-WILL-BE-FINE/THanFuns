@@ -24,7 +24,7 @@
             data:{
                 commission_id: '1',
                 commission_status: $("#commission_status").val(),
-                action : 'status'},
+                action : 'update'},
             success: function(data){
             console.log(data);
             },
@@ -256,7 +256,7 @@
                     </div>
 
                 <div class="d-grid col-6 col-sm-3 mx-auto">
-                    <button type="submit" class="btn btn-primary mb-5" id="status" onclick="insertMyday()" >ติดต่อครีเอเตอร์</button>
+                    <button type="submit" class="btn btn-primary mb-5" id="UPDATE" onclick="insertMyday()" >UPDATE</button>
                 </div>
 
             </div>

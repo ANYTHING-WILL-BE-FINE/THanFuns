@@ -1,3 +1,5 @@
+<?php include_once("src/php/connect_db.php");?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,29 @@
     <link rel="stylesheet" href="bar.css">
     <link rel="stylesheet" href="status.css">
     <link rel="stylesheet" href="src/css/style.css">
+
+    <script>
+        function insertMyday(){
+            $.ajax({
+            type: "POST", 
+            url:'statusupdate.php',
+            data:{
+                commission_id: '1',
+                action : 'status'},
+            success: function(data){
+            console.log(data);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+            });
+        }
+
+        function show() {
+            if()
+        }
+    </script>
+
 </head>
 
 <body>
@@ -190,7 +215,11 @@
                                 <div class="row mt-5 mb-3">
                                     <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ราคาสินค้า</h5>
                                     <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >1000</h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >
+                                        <?php
+
+                                        ?>
+                                    </h5>
                                 </div>
 
                                 <div class="row mb-3">
