@@ -31,7 +31,7 @@ if($action == "insertCommission") {
   $mysql = mysqli_query($conn, $sql);
   if ($mysql === TRUE) {
     echo "New record has been added successfully !";
-    echo  $commission_status;
+    // echo  $commission_status;
  } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
  }
