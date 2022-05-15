@@ -115,7 +115,7 @@
           job_description: $("#job_description").val(),
           first_pay:234,
           job_co_right_mode:0,
-          datetime_limit:"2022-09-13",
+          datetime_limit:$("#datetime_limit").val(),
           commission_status :2,
 
           // iduser: document.getElementById("iduser"),
@@ -289,6 +289,10 @@
          <div class="mb-3">
             <label >ราคา</label>
             <input class="md-4" id="request_price" name="request_price"><label >บาท</label>
+        </div> 
+        <div class="mb-3">
+            <label >วันส่งงาน</label>
+            <input class="md-4" id="datetime_limit" name="request_price" placeholder=" YYY-MM-DD"><label ></label>
         </div> 
         <div class="mb-3">
           <label>ประเภทสี</label><select class="form-select mt-3">
