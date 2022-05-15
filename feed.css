@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .main{
-    width: 520px;
+    max-width: 520px;
     margin: 0 auto;
     margin-top: 2rem;
     height: 500px;
@@ -12,11 +12,11 @@
     overflow: hidden;
 }
 
+
 .main h3{
-    margin-left: 2rem;
-    align-items: left;
-    
+    margin-left: 1rem;
 }
+
 
 .img img{
     width: 100%;
@@ -31,16 +31,16 @@
 
 .footer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background: #ffffff;
     align-items: center;
-    height: 60px;
+    height: 55px;
 }
 
 .user{
     display: flex;
     align-items: center;
-    padding-left: 2rem;
+    margin-left: 2rem;
     margin-top: .7rem;
 }
 .user img{
@@ -62,9 +62,11 @@
     
 }
 
+
 .ft-r {
-    padding-right: 2rem;
+    margin-left: 18rem;
     margin-top: 2.5rem;
+    padding-right: 18rem ;
 }
 
 .ft-l{
@@ -72,7 +74,8 @@
     margin-left: 2rem;
 }
 
-.ft-c{
-    margin-right: 17rem;
-    margin-top: 2.5rem;
-}
+.ft-c {
+    margin-left: 2rem; 
+     margin-top: 2.5rem;
+} 
+

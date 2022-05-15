@@ -142,7 +142,7 @@
         <div class="col-sm-3"><p style="color:black">  3.Creator จะสามารถขอยืดเวลาการทำงานได้ 15 วัน หากเลย 15 วันแล้วยังไม่เสร็จ ผู้จ้างวานจะสามารถยื่นขอคืนเงินได้ </p></div>
         <div class="mb-3">
        <div class="mb-3"> <label>รหัสประจำตัวUser</label><br>
-        <input class="md-4" id="creator_id" name="user_id">
+        <input class="md-4" id="user_id" name="user_id">
         </div>
         <div class="mb-3">
             <label >รหัสประจำตัวCreator</label><br>
