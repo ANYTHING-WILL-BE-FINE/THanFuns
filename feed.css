@@ -4,19 +4,19 @@
     box-sizing: border-box;
 }
 .main{
-    width: 520px;
+    max-width: 520px;
     margin: 0 auto;
     margin-top: 2rem;
     height: 500px;
-    box-shadow: 3px 3px 10px rgb(0, 0, 0);
+    box-shadow: 3px 3px 10px rgb(117, 116, 116);
     overflow: hidden;
 }
 
+
 .main h3{
-    margin-left: 2rem;
-    align-items: left;
-    
+    margin-left: 1rem;
 }
+
 
 .img img{
     width: 100%;
@@ -31,31 +31,42 @@
 
 .footer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background: #ffffff;
     align-items: center;
-    height: 60px;
+    height: 55px;
 }
 
 .user{
     display: flex;
     align-items: center;
-    padding-left: 2rem;
+    margin-left: 2rem;
     margin-top: .7rem;
 }
 .user img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    margin-right: 1px;
+}
+.user a{
+    margin-left: 0.7rem;
+    margin-top: .7rem;
+    color: black;
 }
 .user p{
     margin-left: 1rem;
-    margin-top: .7rem;
+    align-items: left;
+    margin-top: 1.7rem;
+    color: rgb(128, 126, 126);
+    
 }
 
+
 .ft-r {
-    padding-right: 2rem;
+    margin-left: 18rem;
     margin-top: 2.5rem;
+    padding-right: 18rem ;
 }
 
 .ft-l{
@@ -63,7 +74,8 @@
     margin-left: 2rem;
 }
 
-.ft-c{
-    margin-right: 17rem;
-    margin-top: 2.5rem;
-}
+.ft-c {
+    margin-left: 2rem; 
+     margin-top: 2.5rem;
+} 
+
