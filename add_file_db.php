@@ -22,9 +22,16 @@ $quantity = $_POST['quantity'];
 $action = $_POST['action'];
 
 
-if($_FILES['file_id']){
+if($action == 'submit'){
+
+    
+    $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+            VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+}
+else{
 
     $file_id = $_FILES['file_id'];
+    $creator_id = $_FILES['creater_id'];
 
     // $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
     $upload = $_FILES['file_id'];
@@ -50,14 +57,9 @@ if($_FILES['file_id']){
             //คัดลอกไฟล์ไปเก็บที่เว็บเซริ์ฟเวอร์
             move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);
     }
-    $sql = "INSERT INTO pth_file (file_id,user_id) 
-            VALUES('$newname',$creator_id)";
-}
-if($action == 'submit'){
-
-    
-    $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
-            VALUES (1,1065,'$product_name','$description','$tags_label',$category_id,500,1,1,1,$sale_mode,0,5)";
+    $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view) 
+            VALUES('$newname',$creator_id,'$path_copy','เริส','สวย','$type',1)";
+    $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 }
 
             
