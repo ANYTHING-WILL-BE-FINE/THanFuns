@@ -100,26 +100,26 @@
       type: "POST", 
       url: 'process.php',
       data:{
-        commission_id:3,
-        user_id: $("#user_id").val(),
-        creator_id: $("#user_creator").val(),
-        request_price: $("#request_price").val(),
-        job_color:0,
-        job_scale:1,
-        job_mature:1,
-        // job_private:0,
-        job_description: $("#job_description").val(),
-        first_pay:234,
-        job_co_right_mode:0,
-        datetime_limit:"2022-09-13",
+          commission_id:4,
+          user_id: $("#user_id").val(),
+          creator_id: $("#user_creator").val(),
+          request_price: $("#request_price").val(),
+          job_color:0,
+          job_scale:$("#job_scale").val(),
+          job_mature:1,
+          job_private:0,
+          job_description: $("#job_description").val(),
+          first_pay:234,
+          job_co_right_mode:0,
+          datetime_limit:"2022-09-13",
 
-        // iduser: document.getElementById("iduser"),
-        // idcreator: document.getElementById("idcreator"),
-        // price: document.getElementById("price"),
-        // description: document.getElementById("description"),
-        // category: $('input[id="category"]:checked'),
-        job_private: $('input[id="job_private"]:checked'),
-        action : 'insertCommission'},
+          // iduser: document.getElementById("iduser"),
+          // idcreator: document.getElementById("idcreator"),
+          // price: document.getElementById("price"),
+          // description: document.getElementById("description"),
+          // category: $('input[id="category"]:checked'),
+          // job_private: $('input[id="job_private"]:checked'),
+          action : 'insertCommission'},
       success: function(data){
       console.log(data);
       },
@@ -131,6 +131,8 @@
   </script>
 
 </head>
+
+
 <body>
     <div class="container-fluid mt-3" align = 'left'>
         <h3> กฏของการทำCOMMISION</h3>
@@ -158,7 +160,19 @@
           <input class="form-check-input" type="checkbox" id="black-white" name="job_color" value="something" >
           <label class="form-check-label">สี</label>
         </div>
+
         <div class="mb-3">
+            <label for="scale" class="form-label">Scale</label>
+            <select class="form-select col mb-1" id="job_scale" name="job_scale" required>
+                <option selected disabled value="">Select Category</option>
+                <option value="1">Protrait</option>
+                <option value="2">Bust-up</option>
+                <option value="3">Knee-up</option>
+                <option value="4">Full Body</option>
+            </select>
+        </div>
+
+        <!-- <div class="mb-3">
           <label class="form-label">scaleของงาน</label><br>
           <input class="form-check-input" type="checkbox" id="Protrait" name="job_scale" value="something">
           <label class="form-check-label">Protrait</label>
@@ -168,7 +182,8 @@
           <label class="form-check-label">Knee-up</label>
           <input class="form-check-input" type="checkbox" id="Full Body" name="job_scale" value="something">
           <label class="form-check-label">Full Body</label>
-        </div> 
+        </div> -->
+
         <div class="mb-3">
             <label for="detail" class="form-label">รายละเอียดผลงาน</label>
             <textarea name="job_description" id="job_description" cols="30" row="30"class="form-control"></textarea>
