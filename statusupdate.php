@@ -3,7 +3,7 @@
 
 $action = $_POST['action'];
 
-if($action == "status") {
+if($action == "update") {
 
   $commission_id = $_POST['commission_id'];
   $commission_status = $_POST['commission_status'];
@@ -18,9 +18,13 @@ if($action == "status") {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
  }
 }
-else {
 
-  }
+if($action == 'status'){
+  
+  $commission_id = $_POST['commission_id'];
+  $commission_status = $_POST['commission_status'];
+
+}
 
     mysqli_close($conn);
     
