@@ -18,7 +18,7 @@ text-align: center;
 } */
 
 #progressbar-2 #step1:before {
-    background-image: url('/photo/1.jpg');
+    background-image: url('../photo/1.jpg');
     background-size: cover;
     display: inline-block;
     background-position: center;

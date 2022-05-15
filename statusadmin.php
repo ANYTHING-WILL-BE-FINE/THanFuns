@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="src/css/icon/all.css">
     <link rel="stylesheet" href="bar.css">
     <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <script>
+        function insertMyday(){
+            type: "POST", 
+            url: 'process.php',
+            data:{
+                user_id: 1065,
+                product_id:1,
+                commission_status: $("#commission_status").val(),
+                action : 'status'
+                },
+            success: function(data){
+            console.log(data);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+            });
+        }else{
+           alert("Please select a file.");
+        }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -211,9 +236,21 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >สถานะ</h5>
-                                    <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >......</h5>
+                                    <h5 class="col-lg-3 col-md-3 col-sm-4 col-5 text-end" >สถานะ</h5>
+                                    <h5 class="col-lg-6 col-md-6 col-sm-4 col-2 text-start" ></h5>
+                                    <div class="col-lg-3 col-md-3 col-sm-4 col-5 text-start" >
+                                    <select class="form-select col mb-2" id="commission_status" name="commission_status" required>
+                                        <option selected disabled value="status">Status</option>
+                                        <option value="1">ไม่รับคำขอ</option>
+                                        <option value="2">อยู่ในระหว่างการยอมรับคำขอ</option>
+                                        <option value="3">สำเร็จ รอการชำระเงินครั้งที่ 1</option>
+                                        <option value="4">ผู้วาดทำตามคำขอ</option>
+                                        <option value="5">เกินเวลาที่กำหนด</option>
+                                        <option value="6">ขยายเวลา</option>
+                                        <option value="7">งานเสร็จสิ้น รอการชำระเงินครั้งที่ 2</option>
+                                        <option value="8">ตรวจสอบแล้ว คำขอเสร็จสมบูรณ์</option>
+                                    </select>
+                                    </div>
                                 </div>
             
                             </div>
