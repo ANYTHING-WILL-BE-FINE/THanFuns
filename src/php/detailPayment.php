@@ -138,25 +138,25 @@ $data = '
                                     $data .=  $product['product_name'];
                                     $data .= '</h4>';
                                     
-                                    $sql = "SELECT * FROM mkt_product WHERE product_id=$product_id ";
-                                    $mysql = mysqli_query($conn, $sql);
-                                    $data .= '<span class="badge rounded-pill badge-primary">โพตอนย</span>
-                                    <span class="badge rounded-pill badge-primary">ยาอนุ</span>
-                                    <span class="badge rounded-pill badge-primary">ปัญญา</span>
-                                    <span class="badge rounded-pill badge-primary">Danger</span>
-                                    <span class="badge rounded-pill badge-primary">ระมัดระวะง</span>
-                                    <span class="badge rounded-pill badge-primary">จิตตกลง</span>
-                                    <span class="badge rounded-pill badge-primary">เหนื่อย</span>
-                                    <span class="badge rounded-pill badge-primary">ว่่าง</span>
-                                    <p>';
+                                    $sql = "SELECT * FROM mkt_product_tag INNER JOIN dict_tags ON mkt_product_tag.tags_id =dict_tags.tags_id WHERE product_id=$product_id";
+                                    $mysql_tags = mysqli_query($conn, $sql);
                                     
-                                    $data .= $product['description'] . '</p>
-                                    <h3><span class="fw-bold">ราคา <span id="product_price"></span></h3>
-                                    <p id="before">This is the JSON before the fetch.</p>
-                                    <p id="after">This is the JSON after the fetch.</p>
+                                    
+                                    /* fetch associative array */
+                                    $cot = 0;
+        
+                                    while ($tags = mysqli_fetch_assoc($mysql_tags) ){
+                                        $data .= ' <span class="badge rounded-pill badge-primary">#'.$tags['tags_label'].'</span> ';
+                                        $cot += 1;
+                                    }
+                             
+                                    
+                                    $data .= '<p>'. $product['description'] . '</p>
+                                    <h3><span class="fw-bold">ราคา <span id="product_price">'. $product['default_price'] .' บาท</span></h3>
+                               
                                     <button type="button" class="btn btn-primary" data-mdb-toggle="modal"
                                         data-mdb-target="#staticBackdrop">ดูตัวอย่างไฟล์</button>
-                                    <button type="button" onclick="myButtonClick()">Press Me</button>
+            
 
                                 </div>
 
@@ -184,7 +184,7 @@ $data = '
                                 <div class="card mb-3" style="">
                                     <div class="row g-0 d-flex align-items-center  ">
                                         <div class="col-md-2  rounded-start align-self-stretch"
-                                            style="background-image: url(https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp);">
+                                            style="background-image: url('."'https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp'".');">
 
 
                                         </div>
