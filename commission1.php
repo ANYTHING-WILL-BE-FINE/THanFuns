@@ -100,10 +100,6 @@
       type: "POST", 
       url: 'process.php',
       data:{
-<<<<<<< HEAD:index-2.php
-          commission_id:6,
-=======
->>>>>>> f039a9b34f7df06e0425315f15e147fc0e562ffa:commission1.php
           user_id: $("#user_id").val(),
           creator_id: $("#creator_id").val(),
           request_price: $("#request_price").val(),
