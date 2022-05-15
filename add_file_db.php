@@ -3,27 +3,26 @@
 //1. เชื่อมต่อ database: 
 include("src/php/connect_db.php");  
 
-// print_r($_POST);
+print_r($_POST);
 
 // exit;
+$product_id = $_POST['product_id'];
+$creator_id = $_POST['creator_id'];
+$product_name = $_POST['product_name'];
+$description = $_POST['description'];
+$tags_label = $_POST['tags_label'];
+$category_id = $_POST['category_id'];
+$default_price = $_POST['default_price'];
+$access_mode = $_POST['access_mode'];
+$product_status = $_POST['product_status'];
+$mature_mode = $_POST['mature_mode'];
+$sale_mode = $_POST['sale_mode'];
+$co_right_mode =$_POST['co_right_mode'];
+$quantity = $_POST['quantity'];
+$action = $_POST['action'];
 
-// $action = $_POST['action'];
 
-// if($action == 'submit'){
-
-    $product_id = $_POST['product_id'];
-    $creator_id = $_POST['creator_id'];
-    $product_name = $_POST['product_name'];
-    $description = $_POST['description'];
-    $tags_label = $_POST['tags_label'];
-    $category_id = $_POST['category_id'];
-    $default_price = $_POST['default_price'];
-    $access_mode = $_POST['access_mode'];
-    $product_status = $_POST['product_status'];
-    $mature_mode = $_POST['mature_mode'];
-    $sale_mode = $_POST['sale_mode'];
-    $co_right_mode =$_POST['co_right_mode'];
-    $quantity = $_POST['quantity'];
+if($_FILES['file_id']){
 
     $file_id = $_FILES['file_id'];
 
@@ -49,14 +48,19 @@ include("src/php/connect_db.php");
             $path_link="file_id/".$newname;
 
             //คัดลอกไฟล์ไปเก็บที่เว็บเซริ์ฟเวอร์
-            move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);  	
-            }
-        // เพิ่มไฟล์เข้าไปในตาราง uploadfile
-            $sql = "INSERT INTO pth_file (file_id,user_id) 
+            move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);
+    }
+    $sql = "INSERT INTO pth_file (file_id,user_id) 
             VALUES('$newname',$creator_id)";
+}
+if($action == 'submit'){
 
-            $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+    
+    $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
             VALUES (1,1065,'$product_name','$description','$tags_label',$category_id,500,1,1,1,$sale_mode,0,5)";
+}
+
+            
 
             
             // $mysql = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
