@@ -199,7 +199,7 @@
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light px-2 sidebar collpase ">
                 <ul class="nav mt-2 d-flex flex-md-column flex-row flex-nowrap justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link active mb-2" aria-current="home" href="#">
+                        <a class="nav-link active mb-2" aria-current="home" href="feed.html">
                             <i data-feather="home"></i>
                             <span class="ml-1 d-none hidden d-sm-inline">HOME</span>
                         </a>
