@@ -1,6 +1,7 @@
 <?php include("src/php/connect_db.php"); ?>
-<?php $sql = "SELECT * FROM menu";
-    $result = $connect->query($sql); ?>
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 6338";
+    $result = $conn->query($sql); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -163,7 +164,9 @@
                   </div>
                   
                   <div class="ms-3" style="margin-top: 130px;">
-                    <h5>PUDDINGKAI</h5>
+                  <?php $row = $result->fetch_assoc();
+                        echo $row['username']; ?>
+                    <!-- <h5>PUDDINGKAI</h5> -->
                     <!-- <p></p> -->
                   </div>
                 </div>
