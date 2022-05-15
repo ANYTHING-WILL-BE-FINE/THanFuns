@@ -26,13 +26,5 @@ $sql = "INSERT INTO 'acc_user' (pic_user,
 value('$file','$nickname','$first_name','$last_name','$gender','$date_birth','$phone','$address','$role','$idnum','$idcard','$idpic')";
 
 $rs = mysqli_query($con, $sql);
-if($rs)
-{
-	echo "Contact Records Inserted";
-}
-else
-{
-	echo "Are you a genuine visitor?";
-	
-}
+
 ?>
