@@ -20,6 +20,7 @@ if($action == 'qpagedt'){
       $row = mysqli_fetch_row($mysql);
         $payment_status = $row[4];
         $product_id = $row[1];
+        $payer_id = $row[3];
       $row = mysqli_fetch_all($mysql, MYSQLI_ASSOC);
       $reply = json_encode($row);
       // mysqli_free_result($row);
@@ -246,29 +247,39 @@ $data = '
                         <div class="stepper d-flex flex-column mt-1 ml-2 ">
                             <div class="d-flex mb-1">
                                 <div class="d-flex flex-column align-items-center" style="width:60px">
-                                    <div class="mb-1" style="width:60px; height:120px; position:relative;">
-                                        <img src="https://ui-avatars.com/api/?name=Mam+S&background=random"
+                                    <div class="mb-1" style="width:60px; height:120px; position:relative;">';
+                                    
+                                    
+                                    $sql = "SELECT * FROM acc_user WHERE user_id=$payer_id ";
+                                    $mysql = mysqli_query($conn, $sql);
+                                    $payer = mysqli_fetch_array($mysql, MYSQLI_ASSOC);
+                                    $crter_id = $product['creator_id']; 
+                                    $sql = "SELECT * FROM acc_user WHERE user_id = $crter_id ";
+                                    $mysql = mysqli_query($conn, $sql);
+                                    $crter = mysqli_fetch_array($mysql, MYSQLI_ASSOC);
+                                  
+                                    $data .='<img src="https://ui-avatars.com/api/?name='.$payer['first_name'].'+'.$payer['last_name'].'&background=random"
                                             style="width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; "
                                             class="img img-responsive full-width rounded-circle" alt="...">
                                     </div>
                                     <div class="line h-100 "></div>
                                 </div>
                                 <div class="ms-3">
-                                    <h5 class="text-dark">คุณอนุรักษ์ ปัญหา</h5>
+                                    <h5 class="text-dark">คุณ '.$payer['first_name'].' '.$payer['last_name'].'</h5>
                                     <p class="lead text-muted pb-3">ในฐานะผู้ซื้อ</p>
                                 </div>
                             </div>
                             <div class="d-flex mb-1">
                                 <div class="d-flex flex-column pr-4 align-items-center">
                                     <div class="mb-1" style="width:60px; height:60px; position:relative;">
-                                        <img src="https://ui-avatars.com/api/?name=RE+D&background=random"
+                                        <img src="https://ui-avatars.com/api/?name='.$crter['first_name'].'+'.$crter['last_name'].'&background=random"
                                             style="width: 100%; height: 100%; display: block; object-fit: cover; position: absolute; "
                                             class="img img-responsive full-width rounded-circle" alt="...">
                                     </div>
                                     <div class="line h-100 d-none"></div>
                                 </div>
                                 <div class="ms-3">
-                                    <h5 class="text-dark">คุณอนุรา ปัจจวคี</h5>
+                                    <h5 class="text-dark">คุณ '.$crter['first_name'].' '.$crter['last_name'].'</h5>
                                     <p class="lead text-muted pb-3">ในฐานะผู้ขาย</p>
                                 </div>
                             </div>
@@ -285,7 +296,7 @@ $data = '
                     </div>
                     <div class="shadow-2-strong  card-body p-4 rounded-5 border-1 border border-warning">
                         <h5 class="text-center">Order Summary</h5>
-                        <h6 class="text-center text-muted">ID #PCO1502WE150</h6>
+                        <h6 class="text-center text-muted">ID #'.$payment_id.'</h6>
                         <hr />
                         <div class="table-responsive">
                             <table class="table align-middle mb-0 bg-white">
