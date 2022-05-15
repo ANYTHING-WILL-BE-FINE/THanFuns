@@ -1,7 +1,7 @@
-<?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
+<?php include("src/php/connect_db.php"); ?>
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 6338";
+    $result = $conn->query($sql); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,7 @@ include("src/php/connect_db.php");
     </head>
 
 <body>
-
+    
     <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
@@ -168,120 +168,72 @@ include("src/php/connect_db.php");
 
             <!--- content --->
 
-    <form class="container col-md-5 justify-content-center" action="testinformation.php" method="post" >
-        <div class="profile-pic">
-            <label class="-label" for="file">
-              <span class="glyphicon glyphicon-camera"></span>
-            </label>
-            <div class="card-body text-center">
-                <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
-                alt="Generic placeholder image" 
-                class="rounded-circle"
-                style="width: 130px;" border="0" />
-            </div>
-            <div class="card-body text-center">
-                <span>Change Image</span>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-            </div>
-    
             
-          </div>
-
-          <br>
-
-          <div>
-              <label for="fname">First name</label>
-          <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
-          </div>
-          <div>
-              <label for="lname">Last name</label>
-          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
-        </div>
-          
-
-          <br>
-          Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
-          <br>
-
-          <label for="gender"> Gender</label>
-        <select name="gender" required>
-	    <option value="none" selected>Gender</option>
-	    <option value="male">Male</option>
-	    <option value="female">Female</option>
-	    <option value="other">other</option>
-        </select>
-
-        <div class="row mb-1">
-            <label for="address" class="col-sm-2 col-form-label">Address</label> <br>
-            <textarea class="form-control" id="address" rows="4" placeholder="Input your address" required></textarea>
-        </div>
-
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-
-        <label for="nickname">Nickname</label>
-        <input type="nickname" id="nickname" name="nickname" required>
-
-        <br>
-        <label for="role"> Role</label>
-        <select name="role" required>
-	    <option value="none" selected>Role</option>
-	    <option value="member">Member</option>
-	    <option value="creator">Creator</option>
-	    <option value="admin">Admin</option>
-        </select>
-        
-
-        <div>
-            <label for="idnum">รหัสบัตรประชาชน</label>
-        <input type="text" id="idnum" name="idnum" placeholder="idcard" required>
-        </div>
-        <div class="mb-3">
-            <label for="idcard" class="form-label">รูปบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idcard" required>
-          </div>
-          <div class="mb-3">
-            <label for="idpic" class="form-label">รูปถ่ายกับบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idpic" required>
-          </div>
-        
-
-        <div>
-            <label for="bank_account_no">เลขบัญชีธนาคาร</label>
-          <input type="varchar(30)" id="bank_account_no" name="bank_account_no" placeholder="bank_account_no" >
-        </div>
-        <div>
-            <label for="bank_account_name">ชื่อบัญชีธนาคาร</label>
-          <input type="varchar(100)" id="bank_account_name" name="bank_account_name" placeholder="bank_account_name">
-        </div>
-        <div class="mb-3">
-            <label for="bankpic" class="form-label">สำเนาบัญชีธนาคาร</label>
-            <input class="form-control" type="file" id="formFile">
-          </div>
-          
-          <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <div class="container mt-5 mb-5 justify-content-center" >
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="d-flex justify-content-between p-2 px-3">
+                                <div class="d-flex flex-row align-items-center"> <img src="https://pbs.twimg.com/profile_images/378800000346467287/ce6a8754abf7e84e796395cf4d576839_400x400.jpeg" width="50" class="rounded-circle">
+                                    <div class="d-flex flex-column ml-2"> 
+                                        <p>
+                                        <?php $row = $result->fetch_assoc();
+                        echo $row['username']; ?> add <span class="font-weight-bold">Me and friends</span>
+                                       </p>
+                                            <small class="text-primary">13 May 2022</small> 
+                                        </div> 
+                                    
+                                        
+                                </div>
+                                <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i class="fa fa-ellipsis-h"></i> </div>
+                            </div> <img src="http://f.ptcdn.info/854/045/000/oda8gwd3oARidfZNq4h-o.jpg" class="img-fluid">
+                            <div class="p-2">
+                                <p class="text-justify">bababa babanana</p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i class="fa fa-smile-o ml-2"></i> </div>
+                                    <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
+                                </div>
+                                <hr>
+                                <div class="comments">
+                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image">
+                                        <div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small class="comment-text">I like this alot! thanks alot</small>
+                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/1YrCKa1.jpg" width="40" class="rounded-image">
+                                        <div class="d-flex flex-column ml-2"> <span class="name">Elizabeth goodmen</span> <small class="comment-text">Thanks for sharing!</small>
+                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>8 mins</small> </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-input"> <input type="text" class="form-control">
+                                        <div class="fonts"> <i class="fa fa-camera"></i> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    <script>
-        function preview() {
-            frame.src = URL.createObjectURL(event.target.files[0]);
-        }
-        </script>
-    
-        <script> feather.replace() </script>
-        
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="checkbox"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    $("." + inputValue).toggle();
-                });
-            });
-        </script>
+            <script>
+                function preview() {
+                    frame.src = URL.createObjectURL(event.target.files[0]);
+                }
+                </script>
+            
+                <script> feather.replace() </script>
+                
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('input[type="checkbox"]').click(function() {
+                            var inputValue = $(this).attr("value");
+                            $("." + inputValue).toggle();
+                        });
+                    });
+                </script>
 
-    <script> feather.replace()</script>
-    
+            <script> feather.replace()</script>
 </body>
 </html>
