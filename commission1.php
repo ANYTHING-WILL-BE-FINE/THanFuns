@@ -108,13 +108,13 @@
           user_id: $("#user_id").val(),
           creator_id: $("#creator_id").val(),
           request_price: $("#request_price").val(),
-          job_color:0,
+          job_color:$("#job_color").val(),
           job_scale:$("#job_scale").val(),
-          job_mature:1,
-          job_private:0,
+          job_mature:$("#job_mature").val(),
+          job_private:$("#job_private").val(),
           job_description: $("#job_description").val(),
           first_pay:$("#first_pay").val(),
-          job_co_right_mode:0,
+          job_co_right_mode:$("#job_co_right_mode").val(),
           datetime_limit:$("#datetime_limit").val(),
           commission_status :2,
 
@@ -181,7 +181,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="test5.html">
                         <i data-feather="user"></i>
                         </a>
                     </li>
@@ -299,10 +299,10 @@
             <input class="md-4" id="datetime_limit" name="request_price" placeholder=" YYY-MM-DD"><label ></label>
         </div> 
         <div class="mb-3">
-          <label>ประเภทสี</label><select class="form-select mt-3">
+          <label>ประเภทสี</label><select class="form-select mt-3" id="job_color" name="job_color" required>
           <option selected disabled value="">Select Color</option>
-          <option>สีขาว-ดำ</option>
-          <option>สี</option>
+          <option value="0">สีขาว-ดำ</option>
+          <option value="1">สี</option>
          </select>
         </div>
 
@@ -338,19 +338,27 @@
             <input class="md-4" id="category" class="form-control" name="job_category"><label ></label>
         </div>  -->
         <div class="mb-3">
-        <label>mature?</label><select class="form-select mt-3">
+        <label>mature?</label><select class="form-select mt-3" id="job_mature" name="job_mature" required>
           <option selected disabled value="">Select Mature</option>
-          <option>no</option>
-          <option>yes</option>
+          <option value="0">no</option>
+          <option value="1">yes</option>
          </select>
         </div>
         <div class="mb-3">
-        <label>เปิดผลงานเป็นสาธารณะหรือไม่?</label><select class="form-select mt-3">
+        <label>เปิดผลงานเป็นสาธารณะหรือไม่?</label><select class="form-select mt-3" id="job_private" name="job_private" required>
           <option selected disabled value="">Select Public</option>
-          <option>ไม่อนุญาต</option>
-          <option>อนุญาต</option>
+          <option value="0">ไม่อนุญาต</option>
+          <option value="1">อนุญาต</option>
          </select>
         </div>  
+        <div class="mb-3">
+        <label>ประเภทการใช้งาน</label><select class="form-select mt-3" id="job_co_right_mode" name="job_co_right_mode" required>
+          <option selected disabled value="">Select Public</option>
+          <option value="0">ใช้ในเชิงส่วนตัว</option>
+          <option value="1"> ใช้ในเชิงพาณิชยํ
+</option>
+         </select>
+        </div>
 
         <button class="btn btn-danger" type="button" id="addcommission" onclick="insertMyday()">ยืนยัน</button>
       <button class="btn btn-secondary" type="button">ยกเลิก</button>
