@@ -49,33 +49,33 @@ include("src/php/connect_db.php");
                 processData: false,
             })
 
-            // $.ajax({
-            // type: "POST", 
-            // url: 'add_file_db.php',
-            // data:{
-            //     creator_id: 1065,
-            //     product_id:1,
-            //     // file_id: $("#file_id").val(),
-            //     product_name: $("#product_name").val(),
-            //     description: $("#description").val(),
-            //     tags_label: $("#tags_label").val(),
-            //     category_id: $("#category_id").val(),
-            //     mature_mode:1,
-            //     default_price:500,
-            //     access_mode: 2,
-            //     product_status:2,
-            //     sale_mode:2,
-            //     co_right_mode:2,
-            //     quantity:4,
-            //     action : 'submit'
-            //     },
-            // success: function(data){
-            // console.log(data);
-            // },
-            // error: function(xhr, status, error){
-            // console.error(xhr);
-            // }
-            // });
+            $.ajax({
+            type: "POST", 
+            url: 'add_file_db.php',
+            data:{
+                creator_id: 1065,
+                product_id:1,
+                // file_id: $("#file_id").val(),
+                product_name: $("#product_name").val(),
+                description: $("#description").val(),
+                tags_label: $("#tags_label").val(),
+                category_id: $("#category_id").val(),
+                mature_mode:1,
+                default_price:500,
+                access_mode: 2,
+                product_status:2,
+                sale_mode:2,
+                co_right_mode:2,
+                quantity:4,
+                action : 'submit'
+                },
+            success: function(data){
+            console.log(data);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+            });
         }else{
            alert("Please select a file.");
         }
