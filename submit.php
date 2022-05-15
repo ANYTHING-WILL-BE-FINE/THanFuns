@@ -41,49 +41,41 @@ include("src/php/connect_db.php");
             fd.append('file_id',file_id[0]);
 
             $.ajax({
-            type: "POST", 
-            url: 'add_file_db.php',
-            enctype: "multipart/form-data",
-            data:fd,
-            contentType: false,
-            processData: false,
-            // success:function(data){
-            //     console.log("success");
-            //     console.log(data);
-            // },
-            // error: function(data){
-            //     console.log("error");
-            //     console.log(data);
-            // }
+                type: "POST", 
+                url: 'add_file_db.php',
+                enctype: "multipart/form-data",
+                data:fd,
+                contentType: false,
+                processData: false,
             })
 
-            $.ajax({
-            type: "POST", 
-            url: 'add_file_db.php',
-            data:{
-                creator_id: 1065,
-                product_id:1,
-                // file_id: $("#file_id").val(),
-                product_name: $("#product_name").val(),
-                description: $("#description").val(),
-                tags_label: $("#tags_label").val(),
-                category_id: $("#category_id").val(),
-                mature_mode:1,
-                default_price:500,
-                access_mode: 2,
-                product_status:2,
-                sale_mode:2,
-                co_right_mode:2,
-                quantity:4,
-                action : 'submit'
-                },
-            success: function(data){
-            console.log(data);
-            },
-            error: function(xhr, status, error){
-            console.error(xhr);
-            }
-            });
+            // $.ajax({
+            // type: "POST", 
+            // url: 'add_file_db.php',
+            // data:{
+            //     creator_id: 1065,
+            //     product_id:1,
+            //     // file_id: $("#file_id").val(),
+            //     product_name: $("#product_name").val(),
+            //     description: $("#description").val(),
+            //     tags_label: $("#tags_label").val(),
+            //     category_id: $("#category_id").val(),
+            //     mature_mode:1,
+            //     default_price:500,
+            //     access_mode: 2,
+            //     product_status:2,
+            //     sale_mode:2,
+            //     co_right_mode:2,
+            //     quantity:4,
+            //     action : 'submit'
+            //     },
+            // success: function(data){
+            // console.log(data);
+            // },
+            // error: function(xhr, status, error){
+            // console.error(xhr);
+            // }
+            // });
         }else{
            alert("Please select a file.");
         }
@@ -225,6 +217,7 @@ include("src/php/connect_db.php");
             </nav>
 
             <!--- content --->
+            <form action="add_file_db.php" method="post">
                 <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
                     <div class="mt-0 mb-3">
                         <label for="formFile" class="form-label">SUBMIT YOUR ARTWORK</label>
@@ -298,6 +291,7 @@ include("src/php/connect_db.php");
                     </div>
 
                 </div>
+            </form>
         </div>
             
         
