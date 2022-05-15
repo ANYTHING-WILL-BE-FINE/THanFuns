@@ -31,7 +31,7 @@
             }
         </style>
         <script>
-      function insertMyday(){
+      function insertMyDay(){
       $.ajax({
       type: "POST", 
       url: 'testinformation.php',
@@ -231,10 +231,10 @@
                 class="rounded-circle"
                 style="width: 130px;" border="0" />
             </div>
-            <div class="card-body text-center">
-                <span>Change Image</span>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-            </div>
+            <div class="mb-3">
+            <label for="user_pic" class="form-label">Change Profile</label>
+            <input class="form-control" type="file" id="user_pic">
+          </div>
     
             
           </div>
@@ -316,7 +316,7 @@
           </div>
           
           <br>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="insertMyDay();">Submit</button>
     </form>
 
 
