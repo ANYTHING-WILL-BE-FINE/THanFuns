@@ -15,6 +15,10 @@
     <?php $d = "SELECT file_path FROM pth_file
               WHERE user_id = 6338;";
     $resultttt = $conn->query($d); 
+    ?>
+    <?php $e = "SELECT file_path FROM pth_file
+    WHERE file_id LIKE 'V%4';";
+    $resulttttt = $conn->query($e); 
     
     ?>
 <!DOCTYPE html>
@@ -168,9 +172,14 @@
               <div class="card">
                 <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(136, 149, 207); height:200px;">
                   <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                    <img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"
+                  
+                  <?php $rowwwww = $resulttttt->fetch_assoc();
+                    echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid img-thumbnail mt-5 mb-2 rounded-circle" 
+                    style="width: 150px; z-index: 1">';
+                    ?>
+                    <!-- <img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"
                       alt="Generic placeholder image" class="img-fluid img-thumbnail mt-5 mb-2 rounded-circle" 
-                      style="width: 150px; z-index: 1">
+                      style="width: 150px; z-index: 1"> -->
                     <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
                       style="z-index: 1;">
                       Edit profile
