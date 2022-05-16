@@ -3,6 +3,10 @@
               WHERE user_id = 6338";
     $result = $conn->query($sql); ?>
 
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 1065";
+    $resultn = $conn->query($sql); ?>
+
 <?php $a = "SELECT description FROM mkt_product
               WHERE creator_id = 6338;";
     $resultt = $conn->query($a); ?>
@@ -11,14 +15,30 @@
               WHERE creator_id = 6338;";
     $resulttt = $conn->query($b); ?> 
 
-    <?php $d = "SELECT file_path FROM pth_file
-              WHERE user_id = 6338;";
+    <?php $d = "SELECT pth_file.file_path FROM mkt_product_file
+                INNER JOIN pth_file ON mkt_product_file.file_id=pth_file.file_id
+                WHERE pth_file.file_id LIKE 'V%';";
     $resultttt = $conn->query($d); 
+    ?>
+
+    <?php $c = "SELECT file_path FROM pth_file
+              WHERE user_id = 6338;";
+    $resultttttt = $conn->query($c); 
     ?>
     <?php $e = "SELECT file_path FROM pth_file
     WHERE file_id LIKE 'V%4';";
     $resulttttt = $conn->query($e); 
     
+    ?>
+
+<?php $cc = "SELECT file_path FROM pth_file
+              WHERE file_id = 018 ;";
+    $resultcp = $conn->query($cc); 
+    ?>
+
+<?php $cct = "SELECT comment FROM acc_comment
+              WHERE user_id = 1065;";
+    $resultc = $conn->query($cct); 
     ?>
 
 <!DOCTYPE html>
@@ -192,7 +212,11 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="d-flex justify-content-between p-2 px-3">
-                                <div class="d-flex flex-row align-items-center"> <img src="https://pbs.twimg.com/profile_images/378800000346467287/ce6a8754abf7e84e796395cf4d576839_400x400.jpeg" width="50" class="rounded-circle">
+                            <?php $rowwwww = $resulttttt->fetch_assoc();
+                    echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid img-thumbnail mt-1 mb-1 rounded-circle" 
+                    style="width: 80px; z-index: 1">';
+                    ?>
+                                <!-- <div class="d-flex flex-row align-items-center"> <img src="https://pbs.twimg.com/profile_images/378800000346467287/ce6a8754abf7e84e796395cf4d576839_400x400.jpeg" width="50" class="rounded-circle"> -->
                                     <div class="d-flex flex-column ml-2"> 
                                         <p>
                                         <?php $row = $result->fetch_assoc();
@@ -204,31 +228,32 @@
                                     
                                         
                                 </div>
-                                <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i class="fa fa-ellipsis-h"></i> </div>
-                                <?php $rowwwww = $resulttttt->fetch_assoc();
-                                echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid">';?>
+                                <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> </div>
+                                <?php $rowwww = $resultttt->fetch_assoc();
+                                echo '<img src="'.$rowwww['file_path'].'"class="img-fluid">';?>
                             <div class="p-2">
                                 <p> <?php $row = $resultt->fetch_assoc();
                         echo $row['description']; ?></p>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i class="fa fa-smile-o ml-2"></i> </div>
-                                    <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div>
+                                    <div class="d-flex flex-row icons d-flex align-items-center"></div>
+                                    <!-- <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div> -->
                                 </div>
                                 <hr>
                                 <div class="comments">
-                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image">
-                                        <div class="d-flex flex-column ml-2"> <span class="name">Daniel Frozer</span> <small class="comment-text">I like this alot! thanks alot</small>
+                                    <div class="d-flex flex-row mb-2">
+                                    <?php $rowc = $resultcp->fetch_assoc();
+                    echo '<img src="'.$rowc['file_path'].'"class="img-fluid img-thumbnail mt-1 mb-1 rounded-circle" 
+                    style="width: 80px; z-index: 1">';
+                    ?>
+                                        <div class="d-flex flex-column ml-2"> <?php $rown = $resultn->fetch_assoc();
+                        echo $rown['username']; ?>  <small class="comment-text"><?php $rowc = $resultc->fetch_assoc();
+                        echo $rowc['comment']; ?> </small>
                                             <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/1YrCKa1.jpg" width="40" class="rounded-image">
-                                        <div class="d-flex flex-column ml-2"> <span class="name">Elizabeth goodmen</span> <small class="comment-text">Thanks for sharing!</small>
-                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>8 mins</small> </div>
-                                        </div>
-                                    </div>
                                     <div class="comment-input"> <input type="text" class="form-control">
-                                        <div class="fonts"> <i class="fa fa-camera"></i> </div>
+                                        <div class="fonts">  </div>
                                     </div>
                                 </div>
                             </div>
