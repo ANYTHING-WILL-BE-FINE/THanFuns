@@ -6,31 +6,31 @@ include("src/php/connect_db.php");
 // print_r($_POST);
 
 // // exit;
-// $product_id = $_POST['product_id'];
-// $creator_id = $_POST['creator_id'];
-// $product_name = $_POST['product_name'];
-// $description = $_POST['description'];
-// // $tags_label = $_POST['tags_label'];
-// $category_id = $_POST['category_id'];
-// $default_price = $_POST['default_price'];
-// $access_mode = $_POST['access_mode'];
-// $product_status = $_POST['product_status'];
-// $mature_mode = $_POST['mature_mode'];
-// $sale_mode = $_POST['sale_mode'];
-// $co_right_mode =$_POST['co_right_mode'];
-// $quantity = $_POST['quantity'];
+$product_id = $_POST['product_id'];
+$creator_id = $_POST['creator_id'];
+$product_name = $_POST['product_name'];
+$description = $_POST['description'];
+// $tags_label = $_POST['tags_label'];
+$category_id = $_POST['category_id'];
+$default_price = $_POST['default_price'];
+$access_mode = $_POST['access_mode'];
+$product_status = $_POST['product_status'];
+$mature_mode = $_POST['mature_mode'];
+$sale_mode = $_POST['sale_mode'];
+$co_right_mode =$_POST['co_right_mode'];
+$quantity = $_POST['quantity'];
 
-// $action = $_POST['action'];
+$action = $_POST['action'];
 
 
-// if($action == 'submit'){
+if($action == 'submit'){
 
     
-//     $sql = "INSERT INTO mkt_product(product_id,creator_id,product_name,description,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
-//             VALUES ($product_id,$creator_id,'$product_name','$description',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
-//     $query = mysqli_query($conn,$sql) or die(mysqli_error($conn) . "<br>$sql");
-// }
-// else{
+    $sql = "INSERT INTO mkt_product(product_id,creator_id,product_name,description,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+            VALUE ($product_id,$creator_id,'$product_name','$description',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+    $query = mysqli_query($conn,$sql) or die(mysqli_error($conn) . "<br>$sql");
+}
+else{
 
     $file_id = $_FILES['file_id'];
     // $creator_id = $_FILES['creator_id'];
@@ -105,6 +105,6 @@ include("src/php/connect_db.php");
         echo "alert('Error back to upload again');";
         echo "</script>";
     }
-
+}
 // }
 ?>

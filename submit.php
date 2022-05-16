@@ -34,68 +34,68 @@ include("src/php/connect_db.php");
     <script>
         function insertMyday(){
 
-            var file_id = $('#file_id')[0].files;
-                var fd = new FormData();
-            if( file_id.length > 0 ){
+            // var file_id = $('#file_id')[0].files;
+            //     var fd = new FormData();
+            // if( file_id.length > 0 ){
 
                 
-                fd.append('file_id',file_id[0]);
-                // fd.append('creator_id',1234);
+            //     fd.append('file_id',file_id[0]);
+            //     // fd.append('creator_id',1234);
                 
 
-                $.ajax({
-                    type: "POST", 
-                    url: 'add_file_db.php',
-                    enctype: "multipart/form-data",
-                    dataType: "JSON" ,
-                    data:fd,
-                    contentType: false,
-                    processData: false,
-                    success: function(data){
-                        $('#file_id').text(data.file);
-                        // echo json_encode($file);
-                        // data = JSON.parse(data);
-                        // $("#edit-form [name=\"file_id\"]").val(data.file_id);
-                        // $("#edit-form [name=\"file_path\"]").val(data.file_path);
-                    console.log(data);
-                    },
-                    error: function(xhr, status, error){
-                    console.error(xhr);
-                    }
-                });
+            //     $.ajax({
+            //         type: "POST", 
+            //         url: 'add_file_db.php',
+            //         enctype: "multipart/form-data",
+            //         dataType: "JSON" ,
+            //         data:fd,
+            //         contentType: false,
+            //         processData: false,
+            //         success: function(data){
+            //             $('#file_id').text(data.file);
+            //             // echo json_encode($file);
+            //             // data = JSON.parse(data);
+            //             // $("#edit-form [name=\"file_id\"]").val(data.file_id);
+            //             // $("#edit-form [name=\"file_path\"]").val(data.file_path);
+            //         console.log(data);
+            //         },
+            //         error: function(xhr, status, error){
+            //         console.error(xhr);
+            //         }
+            //     });
 
-            }
+            // }
 
 
 
             
-        // $.ajax({
-        //     type: "POST", 
-        //     url: 'add_file_db.php',
-        //     data:{
-        //         creator_id: 1065,
-        //         product_id:25,
-        //         // file_id: $("#file_id").val(),
-        //         product_name: $("#product_name").val(),
-        //         description: $("#description").val(),
-        //         tags_label: $("#tags_label").val(),
-        //         category_id: $("#category_id").val(),
-        //         mature_mode:1,
-        //         default_price:500,
-        //         access_mode: 2,
-        //         product_status:2,
-        //         sale_mode:2,
-        //         co_right_mode:2,
-        //         quantity:4,
-        //         action : 'submit'
-        //         },
-        //     success: function(data){
-        //     console.log(data);
-        //     },
-        //     error: function(xhr, status, error){
-        //     console.error(xhr);
-        //     }
-        //     });
+        $.ajax({
+            type: "POST", 
+            url: 'add_file_db.php',
+            data:{
+                creator_id: 1065,
+                product_id:2222222,
+                // file_id: $("#file_id").val(),
+                product_name: $("#product_name").val(),
+                description: $("#description").val(),
+                tags_label: $("#tags_label").val(),
+                category_id: $("#category_id").val(),
+                mature_mode:1,
+                default_price:500,
+                access_mode: 2,
+                product_status:2,
+                sale_mode:2,
+                co_right_mode:2,
+                quantity:4,
+                action : 'submit'
+                },
+            success: function(data){
+            console.log(data);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+            });
 
             
     
