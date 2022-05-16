@@ -1,4 +1,9 @@
 <?php include_once("src/php/connect_db.php");?>
+<?php 
+    $sql = "SELECT request_price FROM mkt_commission
+            WHERE commission_id = '1' ";
+    $result = $conn->query($sql);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +21,7 @@
     <link rel="stylesheet" href="status.css">
     <link rel="stylesheet" href="src/css/style.css">
 
-    <script>
+    <!-- <script>
         function insertMyday(){
             $.ajax({
             type: "POST", 
@@ -36,7 +41,7 @@
         function show() {
             if()
         }
-    </script>
+    </script> -->
 
 </head>
 
@@ -216,9 +221,8 @@
                                     <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >ราคาสินค้า</h5>
                                     <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
                                     <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >
-                                        <?php
-
-                                        ?>
+                                        <?php $row = $result->fetch_assoc();
+                                            echo $row['request_price']; ?>
                                     </h5>
                                 </div>
 

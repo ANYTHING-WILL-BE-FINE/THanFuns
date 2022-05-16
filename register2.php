@@ -14,6 +14,27 @@
     <link rel="stylesheet" href="status.css">
     <link rel="stylesheet" href="src/css/icon/all.css">
     
+    <script>
+      function register(){
+      $.ajax({
+      type: "POST", 
+      url: 'register.php',
+      data:{
+          username: $("#username").val(),
+          email: $("#email").val(),
+          password: $("#password").val(),
+
+          action : 'register'},
+      success: function(data){
+      console.log(data);
+      },
+      error: function(xhr, status, error){
+      console.error(xhr);
+    }
+    });
+  }
+  </script>
+
     </head>
 
 <body>
@@ -29,7 +50,7 @@
       
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
       
-                      <form class="mx-1 mx-md-4" action="register.php" method="POST">
+                      <form class="mx-1 mx-md-4">
       
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i data-feather="user"></i>

@@ -1,7 +1,10 @@
+<?php include("src/php/connect_db.php"); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>ThanFun</title>
+    <head>
+        <title>ThanFun</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
@@ -9,25 +12,82 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="src/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="src/css/fontawesome.css">
     <link rel="stylesheet" href="bar.css">
+    <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="src/css/icon/all.css">
+    
+    
+        <style type="text/css">
+            .selectt {
+                color: rgb(0, 0, 0);
+                padding: 0px;
+                display: none;
+                margin-top: 15px;
+                background: rgb(255, 255, 255)
+            }
+            label {
+                margin-right: 20px;
+            }
+        </style>
+        <script>
+      function insertMyDay(){
+      $.ajax({
+      type: "POST", 
+      url: 'testinformation.php',
+      data:{
+        user_pic: $("#user_pic").val(),
+        first_name: $("#first_name").val(),
+        last_name: $("#last_name").val(),
+        date_birth:$("#date_birth").val(),
+        gender:$("#gender").val(),
+        address:$("#address").val(),
+        phone:$("#phone").val(),
+        nickname: $("#nickname").val(),
+        role:$("#role").val(),
+        idnum:$("#idnum").val(),
+        idcard:$("#idcard").val(),
+        idpic:$("#idpic").val(),
 
+//           $file = $_POST['file'];
+// $first_name = $_POST['first_name'];
+// $last_name = $_POST['last_name'];
+// $date_birth = $_POST['date_birth'];
+// $gender = $_POST['gender'];
+// $address = $_POST['address'];
+// $phone = $_POST['phone'];
+// $nickname = $_POST['nickname'];
+// $role = $_POST['role'];
+// $idnum = $_POST['idnum'];
+// $idcard = $_POST['idcard'];
+// $idpic = $_POST['idpic'];
 
-    <!-- <style type="text/css">
-        .selectt {
-            color: rgb(0, 0, 0);
-            padding: 0px;
-            display: none;
-            margin-top: 15px;
-            background: rgb(255, 255, 255);
-        }
-        label {
-            margin-right: 20px;
-        }
-    </style> -->
-</head>
+// $sql = "INSERT INTO 'acc_user' (pic_user,
+//                       nickname,first_name,last_name,gender,date_birth,
+//                       phone,address,user_role,
+//                       id_card,papercard_pic,user_w_card_pic,
+//                       )
+
+          // iduser: document.getElementById("iduser"),
+          // idcreator: document.getElementById("idcreator"),
+          // price: document.getElementById("price"),
+          // description: document.getElementById("description"),
+          // category: $('input[id="category"]:checked'),
+          // job_private: $('input[id="job_private"]:checked'),
+          action : 'information'},
+      success: function(data){
+      console.log(data);
+      },
+      error: function(xhr, status, error){
+      console.error(xhr);
+    }
+    });
+  }
+  </script>
+    </head>
 
 <body>
+
     <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
@@ -160,99 +220,123 @@
 
             <!--- content --->
 
-            <div class="col-md-9 col-lg-10 ml-sm-auto px-md-4 py-4">
-              <div align="center">
-                <div class="main" >
-                <div class="user">
-                    <a href="test5.php"><img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg" ></a>
-                    <a href="test5.php">PUDDINGKAI</a>
-                    <br><p>13/5/2022</p>
-                  </div>
-                  <!-- <div class="col-lg-10 ms-3"align="left"><i data-feather="gift"></i></div> -->
-                  <div align="left"><h3>ไม่หวัง...</h3> </div>
-                <div class="content">
-                  <div class="img">
-                    <a href="test4.html"><img src="https://i.pinimg.com/564x/ba/60/2f/ba602fd91e40f532ef7a846b85e153e4.jpg" ></a>
-                </div>
-                </div>
-                <div class="footer">
-                  <div class="ft-l">
-                    <i data-feather="heart"></i>
-                    <p>Like</p>
-                  </div>
-                  <div class="ft-c" align="center">
-                    <i data-feather="message-square"></i>
-                    <p>comment</p>
-                  </div>
-                  <div class="ft-r" align="center">
-                    <i data-feather="share"></i>
-                    <p>share</p>
-                  </div>
-                  
-                </div>
-              </div>
-              </div>
-              <div class="main" >
-                <div class="user">
-                    <a href="test5.php"><img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"></a>
-                    <a href="test5.php">PUDDINGKAI</a>
-                    <br><p>13/5/2022</p>
-                  </div>
-                  <h3> <br></h3> 
-                <div class="content">
-                  <div class="img">
-                    <a href="test4.html"><img src="https://i.pinimg.com/564x/9b/d1/02/9bd1023375a9edcf3cc1f772bc847f3d.jpg" ></a>
-                </div>
-                </div>
-                <div class="footer">
-                  <div class="ft-l">
-                    <i data-feather="heart"></i>
-                    <p>Like</p>
-                  </div>
-                  <div class="ft-c" align="center">
-                    <i data-feather="message-square"></i>
-                    <p>comment</p>
-                  </div>
-                  <div class="ft-r" align="center">
-                    <i data-feather="share"></i>
-                    <p>share</p>
-                  </div>
-                  
-                </div>
-              </div>
-              </div>
-              
-              </div>
-                
-              </div>
-
-        </div>
-        
-    </div>
-    <!-- </form> -->
+    <form class="container col-md-5 justify-content-center"  >
+        <div class="profile-pic">
+            <label class="-label" for="file">
+              <span class="glyphicon glyphicon-camera"></span>
+            </label>
+            <div class="card-body text-center">
+                <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
+                alt="Generic placeholder image" 
+                class="rounded-circle"
+                style="width: 130px;" border="0" />
+            </div>
+            <div class="mb-3">
+            <label for="user_pic" class="form-label">Change Profile</label>
+            <input class="form-control" type="file" id="user_pic">
+          </div>
     
+            
+          </div>
+
+          <br>
+
+          <div>
+              <label for="fname">First name</label>
+          <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
+          </div>
+          <div>
+              <label for="lname">Last name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+        </div>
+          
+
+          <br>
+          Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
+          <br>
+
+          <label for="gender"> Gender</label>
+        <select name="gender" id="gender" required>
+	    <option value="0" selected>Gender</option>
+	    <option value="1">Male</option>
+	    <option value="2">Female</option>
+        </select>
+
+        <div class="row mb-1">
+            <label for="address" class="col-sm-2 col-form-label">Address</label> <br>
+            <textarea class="form-control" id="address" rows="4" placeholder="Input your address" required></textarea>
+        </div>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="nickname">Nickname</label>
+        <input type="nickname" id="nickname" name="nickname" required>
+
+        <br>
+        <label for="role"> Role</label>
+        <select name="role" id="role" required>
+	    <option value="0" selected>Role</option>
+	    <option value="1">Member</option>
+	    <option value="2">Creator</option>
+	    <option value="3">Admin</option>
+        </select>
+        
+
+        <div>
+            <label for="idnum">รหัสบัตรประชาชน</label>
+        <input type="text" id="idnum" name="idnum" placeholder="idcard" required>
+        </div>
+        <div class="mb-3">
+            <label for="idcard" class="form-label">รูปบัตรประชาชน</label>
+            <input class="form-control" type="file" id="idcard" required>
+          </div>
+          <div class="mb-3">
+            <label for="idpic" class="form-label">รูปถ่ายกับบัตรประชาชน</label>
+            <input class="form-control" type="file" id="idpic" required>
+          </div>
+        
+
+        <div>
+            <label for="bank_account_no">เลขบัญชีธนาคาร</label>
+          <input type="varchar(30)" id="bank_account_no" name="bank_account_no" placeholder="bank_account_no" >
+        </div>
+        <div>
+            <label for="bank_account_name">ชื่อบัญชีธนาคาร</label>
+          <input type="varchar(100)" id="bank_account_name" name="bank_account_name" placeholder="bank_account_name">
+        </div>
+        <div>
+            <label for="bank_info">สาขาธนาคาร</label>
+          <input type="varchar(100)" id="bank_info" name="bank_info" placeholder="bank_info">
+        </div>
+        <div class="mb-3">
+            <label for="bankpic" class="form-label">สำเนาบัญชีธนาคาร</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+          
+          <br>
+        <button type="button" class="btn btn-primary" onclick="insertMyDay();">Submit</button>
+    </form>
+
 
     <script>
-    function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-    }
-    </script>
-
-    <script> feather.replace() </script>
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
+        </script>
     
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('input[type="checkbox"]').click(function() {
-                var inputValue = $(this).attr("value");
-                $("." + inputValue).toggle();
+        <script> feather.replace() </script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('input[type="checkbox"]').click(function() {
+                    var inputValue = $(this).attr("value");
+                    $("." + inputValue).toggle();
+                });
             });
-        });
-    </script>
-  
-  
+        </script>
+
+    <script> feather.replace()</script>
     
-
-
-<script> feather.replace()</script>
 </body>
 </html>

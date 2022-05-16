@@ -1,7 +1,50 @@
-<?php
-include("src/php/connect_db.php");
-// $conn <<---- 
-?>
+<?php include("src/php/connect_db.php"); ?>
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 6338";
+    $result = $conn->query($sql); ?>
+
+<?php $sql = "SELECT username FROM acc_user
+              WHERE user_id = 1065";
+    $resultn = $conn->query($sql); ?>
+
+<?php $a = "SELECT description FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resultt = $conn->query($a); ?>
+    
+    <?php $b = "SELECT product_name FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resulttt = $conn->query($b); ?> 
+
+    <?php $d = "SELECT pth_file.file_path FROM mkt_product_file
+                INNER JOIN pth_file ON mkt_product_file.file_id=pth_file.file_id
+                WHERE pth_file.file_id LIKE 'V%';";
+    $resultttt = $conn->query($d); 
+    ?>
+
+    <?php $c = "SELECT file_path FROM pth_file
+              WHERE user_id = 6338;";
+    $resultttttt = $conn->query($c); 
+    ?>
+    <?php $e = "SELECT file_path FROM pth_file
+    WHERE file_id LIKE 'V%4';";
+    $resulttttt = $conn->query($e); 
+    
+    ?>
+
+<?php $cc = "SELECT file_path FROM pth_file
+              WHERE file_id = 018 ;";
+    $resultcp = $conn->query($cc); 
+    ?>
+
+<?php $cct = "SELECT comment FROM acc_comment
+              WHERE user_id = 1065;";
+    $resultc = $conn->query($cct); 
+    ?>
+
+<?php $ct = "SELECT timestamp_update FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resultti = $conn->query($ct); 
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +78,7 @@ include("src/php/connect_db.php");
     </head>
 
 <body>
-
+    
     <!-- <form action="process.php" method="post"> -->
 
     <!--- navbar --->
@@ -168,120 +211,80 @@ include("src/php/connect_db.php");
 
             <!--- content --->
 
-    <form class="container col-md-5 justify-content-center" action="testinformation.php" method="post" >
-        <div class="profile-pic">
-            <label class="-label" for="file">
-              <span class="glyphicon glyphicon-camera"></span>
-            </label>
-            <div class="card-body text-center">
-                <img src="https://www.img.in.th/images/4614360009d52083321f6cce10c05398.th.png" 
-                alt="Generic placeholder image" 
-                class="rounded-circle"
-                style="width: 130px;" border="0" />
-            </div>
-            <div class="card-body text-center">
-                <span>Change Image</span>
-                <input id="file" type="file" onchange="loadFile(event)"/>
-            </div>
-    
             
-          </div>
-
-          <br>
-
-          <div>
-              <label for="fname">First name</label>
-          <input type="text" id="first_name" name="first_namee" placeholder="First Name" required>
-          </div>
-          <div>
-              <label for="lname">Last name</label>
-          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
-        </div>
-          
-
-          <br>
-          Date of Birth <br> <input type = "date" id="date_birth" name="date_birth" required>
-          <br>
-
-          <label for="gender"> Gender</label>
-        <select name="gender" required>
-	    <option value="none" selected>Gender</option>
-	    <option value="male">Male</option>
-	    <option value="female">Female</option>
-	    <option value="other">other</option>
-        </select>
-
-        <div class="row mb-1">
-            <label for="address" class="col-sm-2 col-form-label">Address</label> <br>
-            <textarea class="form-control" id="address" rows="4" placeholder="Input your address" required></textarea>
-        </div>
-
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-
-        <label for="nickname">Nickname</label>
-        <input type="nickname" id="nickname" name="nickname" required>
-
-        <br>
-        <label for="role"> Role</label>
-        <select name="role" required>
-	    <option value="none" selected>Role</option>
-	    <option value="member">Member</option>
-	    <option value="creator">Creator</option>
-	    <option value="admin">Admin</option>
-        </select>
-        
-
-        <div>
-            <label for="idnum">รหัสบัตรประชาชน</label>
-        <input type="text" id="idnum" name="idnum" placeholder="idcard" required>
-        </div>
-        <div class="mb-3">
-            <label for="idcard" class="form-label">รูปบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idcard" required>
-          </div>
-          <div class="mb-3">
-            <label for="idpic" class="form-label">รูปถ่ายกับบัตรประชาชน</label>
-            <input class="form-control" type="file" id="idpic" required>
-          </div>
-        
-
-        <div>
-            <label for="bank_account_no">เลขบัญชีธนาคาร</label>
-          <input type="varchar(30)" id="bank_account_no" name="bank_account_no" placeholder="bank_account_no" >
-        </div>
-        <div>
-            <label for="bank_account_name">ชื่อบัญชีธนาคาร</label>
-          <input type="varchar(100)" id="bank_account_name" name="bank_account_name" placeholder="bank_account_name">
-        </div>
-        <div class="mb-3">
-            <label for="bankpic" class="form-label">สำเนาบัญชีธนาคาร</label>
-            <input class="form-control" type="file" id="formFile">
-          </div>
-          
-          <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <div class="container mt-5 mb-5 justify-content-center" >
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="d-flex justify-content-between p-2 px-3">
+                            <?php $rowwwww = $resulttttt->fetch_assoc();
+                    echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid img-thumbnail mt-1 mb-1 rounded-circle" 
+                    style="width: 80px; z-index: 1">';
+                    ?>
+                                <!-- <div class="d-flex flex-row align-items-center"> <img src="https://pbs.twimg.com/profile_images/378800000346467287/ce6a8754abf7e84e796395cf4d576839_400x400.jpeg" width="50" class="rounded-circle"> -->
+                                    <div class="d-flex flex-column ml-2"> 
+                                        <p>
+                                        <?php $row = $result->fetch_assoc();
+                        echo $row['username']; ?> add <?php $row = $resulttt->fetch_assoc();
+                        echo $row['product_name']; ?>
+                                       </p>
+                                            <small class="text-primary"><?php $rowt = $resultti->fetch_assoc();
+                        echo $rowt['timestamp_update']; ?></small> 
+                                        </div> 
+                                    
+                                        
+                                </div>
+                                <?php $rowwww = $resultttt->fetch_assoc();
+                                echo '<img src="'.$rowwww['file_path'].'"class="img-fluid">';?>
+                            <div class="p-2">
+                                <p> <?php $row = $resultt->fetch_assoc();
+                        echo $row['description']; ?></p>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row icons d-flex align-items-center"></div>
+                                    <!-- <div class="d-flex flex-row muted-color"> <span>2 comments</span> <span class="ml-2">Share</span> </div> -->
+                                </div>
+                                <hr>
+                                <div class="comments">
+                                    <div class="d-flex flex-row mb-2">
+                                    <?php $rowc = $resultcp->fetch_assoc();
+                    echo '<img src="'.$rowc['file_path'].'"class="img-fluid img-thumbnail mt-1 mb-1 rounded-circle" 
+                    style="width: 80px; z-index: 1">';
+                    ?>
+                                        <div class="d-flex flex-column ml-2"> <?php $rown = $resultn->fetch_assoc();
+                        echo $rown['username']; ?>  <small class="comment-text"><?php $rowc = $resultc->fetch_assoc();
+                        echo $rowc['comment']; ?> </small>
+                                            <!-- <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="comment-input"> <input type="text" class="form-control">
+                                        <div class="fonts">  </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    <script>
-        function preview() {
-            frame.src = URL.createObjectURL(event.target.files[0]);
-        }
-        </script>
-    
-        <script> feather.replace() </script>
-        
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="checkbox"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    $("." + inputValue).toggle();
-                });
-            });
-        </script>
+            <script>
+                function preview() {
+                    frame.src = URL.createObjectURL(event.target.files[0]);
+                }
+                </script>
+            
+                <script> feather.replace() </script>
+                
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('input[type="checkbox"]').click(function() {
+                            var inputValue = $(this).attr("value");
+                            $("." + inputValue).toggle();
+                        });
+                    });
+                </script>
 
-    <script> feather.replace()</script>
-    
+            <script> feather.replace()</script>
 </body>
 </html>

@@ -2,6 +2,30 @@
 <?php $sql = "SELECT username FROM acc_user
               WHERE user_id = 6338";
     $result = $conn->query($sql); ?>
+<?php $a = "SELECT contact_type FROM acc_contact
+              WHERE user_id = 6338;";
+    $resultt = $conn->query($a); ?>
+    <?php $b = "SELECT contact_app FROM acc_contact
+              WHERE user_id = 6338;";
+    $resulttt = $conn->query($b); ?>
+    <?php $c = "SELECT contact_type FROM acc_contact
+              WHERE user_id = 6338;";
+    $resultt = $conn->query($c); ?>
+    <?php $d = "SELECT pth_file.file_path FROM mkt_product_file
+                INNER JOIN pth_file ON mkt_product_file.file_id=pth_file.file_id
+                WHERE pth_file.file_id LIKE 'V%';";
+    $resultttt = $conn->query($d); 
+    ?>
+    <?php $e = "SELECT file_path FROM pth_file
+    WHERE file_id LIKE 'V%4';";
+    $resulttttt = $conn->query($e); 
+    ?>
+    <?php $f = "SELECT COUNT(user_id) FROM acc_like;";
+    $resultttttt = $conn->query($f); 
+    ?>
+    <?php $g = "SELECT COUNT(user_id) FROM acc_following;";
+    $resulttttttt = $conn->query($g); 
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -153,9 +177,14 @@
               <div class="card">
                 <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(136, 149, 207); height:200px;">
                   <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                    <img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"
+                  
+                  <?php $rowwwww = $resulttttt->fetch_assoc();
+                    echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid img-thumbnail mt-5 mb-2 rounded-circle" 
+                    style="width: 150px; z-index: 1">';
+                    ?>
+                    <!-- <img src="https://i.pinimg.com/564x/3a/a3/f0/3aa3f017fdcbee862278bd7b7c1ec64b.jpg"
                       alt="Generic placeholder image" class="img-fluid img-thumbnail mt-5 mb-2 rounded-circle" 
-                      style="width: 150px; z-index: 1">
+                      style="width: 150px; z-index: 1"> -->
                     <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
                       style="z-index: 1;">
                       Edit profile
@@ -181,12 +210,21 @@
                       <p class="small text-muted mb-0">Likes</p>
                     </div> -->
                     <div class="px-3">
-                      <p class="mb-1 h5">1026</p>
+                      <!-- <p class="mb-1 h5">1026</p> -->
                       <!-- <i data-feather="heart"></i> -->
+                      <?php
+                       $count= mysqli_fetch_Column($resultttttt);
+                      echo '<p class="mb-1 h5">'.$count.'</p>';
+                      ?>
+                    
                       <p class="small text-muted mb-0">Likes</p>
                     </div>
                     <div>
-                      <p class="mb-1 h5">478</p>
+                    <?php
+                       $countt= mysqli_fetch_Column($resulttttttt);
+                      echo '<p class="mb-1 h5">'.$countt.'</p>';
+                      ?>
+                      <!-- <p class="mb-1 h5">478</p> -->
                       <p class="small text-muted mb-0">Following</p>
                     </div>
                   </div>
@@ -197,17 +235,29 @@
                     <div class="p-4" style="background-color: #f8f9fa;">
                         <!-- <p class="font-italic mb-1">Thailand</p> -->
                         <div class="d-flex flex-row bd-highlight mb-2 ms-3">
-                            <div align="center"><a href="https://www.facebook.com/profile.php?id=100002404106020"><i data-feather="facebook"></i></a></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.instagram.com/primsrps/"style="color:indianred"><i data-feather="instagram"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.twitch.tv/johnolsen_"style="color:purple"><i data-feather="twitch"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>
-                            <div class="ms-5"><div align="center"><a href="https://www.youtube.com/c/MRHEARTROCKERz"style="color:red"><i data-feather="youtube"></i></a></div></div>
-                            
-                            
+                            <?php $roww = $resultt->fetch_assoc();
+                                // echo $roww['contact_type'];
+                                  if($roww['contact_type']==1){
+                                    echo '<div align="center"><a href="https://www.instagram.com/primsrps/"style="color:#ff007f"><i data-feather="instagram"></i></a></div>';
+
+                                  }elseif($roww['contact_type']==2){
+                                    echo '<div align="center"><a href=""style="color:gray"><i data-feather="mail"></i></a></div>';
+                                  }else{
+                                    echo '<div align="center"><a href=""style="color:green"><i data-feather="phone"></i></a></div>';
+                                  }?>
+                              <?php $rowww = $resulttt->fetch_assoc();
+                              if($rowww['contact_app']==1){
+                                echo '<div class="ms-5"><div align="center"><a href="https://www.facebook.com/profile.php?id=100002404106020"style="color:blue"><i data-feather="facebook"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==2){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:red"><i data-feather="youtube"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==3){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:cyan"><i data-feather="twitter"></i></a></div></div>';
+                              }elseif($rowww['contact_app']==4){
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:purple"><i data-feather="twitch"></i></a></div></div>';
+                              }else{
+                                echo '<div class="ms-5"><div align="center"><a href=""style="color:black"><i data-feather="tv"></i></a></div></div>';
+                              }?> 
                         </div>
-                      
-                      
-                      <!-- <p class="font-italic mb-0">primsrps</p> -->
                     </div>
                   </div>
                   <div class="d-flex justify-content-between align-items-center mb-4">
@@ -216,23 +266,11 @@
                   </div>
                   <div class="row g-2">
                     <div class="col mb-2">
-                        <a href="test4.html"><img src="photo/1.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
-                    <div class="col mb-2">
-                        <a href="test4.html"><img src="photo/129620692420220515.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
+                      <?php  while( $rowwww= mysqli_fetch_assoc($resultttt)){
+                          echo '<a href="test4.php"><img src="'.$rowwww['file_path'].'" class="col-4 w-50"></a>';}
+                      ?>
                     </div>
                   </div>
-                  <div class="row g-2">
-                    <div class="col">
-                        <a href="test4.html"><img src="https://i.pinimg.com/564x/fa/62/b2/fa62b224162bca157bd10ec714cd0b7f.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
-                    <div class="col">
-                        <a href="test4.html"><img src="https://i.pinimg.com/564x/40/7a/de/407ade5f0291c23639a78bd810cf0d9c.jpg"
-                        alt="image 1" class="w-100 rounded-3"></a>
-                    </div>
                   </div>
                 </div>
               </div>
