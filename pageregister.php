@@ -102,11 +102,11 @@
   
 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" id= "submit" class="btn btn-primary btn-lg" onclick = 'insertMyday()' >Register</button>
+                      <button type="button" id= "submit" class="btn btn-primary btn-lg" " onclick = 'insertMyday()' >Register</button>
                     </div>
 
-                    <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Already have an account? <a href="#!"
-                      class="link-danger">Login</a></p>
+                    <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Already have an account? 
+                      <a class="link-danger" href = "login.html" >Login</a ></p>
   
                   </form>
   
