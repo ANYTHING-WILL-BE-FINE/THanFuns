@@ -23,7 +23,6 @@
         rel="stylesheet">
 
     <!-- MDB -->
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" />
@@ -33,8 +32,10 @@
     <title>let's it completely</title>
 
     <script>
+        var role;
         var param = window.location.search.substr(1);
-        // alert(param);
+        // Calling that async function 
+        getapi();
         // Save this as fetch.js --------------------------------------------------------------------------
         // ref:https://www.nbest.co.uk/Fetch/index.php
         function success() {
@@ -62,13 +63,51 @@
         }
         // ----------------------------------------------------------------------------------------------
         // Defining async function 
+
+        function rerun(response) {
+
+            alert(response)
+
+            fetch('../src/php/detailPayment.php?act=2', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "leftcontentQ",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("leftPayModule").innerHTML = response)
+                .catch(error => failure(error));
+
+            fetch('../src/php/detailPayment.php?act=', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "RightSummary",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("orderSummary").innerHTML = response)
+                .catch(error => failure(error));
+
+        }
         async function getapi() {
             var headerMy;
             var bodyMy;
 
-            function moveT(reg){
-                if(reg == "NO"){
-                    location.replace('../feed.php');
+            function moveT(reg) {
+                if (reg == "NO") {
+                    location.replace('../feed.html');
+                } else {
+                    role = reg;
                 }
             }
 
@@ -78,7 +117,7 @@
                         payment_id: param,
                         user_id: 1234,
                         action: "payment"
-                        
+
                     }),
                     headers: {
                         'Content-Type': 'application/json'
@@ -87,6 +126,21 @@
                 .then(response => moveT(response))
                 .catch(error => failure(error));
 
+
+            await fetch('../src/php/detailPayment.php?act=0', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "structRunbuitd",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("data").innerHTML = response)
+                .catch(error => failure(error));
             await fetch('../src/php/header.php', {
                     method: 'POST',
                     // body: JSON.stringify(data),
@@ -94,21 +148,96 @@
                         'Content-Type': 'application/json'
                     }
                 }).then(res => res.text())
-                .then(response => document.getElementById("headerPay").innerHTML = response)
+                .then(response => document.getElementById("headd").innerHTML = response)
                 .catch(error => failure(error));
-            await fetch('../src/php/detailPayment.php?action=qpagedt', {
+
+            await fetch('../src/php/detailPayment.php?act=1', {
                     method: 'POST',
                     body: JSON.stringify({
-                        payment_id: param
+                        payment_id: param,
+                        action: "stepperqry",
+                        role: role
                     }),
                     // ส่ง ดึงจากเพลย์บาย
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }).then(res => res.text())
-                .then(response => document.getElementById("bodyPay").innerHTML = response)
+                .then(response => document.getElementById("stepPay").innerHTML = response)
+                .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?act=2', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "leftcontentQ",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("leftPayModule").innerHTML = response)
+                .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?act=', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "RightcontentQ",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("PCcontacts").innerHTML = response)
+                .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?act=', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "bannerLiQ",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("checkCOright").innerHTML = response)
+                .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?act=', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "RightSummary",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("orderSummary").innerHTML = response)
+                .catch(error => failure(error));
+            await fetch('../src/php/detailPayment.php?act=', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "LowBtnShort",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("nextbutton").innerHTML = response)
                 .catch(error => failure(error));
 
+            
+            
             await success();
 
             // await fetch('../src/php/payment_mataphp', {
@@ -122,15 +251,161 @@
             //     .catch(error => failure(error));
 
 
+        }
+
+        
+        function choseingstar(acc_back_id){
+            fetch('../src/php/detailPayment.php?act=9', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "bankamcom5ing",
+                        role: role,
+                        sh_acc_banking_id:acc_back_id 
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => releft(response) )
+                .catch(error => failure(error));
 
         }
 
-        // Calling that async function 
-        getapi();
+        function gotonextsection(payment,gowhere){
+            fetch('../src/php/detailPayment.php?act=8', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: gowhere,
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => releft(response) )
+                .catch(error => failure(error));
 
+        }
+
+        function releft(response){
+            console.log(response);
+            fetch('../src/php/detailPayment.php?act=1', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "stepperqry",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("stepPay").innerHTML = response)
+                .catch(error => failure(error));
+            fetch('../src/php/detailPayment.php?act=2', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: "leftcontentQ",
+                        role: role
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => document.getElementById("leftPayModule").innerHTML = response)
+                .catch(error => failure(error));
+
+
+        }
+
+        function sendformMata(payment,gowhere){
+            fetch('../src/php/detailPayment.php?act=9', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: param,
+                        action: gowhere,
+                        role: role,
+                        textanou: document.getElementById("textanou"),
+                        date: document.getElementById("date"),
+                        time: document.getElementById("time"),
+                        ref1: document.getElementById("ref1"),
+                        ref2: document.getElementById("ref2")
+
+
+                    }),
+                    // ส่ง ดึงจากเพลย์บาย
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => releft(response) )
+                .catch(error => failure(error));
+
+
+        }
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
         // Function to hide the Spinner
         function hideSpinner() {
             document.getElementById("spinnerIA").remove();
+        }
+
+        function pickupCodeDiscount(code, payment_id) {
+            alert("usingCode999");
+
+            fetch('../src/php/detailPayment.php?act=7', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: payment_id,
+                        promotion_code: code,
+                        action: "usingCode999",
+                        role: role
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => getCodeCOm(response))
+                .catch(error => failure(error));
+
+
+        }
+
+        function unpickupCodeDiscount(code, payment_id) {
+            alert("usingCode999");
+
+            fetch('../src/php/detailPayment.php?act=8', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        payment_id: payment_id,
+                        promotion_code: code,
+                        action: "notusingCode999",
+                        role: role
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.text())
+                .then(response => rerun(response))
+                .catch(error => failure(error));
+
+
+        }
+
+        function getCodeCOm(response) {
+            // alert(response);
+            //    if(response == "SUS101"){
+            //        alert(response);
+            //    }
+            rerun(response);
         }
     </script>
 </head>
@@ -144,17 +419,11 @@
             </div>
         </div>
     </div>
-    <div id="headerPay">
-
-    </div>
-    <div id="bodyPay" class="container-xl">
+    <div id="data">
 
     </div>
 
-    <div id="stepPay" class="container-xl">
 
-    </div>
-   
 </body>
 
 <!-- MDB -->

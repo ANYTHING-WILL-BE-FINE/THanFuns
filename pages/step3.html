@@ -208,7 +208,7 @@
                                 <div class="my-3">
                                     <label class="" for="fd">แจ้งเพิ่มเติม</label>
                                     <textarea class="form-control" aria-label="With textarea"></textarea>
-    
+
                                 </div>
                                 <!-- <div class="my-3">
                                     <label class="" for="fd">วันที่ชำระเงิน</label>
@@ -232,13 +232,14 @@
                                 </div>
                                 <div class="my-3">
                                     <label class="" for="customFile">ส่งเอกสารยืนยัน (ภาพสลีป)</label>
-                                    <input type="file" class="form-control" id="customFile" accept=".jpg,.png" name="file_id" onchange="preview()" />
+                                    <input type="file" class="form-control" id="customFile" accept=".jpg,.png"
+                                        name="file_id" onchange="preview()" />
                                 </div>
                                 <div class="my-3">
-                                    <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-aut" >
+                                    <img id="frame" class="img-fluid img-thumbnail mx-auto rounded mx-aut">
                                 </div>
 
-                                
+
                             </div>
 
 
@@ -600,9 +601,10 @@
                 .then(response => success(response))
                 .catch(error => failure(error));
         }
+
         function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-    }
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
 
         // ----------------------------------------------------------------------------------------------
     </script>
