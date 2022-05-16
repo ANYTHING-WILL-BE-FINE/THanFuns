@@ -247,7 +247,9 @@
                                 <div class="row mb-3">
                                     <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-end" >สถานะ</h5>
                                     <h5 class="col-lg-8 col-md-6 col-sm-4 col-2 text-start" ></h5>
-                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >......</h5>
+                                    <h5 class="col-lg-2 col-md-3 col-sm-4 col-5 text-start" >
+                                    
+                                    </h5>
                                 </div>
             
                             </div>
