@@ -3,36 +3,48 @@
 //1. เชื่อมต่อ database: 
 include("src/php/connect_db.php");  
 
-print_r($_POST);
+// print_r($_POST);
 
-// exit;
-$product_id = $_POST['product_id'];
-$creator_id = $_POST['creator_id'];
-$product_name = $_POST['product_name'];
-$description = $_POST['description'];
-$tags_label = $_POST['tags_label'];
-$category_id = $_POST['category_id'];
-$default_price = $_POST['default_price'];
-$access_mode = $_POST['access_mode'];
-$product_status = $_POST['product_status'];
-$mature_mode = $_POST['mature_mode'];
-$sale_mode = $_POST['sale_mode'];
-$co_right_mode =$_POST['co_right_mode'];
-$quantity = $_POST['quantity'];
-$action = $_POST['action'];
+// // exit;
+// $product_id = $_POST['product_id'];
+// $creator_id = $_POST['creator_id'];
+// $product_name = $_POST['product_name'];
+// $description = $_POST['description'];
+// // $tags_label = $_POST['tags_label'];
+// $category_id = $_POST['category_id'];
+// $default_price = $_POST['default_price'];
+// $access_mode = $_POST['access_mode'];
+// $product_status = $_POST['product_status'];
+// $mature_mode = $_POST['mature_mode'];
+// $sale_mode = $_POST['sale_mode'];
+// $co_right_mode =$_POST['co_right_mode'];
+// $quantity = $_POST['quantity'];
+
+// $action = $_POST['action'];
 
 
-if($action == 'submit'){
+// if($action == 'submit'){
 
     
-    $sql = "INSERT INTO mkt_product (product_id,creator_id,product_name,description,tags_label,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
-            VALUES ($product_id,$creator_id,'$product_name','$description','$tags_label',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
-    $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
-}
-else{
+//     $sql = "INSERT INTO mkt_product(product_id,creator_id,product_name,description,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+//             VALUES ($product_id,$creator_id,'$product_name','$description',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+//     $query = mysqli_query($conn,$sql) or die(mysqli_error($conn) . "<br>$sql");
+// }
+// else{
 
     $file_id = $_FILES['file_id'];
-    $creator_id = $_FILES['creater_id'];
+    // $creator_id = $_FILES['creator_id'];
+    // $product_id = $_FILES['product_id'];
+    // $product_name = $_FILES['product_name'];
+    // $description = $_FILES['description'];
+    // $category_id = $_FILES['category_id'];
+    // $default_price = $_FILES['default_price'];
+    // $access_mode = $_FILES['access_mode'];
+    // $product_status = $_FILES['product_status'];
+    // $mature_mode = $_FILES['mature_mode'];
+    // $sale_mode = $_FILES['sale_mode'];
+    // $co_right_mode =$_FILES['co_right_mode'];
+    // $quantity = $_FILES['quantity'];
 
     // $file_id = (isset($_POST['file_id']) ? $_POST['file_id'] : '');
     $upload = $_FILES['file_id'];
@@ -45,7 +57,7 @@ else{
     
     if($upload !='') {   //not select file
             //โฟลเดอร์ที่จะ upload file เข้าไป 
-            $path="photo/";  
+            $path="photo\\";  
 
             //เอาชื่อไฟล์เก่าออกให้เหลือแต่นามสกุล
             $type = strrchr($_FILES['file_id']['name'],".");
@@ -56,12 +68,21 @@ else{
             $path_link="file_id/".$newname;
 
             //คัดลอกไฟล์ไปเก็บที่เว็บเซริ์ฟเวอร์
-            move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);
+            //move_uploaded_file($_FILES['file_id']['tmp_name'],$path_copy);
+            $data = array($newname);
+            echo json_encode($data);
     }
-    $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view) 
-            VALUES('$newname',$creator_id,'$path_copy','เริส','สวย','$type',1)";
-    $result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
-}
+
+
+    // echo "$newname";
+    // $sql = "INSERT INTO pth_file (file_id,user_id,file_path,file_topic,file_detail,file_type,file_view) 
+    //         VALUES('$newname',$creator_id,'$path_copy','เริส','สวย','$type',1)";
+    // $query = mysqli_query($conn,$sql) or die(mysqli_error($conn) . "<br>$sql");
+
+    // $sql = "INSERT INTO mkt_product(product_id,creator_id,product_name,description,category_id,default_price,access_mode,product_status,mature_mode,sale_mode,co_right_mode,quantity)
+    // VALUES ($product_id,$creator_id,'$product_name','$description',$category_id,$default_price,$access_mode,$product_status,$mature_mode,$sale_mode,$co_right_mode,$quantity)";
+    // $query = mysqli_query($conn,$sql) or die(mysqli_error($conn) . "<br>$sql");
+
 
             
 
@@ -85,5 +106,5 @@ else{
         echo "</script>";
     }
 
-
+// }
 ?>
