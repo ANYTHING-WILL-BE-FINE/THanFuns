@@ -100,10 +100,12 @@
                       </div>
                     </div>
   
-
+                    
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" id= "submit" class="btn btn-primary btn-lg" " onclick = 'insertMyday()' >Register</button>
+                      <a href="feed.html"><button  type="button" id= "submit" class="btn btn-primary btn-lg" " onclick = 'insertMyday()' >Register</button></a>
+                      
                     </div>
+                    
 
                     <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Already have an account? 
                       <a class="link-danger" href = "login.php" >Login</a ></p>
