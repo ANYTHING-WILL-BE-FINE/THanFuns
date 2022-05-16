@@ -267,7 +267,7 @@
                   <div class="row g-2">
                     <div class="col mb-2">
                       <?php  while( $rowwww= mysqli_fetch_assoc($resultttt)){
-                          echo '<a href="test4.html"><img src="'.$rowwww['file_path'].'" class="col-4 w-50"></a>';}
+                          echo '<a href="test4.php"><img src="'.$rowwww['file_path'].'" class="col-4 w-50"></a>';}
                       ?>
                     </div>
                   </div>
