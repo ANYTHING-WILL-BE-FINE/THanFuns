@@ -32,7 +32,7 @@ if($action == "insertCommission") {
  
 
   $sql = "INSERT INTO mkt_commission(commission_status,user_id,creator_id,request_price,job_color,job_scale,job_description,job_mature,job_private,commission_id,first_pay,job_co_right_mode,datetime_limit)
-   VALUES ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,$job_private,'$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
+   VALUE ($commission_status,$user_id,$creator_id,$request_price,$job_color,$job_scale,'$job_description',$job_mature,$job_private,'$commission_id',$first_pay,$job_co_right_mode,'$datetime_limit')";
   $sqll="INSERT INTO acc_paybuy(payment_id,commission_id,payer_id,payment_mode,price_total)
   VALUE ('$payment_id','$commission_id',$user_id,1,$first_pay)";
   $mysql = mysqli_query($conn, $sql);
