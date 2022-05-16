@@ -15,8 +15,8 @@ if($action == "register"){
         $user_id = sprintf('%08d', $sum);
         echo  $user_id;
 
-        $sql = "INSERT INTO acc_user (username,email,password)
-                value('$username','$email','$password')";
+        $sql = "INSERT INTO acc_user (user_id,username,email,password)
+                VALUE($user_id,'$username','$email','$password')";
 
         $mysql = mysqli_query($conn, $sql);
         if ($mysql === TRUE) {

@@ -36,7 +36,7 @@
       type: "POST", 
       url: 'testinformation.php',
       data:{
-        file: $("#file").val(),
+        user_pic: $("#user_pic").val(),
         first_name: $("#first_name").val(),
         last_name: $("#last_name").val(),
         date_birth:$("#date_birth").val(),
@@ -256,11 +256,10 @@
           <br>
 
           <label for="gender"> Gender</label>
-        <select name="gender" required>
-	    <option value="none" selected>Gender</option>
-	    <option value="male">Male</option>
-	    <option value="female">Female</option>
-	    <option value="other">other</option>
+        <select name="gender" id="gender" required>
+	    <option value="0" selected>Gender</option>
+	    <option value="1">Male</option>
+	    <option value="2">Female</option>
         </select>
 
         <div class="row mb-1">
@@ -276,11 +275,11 @@
 
         <br>
         <label for="role"> Role</label>
-        <select name="role" required>
-	    <option value="none" selected>Role</option>
-	    <option value="member">Member</option>
-	    <option value="creator">Creator</option>
-	    <option value="admin">Admin</option>
+        <select name="role" id="role" required>
+	    <option value="0" selected>Role</option>
+	    <option value="1">Member</option>
+	    <option value="2">Creator</option>
+	    <option value="3">Admin</option>
         </select>
         
 

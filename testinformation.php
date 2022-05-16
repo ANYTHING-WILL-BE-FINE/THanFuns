@@ -4,9 +4,8 @@
 $action = $_POST['action'];
 
 if($action == "information") {
-$con = mysqli_connect('localhost', 'a6_admin', 'cpe231_kass','acc_user');
 
-$file = $_POST['file'];
+$user_pic = $_POST['user_pic'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $date_birth = $_POST['date_birth'];
@@ -19,45 +18,54 @@ $idnum = $_POST['idnum'];
 $idcard = $_POST['idcard'];
 $idpic = $_POST['idpic'];
 
-$sql = "INSERT INTO 'acc_user' (pic_user,
+$result = mysqli_query($conn, 'SELECT COUNT(user_id) AS value_sum FROM acc_user'); 
+        $row = mysqli_fetch_assoc($result); 
+        $sum = $row['value_sum']+1;
+        $user_id = sprintf('%08d', $sum);
+        echo  $user_id;
+
+$sql = "INSERT INTO 'acc_user' (user_id,pic_user,
                       nickname,first_name,last_name,gender,date_birth,
                       phone,address,user_role,
                       id_card,papercard_pic,user_w_card_pic,
                       )
-value('$file','$nickname','$first_name','$last_name','$gender','$date_birth','$phone','$address','$role','$idnum','$idcard','$idpic')";
+value($user_id,'$user_pic','$nickname','$first_name','$last_name','$gender','$date_birth','$phone','$address','$role','$idnum','$idcard','$idpic')";
 
-$rs = mysqli_query($con, $sql);
+$rs = mysqli_query($conn, $sql);
 
-$con2 = mysqli_connect('localhost', 'a6_admin', 'cpe231_kass','acc_banking');
+if ($mysql === TRUE) {
+  echo "New record has been added successfully !";
+   // echo  $commission_status;
+} else {
+    echo "Error: " . $sql . ":-" . mysqli_error($conn);
+}
+
 
 $bank_account_no = $_POST['bank_account_no'];
 $bank_account_name = $_POST['bank_account_name'];
 $bank_info = $_POST['bank_info'];
 $bankpic = $_POST['bankpic'];
 
+$resultt = mysqli_query($conn, 'SELECT COUNT(acc_bank_id) AS value_sum FROM acc_banking'); 
+        $row = mysqli_fetch_assoc($result); 
+        $sum = $row['value_sum']+1;
+        $acc_bank_id = sprintf('%08d', $sum);
+        echo  $acc_bank_id;
 
-$sql2 = "INSERT INTO 'acc_banking' (bank_account_no,
+$sql2 = "INSERT INTO 'acc_banking' (acc_bank_id,bank_account_no,
                       bank_account_name,bank_info,bank_verify_pic
                       )
-value('$bank_account_no','$bank_account_name','$bank_info','$bankpic')";
+value($acc_bank_id,'$bank_account_no','$bank_account_name','$bank_info','$bankpic')";
 
-$rs2 = mysqli_query($con2, $sql2);
+$rs2 = mysqli_query($conn, $sql2);
 if ($mysql === TRUE) {
-    echo "New record has been added successfully !";
-    // echo  $commission_status;
- } else {
+  echo "New record has been added successfully !";
+   // echo  $commission_status;
+} else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
- }
 }
-else {
+}else{}
 
-    //  while ($row = mysqli_fetch_assoc($mysql)) {
-    //      echo "<h5>Table: {$row['tags_label']} </h5>";
-    // }
-  }
-
-    mysqli_close($conn);
-    
-?>
+mysqli_close($conn);
 
 ?>
