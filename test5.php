@@ -2,7 +2,6 @@
 <?php $sql = "SELECT username FROM acc_user
               WHERE user_id = 6338";
     $result = $conn->query($sql); ?>
-
 <?php $a = "SELECT contact_type FROM acc_contact
               WHERE user_id = 6338;";
     $resultt = $conn->query($a); ?>
@@ -12,14 +11,20 @@
     <?php $c = "SELECT contact_type FROM acc_contact
               WHERE user_id = 6338;";
     $resultt = $conn->query($c); ?>
-    <?php $d = "SELECT file_path FROM pth_file
-              WHERE user_id = 6338;";
+    <?php $d = "SELECT pth_file.file_path FROM mkt_product_file
+                INNER JOIN pth_file ON mkt_product_file.file_id=pth_file.file_id
+                WHERE pth_file.file_id LIKE 'V%';";
     $resultttt = $conn->query($d); 
     ?>
     <?php $e = "SELECT file_path FROM pth_file
     WHERE file_id LIKE 'V%4';";
     $resulttttt = $conn->query($e); 
-    
+    ?>
+    <?php $f = "SELECT COUNT(user_id) FROM acc_like;";
+    $resultttttt = $conn->query($f); 
+    ?>
+    <?php $g = "SELECT COUNT(user_id) FROM acc_following;";
+    $resulttttttt = $conn->query($g); 
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -205,12 +210,21 @@
                       <p class="small text-muted mb-0">Likes</p>
                     </div> -->
                     <div class="px-3">
-                      <p class="mb-1 h5">1026</p>
+                      <!-- <p class="mb-1 h5">1026</p> -->
                       <!-- <i data-feather="heart"></i> -->
+                      <?php
+                       $count= mysqli_fetch_Column($resultttttt);
+                      echo '<p class="mb-1 h5">'.$count.'</p>';
+                      ?>
+                    
                       <p class="small text-muted mb-0">Likes</p>
                     </div>
                     <div>
-                      <p class="mb-1 h5">478</p>
+                    <?php
+                       $countt= mysqli_fetch_Column($resulttttttt);
+                      echo '<p class="mb-1 h5">'.$countt.'</p>';
+                      ?>
+                      <!-- <p class="mb-1 h5">478</p> -->
                       <p class="small text-muted mb-0">Following</p>
                     </div>
                   </div>
