@@ -3,6 +3,24 @@
               WHERE user_id = 6338";
     $result = $conn->query($sql); ?>
 
+<?php $a = "SELECT description FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resultt = $conn->query($a); ?>
+    
+    <?php $b = "SELECT product_name FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resulttt = $conn->query($b); ?> 
+
+    <?php $d = "SELECT file_path FROM pth_file
+              WHERE user_id = 6338;";
+    $resultttt = $conn->query($d); 
+    ?>
+    <?php $e = "SELECT file_path FROM pth_file
+    WHERE file_id LIKE 'V%4';";
+    $resulttttt = $conn->query($e); 
+    
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -178,7 +196,8 @@
                                     <div class="d-flex flex-column ml-2"> 
                                         <p>
                                         <?php $row = $result->fetch_assoc();
-                        echo $row['username']; ?> add <span class="font-weight-bold">Me and friends</span>
+                        echo $row['username']; ?> add <?php $row = $resulttt->fetch_assoc();
+                        echo $row['product_name']; ?>
                                        </p>
                                             <small class="text-primary">13 May 2022</small> 
                                         </div> 
@@ -186,9 +205,11 @@
                                         
                                 </div>
                                 <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> <i class="fa fa-ellipsis-h"></i> </div>
-                            </div> <img src="http://f.ptcdn.info/854/045/000/oda8gwd3oARidfZNq4h-o.jpg" class="img-fluid">
+                                <?php $rowwwww = $resulttttt->fetch_assoc();
+                                echo '<img src="'.$rowwwww['file_path'].'"class="img-fluid">';?>
                             <div class="p-2">
-                                <p class="text-justify">bababa babanana</p>
+                                <p> <?php $row = $resultt->fetch_assoc();
+                        echo $row['description']; ?></p>
                                 <hr>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i class="fa fa-smile-o ml-2"></i> </div>
