@@ -27,7 +27,7 @@ $result = mysqli_query($conn, 'SELECT COUNT(user_id) AS value_sum FROM acc_user'
 $sql = "INSERT INTO acc_user (user_id,pic_user,
                       nickname,first_name,last_name,gender,date_birth,
                       phone,address,user_role,
-                      id_card,papercard_pic,user_w_card_pic,
+                      id_card,papercard_pic,user_w_card_pic
                       )
 value ($user_id,'$user_pic','$nickname','$first_name','$last_name','$gender','$date_birth','$phone','$address','$role','$idnum','$idcard','$idpic')";
 
