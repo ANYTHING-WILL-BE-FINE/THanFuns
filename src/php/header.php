@@ -13,17 +13,20 @@ echo "
             <div class='collapse navbar-collapse' id='navbarText'>
                 <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
                     <li class='nav-item'>
-                        <a class='nav-link active' aria-current='page' href='#'>Home</a>
+                        <a class='nav-link active' aria-current='page' href='#'>REGIS</a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Features</a>
+                        <a class='nav-link' href='#'>FEED</a>
                     </li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='#'>Pricing</a>
+                        <a class='nav-link' href='#'>COMMIS</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='step4.html'>HERE</a>
                     </li>
                 </ul>
                 <span class='navbar-text'>
-                    Navbar text with an inline element
+                    ระบบนี้เหมาะสมกับการใช้บนเว็บไซต์
                 </span>
             </div>
         </div>
@@ -39,7 +42,7 @@ echo "
                     <span>/</span>
                     <a href='' class='text-reset'>Analytics</a>
                     <span>/</span>
-                    <a href='' class='text-reset'><u>Dashboard</u></a>
+                    <a href='' class='text-reset'><u>ระบบสั่งซื้อ</u></a>
                 </h6>
             </nav>
         </div>
