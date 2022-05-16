@@ -41,6 +41,11 @@
     $resultc = $conn->query($cct); 
     ?>
 
+<?php $ct = "SELECT timestamp_update FROM mkt_product
+              WHERE creator_id = 6338;";
+    $resultti = $conn->query($ct); 
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -223,12 +228,12 @@
                         echo $row['username']; ?> add <?php $row = $resulttt->fetch_assoc();
                         echo $row['product_name']; ?>
                                        </p>
-                                            <small class="text-primary">13 May 2022</small> 
+                                            <small class="text-primary"><?php $rowt = $resultti->fetch_assoc();
+                        echo $rowt['timestamp_update']; ?></small> 
                                         </div> 
                                     
                                         
                                 </div>
-                                <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">20 mins</small> </div>
                                 <?php $rowwww = $resultttt->fetch_assoc();
                                 echo '<img src="'.$rowwww['file_path'].'"class="img-fluid">';?>
                             <div class="p-2">
@@ -249,7 +254,7 @@
                                         <div class="d-flex flex-column ml-2"> <?php $rown = $resultn->fetch_assoc();
                         echo $rown['username']; ?>  <small class="comment-text"><?php $rowc = $resultc->fetch_assoc();
                         echo $rowc['comment']; ?> </small>
-                                            <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div>
+                                            <!-- <div class="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small> <small>Translate</small> <small>18 mins</small> </div> -->
                                         </div>
                                     </div>
                                     <div class="comment-input"> <input type="text" class="form-control">
