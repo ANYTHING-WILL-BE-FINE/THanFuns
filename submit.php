@@ -74,7 +74,7 @@ include("src/php/connect_db.php");
             url: 'add_file_db.php',
             data:{
                 creator_id: 1065,
-                product_id:2222222,
+                product_id:200004,
                 // file_id: $("#file_id").val(),
                 product_name: $("#product_name").val(),
                 description: $("#description").val(),
